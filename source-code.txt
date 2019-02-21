@@ -1,0 +1,65 @@
+﻿	SqlConnection cn;
+        SqlDataAdapter da;
+        string con = @"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
+        string sql;
+        DataSet ds;
+        DataTable dt;
+
+        ////Khai báo đối tượng kết nối
+        //SqlConnection conn = new SqlConnection(@"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True;");
+        ////Khai báo đối tượng dùng để lọc dữ liệu
+        //SqlDataAdapter da;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            SqlConnection cn = new SqlConnection(con);
+            sql = "SELECT * FROM HOADON";
+            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "MaHD");
+            dataGridView1.DataSource = ds;
+            dataGridView1.DataMember = "MaHD";
+            cn.Close();
+            cn.Dispose();
+
+            //Hiển thị dữ liệu lên ComboBox
+
+            ////Khởi tạo đối tượng đọc dữ liệu
+            //da = new SqlDataAdapter("SELECT * FROM NHANVIEN", conn);
+            ////Khai báo đối tượng DataTable để chứa dữ liệu
+            //DataTable dt = new DataTable();
+            ////Điền dữ liệu vào đối tượng DataTable
+            //da.Fill(dt);
+            ////Giải phóng  đối tượng SqlDataAdapter
+            //da.Dispose();
+
+            ////Gán dữ liệu nguồn
+            //comboBox1.DataSource = dt;
+            ////Gán trường sẽ hiển thị trên comboBox
+            //comboBox1.DisplayMember = "TenNV";
+            ////Gán trường mã ẩn sau mỗi item trên ComboBox
+            ////Nhằm mục đích khi chọn 1 Item sẽ sử dụng mã ẩn để lọc dữ liệu
+            //comboBox1.ValueMember = "MaNV";
+
+	}
+	private void comboBox1_Selection(object sender, EventArgs e)
+        {
+	    //Hiển thị danh sách thành viên tương ứng
+
+		// Khởi tạo đối tượng đọc dữ liệu
+		da= new SqlDataAdapter("SELECT * FROM WHERE Ma_NCC = "+comboBox1.SelectedValue, conn);
+		//Khai báo đối tượng Datable để chứa dữ liệu
+		DataTable dt = new Datable();
+		//Điền dữ liệu vào đối tượng DataTable
+		da.Fill(dt);
+		//Giải phóng đối tượng SqlDataAdapter
+		da.Dispose();
+
+		//Gán dữ liệu nguồn
+		dataGridView1.DataSource = dt;
+        }
