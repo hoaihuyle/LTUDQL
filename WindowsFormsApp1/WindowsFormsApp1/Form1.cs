@@ -55,7 +55,12 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            da = new SqlDataAdapter("Select m.Ten_MH,c.Ma_GH,c.Ma_MH,c.Sluong_giao,c.Ma_DH from MAT_HANG as m JOIN CHI_TIET_GH as c ON m.Ma_MH=c.Ma_MH WHERE m.Ma_NCC = N'" + comboBox1.SelectedValue + "'", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            da.Dispose();
 
+            dataGridView1.DataSource = dt;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
