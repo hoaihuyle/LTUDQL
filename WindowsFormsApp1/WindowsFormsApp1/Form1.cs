@@ -13,12 +13,12 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        SqlConnection cn;
+
+        //Khai báo đối tượng dùng để đọc dữ liệu bảng 
         SqlDataAdapter da;
-        string con = @"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True";
-        string sql;
-        DataSet ds;
-        DataTable dt;
+        //Khai báo đối tượng kết nối
+        SqlConnection con = new SqlConnection(@"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True");
+
 
         public Form1()
         {
@@ -27,37 +27,48 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'qLBHDataSet.NHA_CUNG_CAP' table. You can move, or remove it, as needed.
-            //this.nHA_CUNG_CAPTableAdapter.Fill(this.qLBHDataSet.NHA_CUNG_CAP);
-            SqlConnection cn = new SqlConnection(con);
-            sql = "SELECT * FROM MAT_HANG";
-            SqlDataAdapter da = new SqlDataAdapter(sql, cn);
-            DataSet ds = new DataSet();
-            da.Fill(ds, "MAT_HANG");
-            dataGridView1.DataSource = ds;
-            dataGridView1.DataMember = "MAT_HANG";
-            cn.Close();
-            cn.Dispose();
-            // TODO: This line of code loads data into the 'qLBHDataSet.MAT_HANG' table. You can move, or remove it, as needed.
-            //this.mAT_HANGTableAdapter.Fill(this.qLBHDataSet.MAT_HANG);
+            //Hiển thị dữ liệu ComboBox
+
+            //Khởi tạo đối tượng dữ liệu
+            da = new SqlDataAdapter("Select * from NHA_CUNG_CAP", con);
+            //Khai báo đối tượng datatable để chứa dữ liệu
+            DataTable dt = new DataTable();
+            //Điền dữ liệu vào đối tượng Datatable
+            da.Fill(dt);
+            //Giải phóng đối tượng SqlDataAdapter
+            da.Dispose();
+
+            //Gán dữ liệu nguồn
+            comboBox1.DataSource = dt;
+            //Gán trường sẽ hiển thị trên comboBox
+            comboBox1.DisplayMember = "Ten_NCC";
+            //Gã trường mã ẩn sau mỗi trường trên comboBox
+            //Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
+            comboBox1.ValueMember = "Ma_NCC";
 
         }
 
-        //private void comboBox1_Selection(object sender, EventArgs e)
-        //{
-        //    //Hiển thị danh sách thành viên tương ứng
-        //    SqlConnection cn = new SqlConnection(con);
-        //    // Khởi tạo đối tượng đọc dữ liệu
-        //    da = new SqlDataAdapter("SELECT * FROM WHERE Ma_NCC = " + comboBox1.SelectedValue, cn);
-        //    //Khai báo đối tượng Datable để chứa dữ liệu
-        //    DataTable dt = new DataTable();
-        //    //Điền dữ liệu vào đối tượng DataTable
-        //    da.Fill(dt);
-        //    //Giải phóng đối tượng SqlDataAdapterdfsdfsd
-        //    da.Dispose();
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
 
-        //    //Gán dữ liệu nguồn
-        //    dataGridView1.DataSource = dt;
-        //}
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //SqlConnection cn = new SqlConnection(con);
+            // Khởi tạo đối tượng đọc dữ liệu
+            da = new SqlDataAdapter("SELECT * FROM MAT_HANG WHERE Ma_NCC = N'" + comboBox1.SelectedValue+"'", con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            da.Dispose();
+
+            dataGridView1.DataSource = dt;
+        }
+
     }
 }
