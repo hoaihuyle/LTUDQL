@@ -59,6 +59,7 @@ namespace WindowsFormsApp1
             da.Dispose();
 
             dataGridView1.DataSource = dt;
+            
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,5 +74,38 @@ namespace WindowsFormsApp1
             //dataGridView1.DataSource = dt;
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("id");
+            //dt.Columns.Add("name");
+
+            //dt.Rows.Add(textBox1.Text, textBox2.Text);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    dataGridView1.DataSource = null;  //null the ItemSource just before you set the new value: 
+            //    dataGridView1.DataSource = dt.DefaultView;
+            //}
+            //da.Dispose();
+            //sql = "SELECT * FROM dbo.MAT_HANG LEFT JOIN dbo.CHI_TIET_DH ON dbo.MAT_HANG.Ma_MH = dbo.CHI_TIET_DH.Ma_MH  WHERE dbo.MAT_HANG.Ma_NCC = N'" + comboBox1.SelectedValue + "'";
+            //da = new SqlDataAdapter(sql, con);
+            //DataTable dt = new DataTable();
+            //da.Fill(dt);
+            //da.Dispose();
+            int i = dataGridView1.CurrentRow.Index;
+            textBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+         
+            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+        }
     }
 }
