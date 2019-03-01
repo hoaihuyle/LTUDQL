@@ -17,10 +17,39 @@ namespace WindowsFormsApp1
         //Khai báo đối tượng dùng để đọc dữ liệu bảng 
         SqlDataAdapter da;
         //Khai báo đối tượng kết nối
-        SqlConnection con = new SqlConnection(@"Data Source=A5233\MISASME2017;Initial Catalog=QLBH;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True");
+        //Biến ID dùng để  cập nhật và xóa dữ liệu
+        SqlCommand cmd;
+        //int ID = 0;
 
         string sql;
-
+        //Display Data in DataGridView 
+        private void DisplayData()
+        {
+            con.Open();
+            DataTable dt = new DataTable();
+            sql = "SELECT dbo.MAT_HANG.Ma_MH, dbo.MAT_HANG.Ten_MH, dbo.MAT_HANG.Loai_MH, dbo.MAT_HANG.Tluong_MH, dbo.MAT_HANG.Mau_MH, dbo.MAT_HANG.Ton_Kho_MH, dbo.MAT_HANG.Gia_Mua_MH, " +
+              "dbo.MAT_HANG.Gia_Ban_MH, dbo.MAT_HANG.Ma_NCC, dbo.CHI_TIET_DH.Ma_DH, dbo.CHI_TIET_DH.Sluong_dat, dbo.CHI_TIET_DH.Gia, " +
+              "dbo.CHI_TIET_DH.Ngay_giao_DK " +
+              "FROM dbo.MAT_HANG LEFT JOIN dbo.CHI_TIET_DH ON dbo.MAT_HANG.Ma_MH = dbo.CHI_TIET_DH.Ma_MH WHERE dbo.MAT_HANG.Ma_NCC = N'" + Ma_NCC.Text + "'";
+            da = new SqlDataAdapter(sql, con);
+            da.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }
+        //Clear Data  
+        private void ClearData()
+        {
+            Ma_MH.Clear();
+            Ten_MH.Clear();
+            Loai_MH.Clear();
+            Ton_Kho_MH.Clear();
+            Mau_MH.Clear();
+            Tluong_MH.Clear();
+            Gia_Mua_MH.Clear();
+            Gia_Ban_MH.Clear();
+            Ma_NCC.Clear();
+        }
         public Form1()
         {
             InitializeComponent();
@@ -52,7 +81,10 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sql = "SELECT * FROM dbo.MAT_HANG LEFT JOIN dbo.CHI_TIET_DH ON dbo.MAT_HANG.Ma_MH = dbo.CHI_TIET_DH.Ma_MH  WHERE dbo.MAT_HANG.Ma_NCC = N'" + comboBox1.SelectedValue + "'";
+            sql = "SELECT dbo.MAT_HANG.Ma_MH, dbo.MAT_HANG.Ten_MH, dbo.MAT_HANG.Loai_MH, dbo.MAT_HANG.Tluong_MH, dbo.MAT_HANG.Mau_MH, dbo.MAT_HANG.Ton_Kho_MH, dbo.MAT_HANG.Gia_Mua_MH, "+
+                  "dbo.MAT_HANG.Gia_Ban_MH, dbo.MAT_HANG.Ma_NCC, dbo.CHI_TIET_DH.Ma_DH, dbo.CHI_TIET_DH.Sluong_dat, dbo.CHI_TIET_DH.Gia, "+
+                  "dbo.CHI_TIET_DH.Ngay_giao_DK "+
+                  "FROM dbo.MAT_HANG LEFT JOIN dbo.CHI_TIET_DH ON dbo.MAT_HANG.Ma_MH = dbo.CHI_TIET_DH.Ma_MH WHERE dbo.MAT_HANG.Ma_NCC = N'" + comboBox1.SelectedValue + "'";
             da = new SqlDataAdapter(sql, con);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -76,36 +108,127 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add("id");
-            //dt.Columns.Add("name");
 
-            //dt.Rows.Add(textBox1.Text, textBox2.Text);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    dataGridView1.DataSource = null;  //null the ItemSource just before you set the new value: 
-            //    dataGridView1.DataSource = dt.DefaultView;
-            //}
-            //da.Dispose();
-            //sql = "SELECT * FROM dbo.MAT_HANG LEFT JOIN dbo.CHI_TIET_DH ON dbo.MAT_HANG.Ma_MH = dbo.CHI_TIET_DH.Ma_MH  WHERE dbo.MAT_HANG.Ma_NCC = N'" + comboBox1.SelectedValue + "'";
-            //da = new SqlDataAdapter(sql, con);
-            //DataTable dt = new DataTable();
-            //da.Fill(dt);
-            //da.Dispose();
             int i = dataGridView1.CurrentRow.Index;
-            textBox1.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            textBox2.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-         
+            Ma_MH.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            Ten_MH.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            Loai_MH.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            Ton_Kho_MH.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            Mau_MH.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            Tluong_MH.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+            Gia_Mua_MH.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            Gia_Ban_MH.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();      
+            Ma_NCC.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
             //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             //textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
 
 
         }
 
+        //Cập nhập- refesh
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox2.Clear();
+            
+        }
+        //Thêm mới
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Ten_MH.Text != "" && Ma_MH.Text != "")
+            {
+                sql = "INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) "+
+                      " VALUES (@Ma_MH, @Ten_MH, @Loai_MH, @Tluong_MH, @Mau_MH, @Ton_Kho_MH, @Gia_Mua_MH, @Gia_Ban_MH, @Ma_NCC ) ";
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
+                cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
+                cmd.Parameters.AddWithValue("@Loai_MH", Loai_MH.Text);
+                cmd.Parameters.AddWithValue("@Tluong_MH", Tluong_MH.Text);
+                cmd.Parameters.AddWithValue("@Mau_MH", Mau_MH.Text);
+                cmd.Parameters.AddWithValue("@Ton_Kho_MH", Ton_Kho_MH.Text);
+                cmd.Parameters.AddWithValue("@Gia_Mua_MH", Gia_Mua_MH.Text);
+                cmd.Parameters.AddWithValue("@Gia_Ban_MH", Gia_Ban_MH.Text);
+                cmd.Parameters.AddWithValue("@Ma_NCC", Ma_NCC.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Inserted Successfully");
+                DisplayData();
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please Provide Details!");
+            }
+        }
+        //Sửa 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (Ten_MH.Text != "" && Ma_MH.Text != "")
+            {
+                sql = "UPDATE[dbo].[MAT_HANG] SET" +
+                       "[Ten_MH] = @Ten_MH, "+
+                       "[Loai_MH] = @Loai_MH, " +
+                       "[Tluong_MH] = @Tluong_MH, " +
+                       "[Mau_MH] = @Mau_MH, " +
+                       "[Ton_Kho_MH] = @Ton_Kho_MH, " +
+                       "[Gia_Mua_MH] = @Gia_Mua_MH, " +
+                       "[Gia_Ban_MH] = @Gia_Ban_MH, " +
+                       "[Ma_NCC] = @Ma_NCC " +
+                       "WHERE [Ma_MH]=@Ma_MH";
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
+                cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
+                cmd.Parameters.AddWithValue("@Loai_MH", Loai_MH.Text);
+                cmd.Parameters.AddWithValue("@Tluong_MH", Tluong_MH.Text);
+                cmd.Parameters.AddWithValue("@Mau_MH", Mau_MH.Text);
+                cmd.Parameters.AddWithValue("@Ton_Kho_MH", Ton_Kho_MH.Text);
+                cmd.Parameters.AddWithValue("@Gia_Mua_MH", Gia_Mua_MH.Text);
+                cmd.Parameters.AddWithValue("@Gia_Ban_MH", Gia_Ban_MH.Text);
+                cmd.Parameters.AddWithValue("@Ma_NCC", Ma_NCC.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Updated Successfully");
+                DisplayData();
+                ClearData();
+
+            }
+            else
+            {
+                MessageBox.Show("Please Provide Details!");
+            }
+        }
+        //Xóa
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Ten_MH.Text != "" && Ma_MH.Text != "")
+            {
+                sql= "DELETE FROM [dbo].[MAT_HANG] WHERE[Ma_MH] = @Ma_MH";
+                cmd = new SqlCommand(sql, con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Record Deleted Successfully!");
+                DisplayData();
+                ClearData();
+            }
+            else
+            {
+                MessageBox.Show("Please Select Record to Delete");
+            }
+        }
+       
+        //Clear
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ClearData();
+           
+        }
+
+        private void Ma_MH_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
+
 }
