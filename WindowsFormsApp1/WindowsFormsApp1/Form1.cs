@@ -17,7 +17,7 @@ namespace WindowsFormsApp1
         //Khai báo đối tượng dùng để đọc dữ liệu bảng 
         SqlDataAdapter da;
         //Khai báo đối tượng kết nối
-        SqlConnection con = new SqlConnection(@"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=A5232\MISASME2017;Initial Catalog=QLBH;Integrated Security=True");
         //Biến ID dùng để  cập nhật và xóa dữ liệu
         SqlCommand cmd;
         //int ID = 0;
@@ -175,7 +175,7 @@ namespace WindowsFormsApp1
                        "[Ma_NCC] = @Ma_NCC " +
                        "WHERE [Ma_MH]=@Ma_MH";
                 cmd = new SqlCommand(sql, con);
-                cmd.CommandType = CommandType.Text;
+                //cmd.CommandType = CommandType.Text;
                 con.Open();
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
@@ -205,7 +205,7 @@ namespace WindowsFormsApp1
             {
                 sql= "DELETE FROM [dbo].[MAT_HANG] WHERE[Ma_MH] = @Ma_MH";
                 cmd = new SqlCommand(sql, con);
-                cmd.CommandType = CommandType.Text;
+                //cmd.CommandType = CommandType.Text;
                 con.Open();
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.ExecuteNonQuery();
@@ -246,6 +246,11 @@ namespace WindowsFormsApp1
             Ma_NCC.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
             //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
             //textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 
