@@ -109,18 +109,18 @@ namespace WindowsFormsApp1
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            int i = dataGridView1.CurrentRow.Index;
-            Ma_MH.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
-            Ten_MH.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
-            Loai_MH.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
-            Ton_Kho_MH.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
-            Mau_MH.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
-            Tluong_MH.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
-            Gia_Mua_MH.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
-            Gia_Ban_MH.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();      
-            Ma_NCC.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
-            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            //textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            //int i = dataGridView1.CurrentRow.Index;
+            //Ma_MH.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            //Ten_MH.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            //Loai_MH.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            //Ton_Kho_MH.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            //Mau_MH.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            //Tluong_MH.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+            //Gia_Mua_MH.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            //Gia_Ban_MH.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();      
+            //Ma_NCC.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
+            ////textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            ////textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
 
 
         }
@@ -175,6 +175,7 @@ namespace WindowsFormsApp1
                        "[Ma_NCC] = @Ma_NCC " +
                        "WHERE [Ma_MH]=@Ma_MH";
                 cmd = new SqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
                 con.Open();
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
@@ -204,6 +205,7 @@ namespace WindowsFormsApp1
             {
                 sql= "DELETE FROM [dbo].[MAT_HANG] WHERE[Ma_MH] = @Ma_MH";
                 cmd = new SqlCommand(sql, con);
+                cmd.CommandType = CommandType.Text;
                 con.Open();
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.ExecuteNonQuery();
@@ -228,6 +230,22 @@ namespace WindowsFormsApp1
         private void Ma_MH_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int i = dataGridView1.CurrentRow.Index;
+            Ma_MH.Text = dataGridView1.Rows[i].Cells[0].Value.ToString();
+            Ten_MH.Text = dataGridView1.Rows[i].Cells[1].Value.ToString();
+            Loai_MH.Text = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            Ton_Kho_MH.Text = dataGridView1.Rows[i].Cells[3].Value.ToString();
+            Mau_MH.Text = dataGridView1.Rows[i].Cells[4].Value.ToString();
+            Tluong_MH.Text = dataGridView1.Rows[i].Cells[5].Value.ToString();
+            Gia_Mua_MH.Text = dataGridView1.Rows[i].Cells[6].Value.ToString();
+            Gia_Ban_MH.Text = dataGridView1.Rows[i].Cells[7].Value.ToString();
+            Ma_NCC.Text = dataGridView1.Rows[i].Cells[8].Value.ToString();
+            //textBox1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //textBox2.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
         }
     }
 
