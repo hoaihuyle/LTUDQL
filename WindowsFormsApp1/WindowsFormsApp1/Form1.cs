@@ -20,7 +20,7 @@ namespace WindowsFormsApp1
         SqlConnection con = new SqlConnection(@"Data Source=MY-1MMG59AB2LR7\SQLEXPRESS;Initial Catalog=QLBH;Integrated Security=True");
         //Biến ID dùng để  cập nhật và xóa dữ liệu
         SqlCommand cmd;
-        //int ID = 0;
+        int ID = 0;
 
         string sql;
         //Display Data in DataGridView 
@@ -164,12 +164,17 @@ namespace WindowsFormsApp1
         {
             if (Ten_MH.Text != "" && Ma_MH.Text != "")
             {
-                sql = @"INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) "+
+                sql = @"INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) " +
                       " VALUES (@Ma_MH, @Ten_MH, @Loai_MH, @Tluong_MH, @Mau_MH, @Ton_Kho_MH, @Gia_Mua_MH, @Gia_Ban_MH, @Ma_NCC );" +
                       "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
                       "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
-                cmd = new SqlCommand(sql, con);
                 con.Open();
+                //sql = @"InsertMatHang; " +
+                //      "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
+                //      "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
+                cmd = new SqlCommand(sql, con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+    
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
                 cmd.Parameters.AddWithValue("@Loai_MH", Loai_MH.Text);
