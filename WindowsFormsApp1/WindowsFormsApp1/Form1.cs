@@ -164,17 +164,18 @@ namespace WindowsFormsApp1
         {
             if (Ten_MH.Text != "" && Ma_MH.Text != "")
             {
-                sql = @"INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) " +
-                      " VALUES (@Ma_MH, @Ten_MH, @Loai_MH, @Tluong_MH, @Mau_MH, @Ton_Kho_MH, @Gia_Mua_MH, @Gia_Ban_MH, @Ma_NCC );" +
-                      "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
-                      "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
-                con.Open();
-                //sql = @"InsertMatHang; " +
+                //sql = @"INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) " +
+                //      " VALUES (@Ma_MH, @Ten_MH, @Loai_MH, @Tluong_MH, @Mau_MH, @Ton_Kho_MH, @Gia_Mua_MH, @Gia_Ban_MH, @Ma_NCC );" +
                 //      "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
                 //      "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
-                cmd = new SqlCommand(sql, con);
+                con.Open();
+                //sql = "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
+                //      "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
+                //cmd = new SqlCommand(sql, con);
+                cmd = con.CreateCommand();
+                cmd.CommandText = "InsertMatHang";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-    
+
                 cmd.Parameters.AddWithValue("@Ma_MH", Ma_MH.Text);
                 cmd.Parameters.AddWithValue("@Ten_MH", Ten_MH.Text);
                 cmd.Parameters.AddWithValue("@Loai_MH", Loai_MH.Text);
@@ -184,13 +185,13 @@ namespace WindowsFormsApp1
                 cmd.Parameters.AddWithValue("@Gia_Mua_MH", Gia_Mua_MH.Text);
                 cmd.Parameters.AddWithValue("@Gia_Ban_MH", Gia_Ban_MH.Text);
                 cmd.Parameters.AddWithValue("@Ma_NCC", Ma_NCC.Text);
-                cmd.Parameters.AddWithValue("@Ma_DH", Ma_DH.Text);
-                cmd.Parameters.AddWithValue("@Sluong_dat", Sluong_dat.Text);
-                cmd.Parameters.AddWithValue("@Gia", Gia.Text);
-                if(Ngay_giao_DK.Text!="")
-                cmd.Parameters.AddWithValue("@Ngay_giao_DK", Convert.ToDateTime(Ngay_giao_DK.Text));
-                else
-                cmd.Parameters.AddWithValue("@Ngay_giao_DK", Ngay_giao_DK.Text);
+                //cmd.Parameters.AddWithValue("@Ma_DH", Ma_DH.Text);
+                //cmd.Parameters.AddWithValue("@Sluong_dat", Sluong_dat.Text);
+                //cmd.Parameters.AddWithValue("@Gia", Gia.Text);
+                //if(Ngay_giao_DK.Text!="")
+                //cmd.Parameters.AddWithValue("@Ngay_giao_DK", Convert.ToDateTime(Ngay_giao_DK.Text));
+                //else
+                //cmd.Parameters.AddWithValue("@Ngay_giao_DK", Ngay_giao_DK.Text);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
