@@ -204,9 +204,7 @@ namespace QLBHToto
         private void PDMThem_Click(object sender, EventArgs e)
         {
             con.Open();
-
-
-
+            
             con.Close();
         }
     }
