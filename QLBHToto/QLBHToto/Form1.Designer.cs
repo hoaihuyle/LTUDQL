@@ -1,4 +1,4 @@
-﻿namespace QLBHToto
+﻿namespace GUI
 {
     partial class Form1
     {
@@ -54,6 +54,9 @@
             this.txtMaMon = new System.Windows.Forms.TextBox();
             this.txtMaLoaiMon = new System.Windows.Forms.Label();
             this.cbMaLoaiMon = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbBan = new System.Windows.Forms.ComboBox();
+            this.SoBan = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +74,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(75, 12);
+            this.comboBox1.Location = new System.Drawing.Point(91, 30);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 22);
             this.comboBox1.TabIndex = 1;
@@ -79,7 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 15);
+            this.label1.Location = new System.Drawing.Point(24, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 14);
             this.label1.TabIndex = 2;
@@ -88,7 +91,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(218, 10);
+            this.button1.Location = new System.Drawing.Point(239, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -120,7 +123,6 @@
             // 
             // rdMon1
             // 
-            this.rdMon1.AutoEllipsis = true;
             this.rdMon1.AutoSize = true;
             this.rdMon1.Location = new System.Drawing.Point(159, 364);
             this.rdMon1.Name = "rdMon1";
@@ -132,6 +134,7 @@
             // rdMon0
             // 
             this.rdMon0.AutoSize = true;
+            this.rdMon0.Checked = true;
             this.rdMon0.Location = new System.Drawing.Point(225, 364);
             this.rdMon0.Name = "rdMon0";
             this.rdMon0.Size = new System.Drawing.Size(93, 18);
@@ -199,7 +202,7 @@
             // 
             // PDMThem
             // 
-            this.PDMThem.Location = new System.Drawing.Point(426, 286);
+            this.PDMThem.Location = new System.Drawing.Point(426, 289);
             this.PDMThem.Name = "PDMThem";
             this.PDMThem.Size = new System.Drawing.Size(48, 53);
             this.PDMThem.TabIndex = 16;
@@ -212,13 +215,13 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(426, 70);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(143, 210);
+            this.dataGridView2.Size = new System.Drawing.Size(143, 213);
             this.dataGridView2.TabIndex = 17;
             // 
             // PĐM
             // 
             this.PĐM.AutoSize = true;
-            this.PĐM.Location = new System.Drawing.Point(453, 53);
+            this.PĐM.Location = new System.Drawing.Point(426, 53);
             this.PĐM.Name = "PĐM";
             this.PĐM.Size = new System.Drawing.Size(74, 14);
             this.PĐM.TabIndex = 19;
@@ -226,7 +229,7 @@
             // 
             // PDMMonXoa
             // 
-            this.PDMMonXoa.Location = new System.Drawing.Point(480, 286);
+            this.PDMMonXoa.Location = new System.Drawing.Point(480, 289);
             this.PDMMonXoa.Name = "PDMMonXoa";
             this.PDMMonXoa.Size = new System.Drawing.Size(89, 27);
             this.PDMMonXoa.TabIndex = 20;
@@ -235,7 +238,7 @@
             // 
             // PDMXoa
             // 
-            this.PDMXoa.Location = new System.Drawing.Point(480, 311);
+            this.PDMXoa.Location = new System.Drawing.Point(480, 315);
             this.PDMXoa.Name = "PDMXoa";
             this.PDMXoa.Size = new System.Drawing.Size(89, 28);
             this.PDMXoa.TabIndex = 21;
@@ -244,7 +247,7 @@
             // 
             // PDMIn
             // 
-            this.PDMIn.Location = new System.Drawing.Point(426, 345);
+            this.PDMIn.Location = new System.Drawing.Point(426, 348);
             this.PDMIn.Name = "PDMIn";
             this.PDMIn.Size = new System.Drawing.Size(67, 38);
             this.PDMIn.TabIndex = 22;
@@ -253,7 +256,7 @@
             // 
             // HoaDon
             // 
-            this.HoaDon.Location = new System.Drawing.Point(491, 345);
+            this.HoaDon.Location = new System.Drawing.Point(491, 348);
             this.HoaDon.Name = "HoaDon";
             this.HoaDon.Size = new System.Drawing.Size(78, 38);
             this.HoaDon.TabIndex = 23;
@@ -293,11 +296,40 @@
             this.cbMaLoaiMon.Size = new System.Drawing.Size(84, 22);
             this.cbMaLoaiMon.TabIndex = 28;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(39, 14);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "SoBan";
+            // 
+            // cbBan
+            // 
+            this.cbBan.FormattingEnabled = true;
+            this.cbBan.Location = new System.Drawing.Point(91, 2);
+            this.cbBan.Name = "cbBan";
+            this.cbBan.Size = new System.Drawing.Size(121, 22);
+            this.cbBan.TabIndex = 29;
+            // 
+            // SoBan
+            // 
+            this.SoBan.AutoSize = true;
+            this.SoBan.Location = new System.Drawing.Point(527, 53);
+            this.SoBan.Name = "SoBan";
+            this.SoBan.Size = new System.Drawing.Size(42, 14);
+            this.SoBan.TabIndex = 31;
+            this.SoBan.Text = "Số Bàn";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(571, 387);
+            this.Controls.Add(this.SoBan);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbBan);
             this.Controls.Add(this.cbMaLoaiMon);
             this.Controls.Add(this.txtMaLoaiMon);
             this.Controls.Add(this.labelmamon);
@@ -362,6 +394,9 @@
         private System.Windows.Forms.TextBox txtMaMon;
         private System.Windows.Forms.Label txtMaLoaiMon;
         private System.Windows.Forms.ComboBox cbMaLoaiMon;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbBan;
+        private System.Windows.Forms.Label SoBan;
     }
 }
 
