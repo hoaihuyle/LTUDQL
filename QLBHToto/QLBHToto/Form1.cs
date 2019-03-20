@@ -16,38 +16,28 @@ namespace GUI
     public partial class Form1 : Form
     {
         LoaiMon_BLL loaimon = new LoaiMon_BLL();
+        Ban_BLL ban = new Ban_BLL();
         private void Form1_Load(object sender, EventArgs e)
         {
             //dataGridView1.DataSource = loaimon.SinhVien_Select();
 
             ////Gán dữ liệu nguồn
-            comboBox1.DataSource = loaimon.SinhVien_Select();
+            comboBox1.DataSource = loaimon.LoaiMon_Select();
             ////Gán trường sẽ hiển thị trên comboBox
             comboBox1.DisplayMember = "TenLoaiMon";
             ////Gã trường mã ẩn sau mỗi trường trên comboBox
             ////Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
             comboBox1.ValueMember = "MaLoaiMon";
 
-            //con.Open();
-            //sql = "Select * from Ban";
-            //da = new SqlDataAdapter(sql, con);
-            ////Khai báo đối tượng datatable để chứa dữ liệu
-            //DataTable dt2 = new DataTable();
-            ////Điền dữ liệu vào đối tượng Datatable
-            //da.Fill(dt2);
-            //da.Dispose();
-            ////Giải phóng đối tượng SqlDataAdapter
 
+            //Gán dữ liệu nguồn
+            cbBan.DataSource = ban.Ban_Select();
+            //Gán trường sẽ hiển thị trên comboBox
+            cbBan.DisplayMember = "MaBan";
+            //Gã trường mã ẩn sau mỗi trường trên comboBox
+            //Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
+            cbBan.ValueMember = "MaBan";
 
-            ////Gán dữ liệu nguồn
-            //cbBan.DataSource = dt2;
-            ////Gán trường sẽ hiển thị trên comboBox
-            //cbBan.DisplayMember = "MaBan";
-            ////Gã trường mã ẩn sau mỗi trường trên comboBox
-            ////Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
-            //cbBan.ValueMember = "MaBan";
-
-            //con.Close();
 
         }
         private void ClearData()
@@ -71,6 +61,7 @@ namespace GUI
             //da.Fill(dt);
             //dataGridView1.DataSource = dt;
             //con.Close();
+            
         }
         public Form1()
         {
@@ -84,9 +75,12 @@ namespace GUI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query= "WHERE dbo.Mon.MaLoaiMon= N'" + comboBox1.SelectedValue + "'";
-            DisplayData(query);
-            SoBan.Text = cbBan.SelectedValue.ToString();
+            //string query= "WHERE dbo.Mon.MaLoaiMon= N'" + comboBox1.SelectedValue + "'";
+            //DisplayData(query);
+            //SoBan.Text = cbBan.SelectedValue.ToString();
+            object[] value = { comboBox1.SelectedValue };
+            dataGridView1.DataSource = loaimon.LoaiMon_Select_Where(value);
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

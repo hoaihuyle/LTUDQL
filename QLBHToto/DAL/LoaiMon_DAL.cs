@@ -12,7 +12,7 @@ namespace DAL
     {
         ThaotacCSDL_DAL thaotac = new ThaotacCSDL_DAL();
         //khai báo 2 mảng để truyền tên tham số và giá trị tham số vào Stored Procedures
-        string[] name = { };
+        string[] name = {"[MaLoaiMon]","[MaMon]","[MaBan]", "[TinhTrang]", "[BanGop]" };
         object[] value = { };
         //phương thức này gọi phương thức SQL_Laydulieu ở lớp ThaoTac_CoSoDuLieu để thực hiện lấy dữ liệu
         //phương thức này gọi phương thức SQL_Laydulieu ở lớp ThaoTac_CoSoDuLieu để thực hiện lấy dữ liệu
@@ -22,6 +22,11 @@ namespace DAL
             return thaotac.SQL_Laydulieu("LoaiMon_ChonAll");
         }
 
+        public DataTable LoaiMon_CoDK(object[] value2)
+        {
+            
+            return thaotac.Sql_LayDuLieu_CoDK("LoaiMon_ChonTai",name,value2,1);
+        }
         ////phương thức này gọi phương thức SQL_Thuchien ở lớp ThaoTac_CoSoDuLieu để thực hiện insert
         //public int sv_insert(string hoten, string gioitinh, string idlop)
         //{

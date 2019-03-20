@@ -54,12 +54,11 @@ namespace DAL
         }
 
         //Phương thức thực thi select có điều kiện
-        public DataTable Sql_LayDuLieu_CoDK(String TenSPm, string[] name, object[] value, int Npara)
+        public DataTable Sql_LayDuLieu_CoDK(String TenSP, string[] name, object[] value, int Npara)
         {
             KetnoiCSDL();
-
             //thực thi lấy dữ liệu từ CSDL
-            cmd = new SqlCommand(TenSPm, conn);
+            cmd = new SqlCommand(TenSP, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             for (int i = 0; i < Npara; i++)
             {
