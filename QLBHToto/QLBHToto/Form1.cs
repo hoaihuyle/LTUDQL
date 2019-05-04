@@ -17,6 +17,9 @@ namespace GUI
     {
         LoaiMon_BLL loaimon = new LoaiMon_BLL();
         Ban_BLL ban = new Ban_BLL();
+        Mon_BLL mon = new Mon_BLL();
+        PhieuDatMon_BLL pdm = new PhieuDatMon_BLL();
+        ChiTietPDM_BLL ctpdm = new ChiTietPDM_BLL();
         private void Form1_Load(object sender, EventArgs e)
         {
             //dataGridView1.DataSource = loaimon.SinhVien_Select();
@@ -38,7 +41,7 @@ namespace GUI
             //Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
             cbBan.ValueMember = "MaBan";
 
-
+   
         }
         private void ClearData()
         {
@@ -72,14 +75,53 @@ namespace GUI
         {
 
         }
+        //private int MaPDM()
+        //{
+        //    if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows.Count == 0)
+        //    {
+        //        return 0;
+        //    }
 
+        //    return int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString()); 
+        //}
         private void button1_Click(object sender, EventArgs e)
         {
-            //string query= "WHERE dbo.Mon.MaLoaiMon= N'" + comboBox1.SelectedValue + "'";
-            //DisplayData(query);
-            //SoBan.Text = cbBan.SelectedValue.ToString();
-            object[] value = { comboBox1.SelectedValue };
-            dataGridView1.DataSource = loaimon.LoaiMon_Select_Where(value);
+            dataGridView1.DataSource = mon.Mon_Select_Where_LoaiMon(int.Parse(comboBox1.SelectedValue.ToString()));
+           
+            ////Gán dữ liệu nguồn
+            cbMaLoaiMon.DataSource = loaimon.LoaiMon_Select();
+            ////Gán trường sẽ hiển thị trên comboBox
+            cbMaLoaiMon.DisplayMember = "TenLoaiMon";
+            ////Gã trường mã ẩn sau mỗi trường trên comboBox
+            ////Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
+            cbMaLoaiMon.ValueMember = "MaLoaiMon";
+
+            //Hiển thị chi tiết phiếu đặt món
+            //int mapdm =0;
+            //MessageBox.Show(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+
+            int MaPDM = 0;
+            if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows.Count == 0)
+            {
+              
+            }
+            else
+            {
+                MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+            }
+           
+            dataGridPDM.DataSource = ctpdm.ChiTietPDM_ChonTai(MaPDM);
+            //if (Math.Abs(pdm.Check_PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString()))) == 1)
+            //{
+            //    int MaPDM =  int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+            //    MessageBox.Show(" UNSuccessfully");
+            //}
+            //else
+            //{
+            //    MessageBox.Show(" Successfully");
+            //}
+
+
 
         }
 
@@ -106,22 +148,17 @@ namespace GUI
                 rdMon0.Checked = true;
             }
 
+            SoBan.Text = (ban.Ban_ChonTai(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaBan"]).ToString();
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (txtMaMon.Text != "" && txtTenMon.Text != "")
             {
-                //con.Open();
-                //cmd = con.CreateCommand();
-                //cmd.CommandText = "Mon_Xoa";
-                //cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                //cmd.Parameters.AddWithValue("@MaMon", txtMaMon.Text);
-                //cmd.ExecuteNonQuery();
-                //con.Close();
+
+                mon.Mon_Xoa(int.Parse(txtMaMon.Text));
                 MessageBox.Show("Record Deleted Successfully!");
-                string query = "WHERE dbo.Mon.MaLoaiMon= N'" + comboBox1.SelectedValue + "'";
-                DisplayData(query);
                 ClearData();
             }
             else
@@ -139,25 +176,10 @@ namespace GUI
         {
             if (txtTenMon.Text != "" && txtMaMon.Text != "")
             {
-                //sql = @"INSERT INTO [dbo].[MAT_HANG] ( Ma_MH, Ten_MH, Loai_MH, Tluong_MH, Mau_MH, Ton_Kho_MH, Gia_Mua_MH, Gia_Ban_MH, Ma_NCC ) " +
-                //      " VALUES (@Ma_MH, @Ten_MH, @Loai_MH, @Tluong_MH, @Mau_MH, @Ton_Kho_MH, @Gia_Mua_MH, @Gia_Ban_MH, @Ma_NCC );" +
-                //      "INSERT INTO [dbo].[CHI_TIET_DH] ([Ma_DH],[Ma_MH],[Sluong_dat],[Gia],[Ngay_giao_DK]) " +
-                //      "VALUES (@Ma_DH, @Ma_MH , @Sluong_dat, @Gia, @Ngay_giao_DK)";
-                //con.Open();
-                //cmd = con.CreateCommand();
-                //cmd.CommandText = "Mon_Them";
-                //cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //cmd.Parameters.AddWithValue("@MaLoaiMon", cbMaLoaiMon.Text);
-                //cmd.Parameters.AddWithValue("@TenMon", txtTenMon.Text);
-                //cmd.Parameters.AddWithValue("@Gia", txtGiaMon.Text);
-                //cmd.Parameters.AddWithValue("@Mota", txtMoTa.Text);
-                //cmd.ExecuteNonQuery();
-                //con.Close();
+                mon.Mon_Them(int.Parse(cbMaLoaiMon.Text), txtTenMon.Text, int.Parse(txtGiaMon.Text), txtMoTa.Text);
                 MessageBox.Show("Record Inserted Successfully");
-                string query = " WHERE dbo.Mon.MaLoaiMon= N'" + cbMaLoaiMon.Text +"'";
-                //MessageBox.Show(query);
-                DisplayData(query);
+
+                //DisplayData(query);
                 ClearData();
             }
             else
@@ -170,29 +192,9 @@ namespace GUI
         {
             if (txtTenMon.Text != "" && txtMaMon.Text != "")
             {
-
-                //con.Open();
-                //cmd = con.CreateCommand();
-                //cmd.CommandText = "Mon_Capnhap";
-                //cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
-                //cmd.Parameters.AddWithValue("@MaLoaiMon", cbMaLoaiMon.Text);
-                //cmd.Parameters.AddWithValue("@MaMon", txtMaMon.Text);
-                //cmd.Parameters.AddWithValue("@TenMon", txtTenMon.Text);
-                //cmd.Parameters.AddWithValue("@Gia", txtGiaMon.Text);
-                //cmd.Parameters.AddWithValue("@Mota", txtMoTa.Text);
-                //if (rdMon1.Checked == true || rdMon0.Checked == true)
-                //{
-                //    cmd.Parameters.AddWithValue("@TinhTrang", true);
-                //}
-                //else
-                //    cmd.Parameters.AddWithValue("@TinhTrang", false);
-
-                //cmd.ExecuteNonQuery();
-                //con.Close();
-                //MessageBox.Show("Record Updated Successfully");
-                //string query = " WHERE dbo.Mon.MaLoaiMon= N'" + cbMaLoaiMon.Text + "'";
-                ////MessageBox.Show(query);
+                mon.Mon_CapNhap(int.Parse(cbMaLoaiMon.Text), int.Parse(txtMaMon.Text), txtTenMon.Text, int.Parse(txtGiaMon.Text), txtMoTa.Text, rdMon1.Checked);
+                
+                MessageBox.Show("Record Updated Successfully");
                 //DisplayData(query);
                 //ClearData();
 
@@ -205,8 +207,65 @@ namespace GUI
 
         private void PDMThem_Click(object sender, EventArgs e)
         {
-            //con.Open();
             ////Đầu tiên xét trạng thái bàn
+            ///
+            int MaPDM = 0;
+            if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows.Count == 0)
+            {
+                
+            }
+            else
+            {
+                MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+            }
+
+            if (ban.Ban_ChonTai(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["TinhTrang"].ToString()=="True")
+            {
+                //Bàn trống
+                //Thay đổi tình trạng bàn
+                ban.Ban_CapNhap(int.Parse(cbBan.SelectedValue.ToString()),false,0);
+                //Tạo phiếu đặt món
+                pdm.PhieuDatMon_Them(int.Parse(cbBan.SelectedValue.ToString()), true);
+                //Tao luon ca mon vao PDM
+                if (txtMaMon.Text == "")
+                {
+
+                }
+                else
+                {
+                    ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(txtMaMon.Text));
+                    MessageBox.Show("Record Inserted Successfully");
+                }
+            }
+            else
+            {
+                // Bàn đang có khách
+                MessageBox.Show("Table not empty!!");
+            }
+
+            //CTPDM- chi tiet phieu dat mon
+            //Kiem tra mon da ton tai trong CTPDM chua
+
+            if (ctpdm.ChiTietPDM_ChonTai(MaPDM) != null)
+            {
+                var datatable = ctpdm.ChiTietPDM_ChonTai(MaPDM);
+                var numberofrows = datatable.Rows.Count;
+                for (int i = 0; i < numberofrows; i++)
+                {
+                    //for each row, get the 3rd column
+                    var cellValue = datatable.Rows[i]["MaMon"];
+                    MessageBox.Show(cellValue.ToString());
+                }
+            }
+            //Ton tai
+            //Cap nhap so luong
+
+            //Chua ton tai
+            //Tao CTPDM
+            ctpdm.ChiTietPDM_Them(MaPDM ,int.Parse(txtMaMon.Text.ToString()));
+
+
+
 
             ////MaPDM theo cú pháp 'PDM'+'XX'+'YYMMDD'+'STT'
             ////Kiểm tra tồn tại của MaPDM trong PĐM
@@ -239,6 +298,21 @@ namespace GUI
             ////}
             ////dataGridView2.DataSource = dt;
             //con.Close();
+        }
+
+        private void cbMaLoaiMon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            System.Environment.Exit(1);
+        }
+
+        private void dataGridPDM_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

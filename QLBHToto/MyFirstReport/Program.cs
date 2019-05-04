@@ -1,11 +1,10 @@
-﻿using QLBHToto;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GUI
+namespace MyFirstReport
 {
     static class Program
     {
@@ -17,9 +16,7 @@ namespace GUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrangChu());
+            Application.Run(new Form1());
         }
     }
-
-
 }

@@ -41,10 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietPDM_DAL.cs" />
     <Compile Include="DBServerUtils.cs" />
     <Compile Include="DBUtils.cs" />
     <Compile Include="LoaiMon_DAL.cs" />
     <Compile Include="Ban_DAL.cs" />
+    <Compile Include="Mon_DAL.cs" />
+    <Compile Include="PhieuDatMon_DAL.cs" />
     <Compile Include="ThaotacCSDL_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

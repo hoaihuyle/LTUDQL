@@ -44,7 +44,7 @@
             this.Mon_Xoa = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.PDMThem = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridPDM = new System.Windows.Forms.DataGridView();
             this.PĐM = new System.Windows.Forms.Label();
             this.PDMMonXoa = new System.Windows.Forms.Button();
             this.PDMXoa = new System.Windows.Forms.Button();
@@ -58,15 +58,15 @@
             this.cbBan = new System.Windows.Forms.ComboBox();
             this.SoBan = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPDM)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(2, 70);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(407, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(394, 222);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
@@ -199,29 +199,31 @@
             this.Exit.TabIndex = 15;
             this.Exit.Text = "Thoát";
             this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
             // PDMThem
             // 
-            this.PDMThem.Location = new System.Drawing.Point(426, 289);
+            this.PDMThem.Location = new System.Drawing.Point(427, 299);
             this.PDMThem.Name = "PDMThem";
-            this.PDMThem.Size = new System.Drawing.Size(48, 53);
+            this.PDMThem.Size = new System.Drawing.Size(161, 33);
             this.PDMThem.TabIndex = 16;
             this.PDMThem.Text = "Thêm vào PĐM";
             this.PDMThem.UseVisualStyleBackColor = true;
             this.PDMThem.Click += new System.EventHandler(this.PDMThem_Click);
             // 
-            // dataGridView2
+            // dataGridPDM
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(426, 70);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(143, 213);
-            this.dataGridView2.TabIndex = 17;
+            this.dataGridPDM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridPDM.Location = new System.Drawing.Point(402, 70);
+            this.dataGridPDM.Name = "dataGridPDM";
+            this.dataGridPDM.Size = new System.Drawing.Size(444, 222);
+            this.dataGridPDM.TabIndex = 17;
+            this.dataGridPDM.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPDM_CellContentClick);
             // 
             // PĐM
             // 
             this.PĐM.AutoSize = true;
-            this.PĐM.Location = new System.Drawing.Point(426, 53);
+            this.PĐM.Location = new System.Drawing.Point(399, 53);
             this.PĐM.Name = "PĐM";
             this.PĐM.Size = new System.Drawing.Size(74, 14);
             this.PĐM.TabIndex = 19;
@@ -229,36 +231,36 @@
             // 
             // PDMMonXoa
             // 
-            this.PDMMonXoa.Location = new System.Drawing.Point(480, 289);
+            this.PDMMonXoa.Location = new System.Drawing.Point(679, 318);
             this.PDMMonXoa.Name = "PDMMonXoa";
-            this.PDMMonXoa.Size = new System.Drawing.Size(89, 27);
+            this.PDMMonXoa.Size = new System.Drawing.Size(167, 27);
             this.PDMMonXoa.TabIndex = 20;
             this.PDMMonXoa.Text = "Xóa món";
             this.PDMMonXoa.UseVisualStyleBackColor = true;
             // 
             // PDMXoa
             // 
-            this.PDMXoa.Location = new System.Drawing.Point(480, 315);
+            this.PDMXoa.Location = new System.Drawing.Point(679, 358);
             this.PDMXoa.Name = "PDMXoa";
-            this.PDMXoa.Size = new System.Drawing.Size(89, 28);
+            this.PDMXoa.Size = new System.Drawing.Size(167, 28);
             this.PDMXoa.TabIndex = 21;
             this.PDMXoa.Text = "Xóa PĐM";
             this.PDMXoa.UseVisualStyleBackColor = true;
             // 
             // PDMIn
             // 
-            this.PDMIn.Location = new System.Drawing.Point(426, 348);
+            this.PDMIn.Location = new System.Drawing.Point(427, 337);
             this.PDMIn.Name = "PDMIn";
-            this.PDMIn.Size = new System.Drawing.Size(67, 38);
+            this.PDMIn.Size = new System.Drawing.Size(161, 30);
             this.PDMIn.TabIndex = 22;
             this.PDMIn.Text = "In PĐM";
             this.PDMIn.UseVisualStyleBackColor = true;
             // 
             // HoaDon
             // 
-            this.HoaDon.Location = new System.Drawing.Point(491, 348);
+            this.HoaDon.Location = new System.Drawing.Point(427, 373);
             this.HoaDon.Name = "HoaDon";
-            this.HoaDon.Size = new System.Drawing.Size(78, 38);
+            this.HoaDon.Size = new System.Drawing.Size(161, 28);
             this.HoaDon.TabIndex = 23;
             this.HoaDon.Text = "ThanhToan";
             this.HoaDon.UseVisualStyleBackColor = true;
@@ -295,6 +297,7 @@
             this.cbMaLoaiMon.Name = "cbMaLoaiMon";
             this.cbMaLoaiMon.Size = new System.Drawing.Size(84, 22);
             this.cbMaLoaiMon.TabIndex = 28;
+            this.cbMaLoaiMon.SelectedIndexChanged += new System.EventHandler(this.cbMaLoaiMon_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -316,7 +319,7 @@
             // SoBan
             // 
             this.SoBan.AutoSize = true;
-            this.SoBan.Location = new System.Drawing.Point(527, 53);
+            this.SoBan.Location = new System.Drawing.Point(804, 53);
             this.SoBan.Name = "SoBan";
             this.SoBan.Size = new System.Drawing.Size(42, 14);
             this.SoBan.TabIndex = 31;
@@ -326,7 +329,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 387);
+            this.ClientSize = new System.Drawing.Size(871, 410);
             this.Controls.Add(this.SoBan);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cbBan);
@@ -339,7 +342,7 @@
             this.Controls.Add(this.PDMXoa);
             this.Controls.Add(this.PDMMonXoa);
             this.Controls.Add(this.PĐM);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridPDM);
             this.Controls.Add(this.PDMThem);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Mon_Xoa);
@@ -360,7 +363,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPDM)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -384,7 +387,7 @@
         private System.Windows.Forms.Button Mon_Xoa;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button PDMThem;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridPDM;
         private System.Windows.Forms.Label PĐM;
         private System.Windows.Forms.Button PDMMonXoa;
         private System.Windows.Forms.Button PDMXoa;

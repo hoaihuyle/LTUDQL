@@ -14,7 +14,17 @@ namespace BLL
         //phương thức này gọi phương thức sv_select() ở lớp SinhVien_DAL (tầng DAL)
         public DataTable Ban_Select()
         {
-            return ban.LoaiMon_ChonAll();
+            return ban.Ban_ChonAll();
+        }
+
+        public DataTable Ban_ChonTai(int maban)
+        {
+            return ban.Ban_CoDK(maban);
+        }
+
+        public int Ban_CapNhap(int maban, bool tinhtrang, int bangop)
+        {
+            return ban.Ban_CapNhap(maban, tinhtrang, bangop);
         }
     }
 }

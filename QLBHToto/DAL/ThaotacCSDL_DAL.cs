@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,26 @@ namespace DAL
             return cmd.ExecuteNonQuery();
         }
 
+        //How to check empty DataTable
+        public DataTable Check_Sql_LayDuLieu_CoDK(String TenSP, string[] name, object[] value, int Npara)
+        {
+            KetnoiCSDL();
+            //thực thi lấy dữ liệu từ CSDL
+            cmd = new SqlCommand(TenSP, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            for (int i = 0; i < Npara; i++)
+            {
+                cmd.Parameters.AddWithValue(name[i], value[i]);
+            }
+            cmd.ExecuteNonQuery();
+            da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            //ngắt kết nối
+            NgatKetNoi();
+            //trả về bảng chứa dữ liệu lấy được.
+            return dt;
+        }
         //Phương thức thực thi select có điều kiện
         public DataTable Sql_LayDuLieu_CoDK(String TenSP, string[] name, object[] value, int Npara)
         {
