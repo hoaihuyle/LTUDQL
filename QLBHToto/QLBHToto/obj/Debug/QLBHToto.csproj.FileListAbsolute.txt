@@ -1,0 +1,10 @@
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\QLBHToto.exe.config
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\QLBHToto.exe
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\QLBHToto.pdb
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.csprojAssemblyReference.cache
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.Form1.resources
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.Properties.Resources.resources
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.csproj.GenerateResource.cache
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.csproj.CoreCompileInputs.cache
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.exe
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.pdb

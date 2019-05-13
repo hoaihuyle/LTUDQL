@@ -1,0 +1,6 @@
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\bin\Debug\DAL.dll
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\bin\Debug\DAL.pdb
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\obj\Debug\DAL.dll
+C:\Users\MyPC\Documents\GitHub\LTUDQL\QLBHToto\DAL\obj\Debug\DAL.pdb
