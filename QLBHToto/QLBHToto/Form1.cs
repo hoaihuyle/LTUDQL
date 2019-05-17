@@ -225,7 +225,7 @@ namespace GUI
                 //Thay đổi tình trạng bàn
                 ban.Ban_CapNhap(int.Parse(cbBan.SelectedValue.ToString()),false,0);
                 //Tạo phiếu đặt món
-                pdm.PhieuDatMon_Them(int.Parse(cbBan.SelectedValue.ToString()), true);
+                pdm.PhieuDatMon_Them("NV05061901",int.Parse(cbBan.SelectedValue.ToString()),0,0,0);
                 //Tao luon ca mon vao PDM
                 if (txtMaMon.Text == "")
                 {
@@ -233,7 +233,7 @@ namespace GUI
                 }
                 else
                 {
-                    ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(txtMaMon.Text));
+                    //ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(txtMaMon.Text),soluong);
                     MessageBox.Show("Record Inserted Successfully");
                 }
             }
@@ -262,7 +262,7 @@ namespace GUI
 
             //Chua ton tai
             //Tao CTPDM
-            ctpdm.ChiTietPDM_Them(MaPDM ,int.Parse(txtMaMon.Text.ToString()));
+            //ctpdm.ChiTietPDM_Them(MaPDM ,int.Parse(txtMaMon.Text.ToString()));
 
 
 

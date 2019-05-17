@@ -14,16 +14,22 @@ namespace DAL
         string[] name = { };
         object[] value = { };
 
-        public int PhieuDatMon_Them(int maban, bool tinhtrang)
+        public int PhieuDatMon_Them(string manv, int maban, int thanhtien, float giamgia, float phuthu)
         {
-            name = new string[2];
-            value = new object[2];
-            name[0] = "@MaBan";
-            name[1] = "@TinhTrang";
-
-            value[0] = maban;
-            value[1] = tinhtrang;
-            return thaotac.SQL_Thuchien("PhieuDatMon_Them", name, value, 2);
+            name = new string[5];
+            value = new object[5];
+            name[0] = "@MaNV";
+            name[1] = "@MaBan";
+            name[2] = "@ThanhTien";
+            name[3] = "@GiamGia";
+            name[4] = "@PhuThu";
+            //(@MaNV char(10),@MaBan int, @ThanhTien int, @GiamGia float, @PhuThu float)
+            value[0] = manv;
+            value[1] = maban;
+            value[2] = thanhtien;
+            value[3] = giamgia;
+            value[4] = phuthu;
+            return thaotac.SQL_Thuchien("PhieuDatMon_Them", name, value, 5);
         }
 
         public DataTable PhieuDatMon_ChonTai(int mapdm)
@@ -35,6 +41,7 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("PhieuDatMon_ChonTai", name, value, 1);
         }
 
+        //Return int --> check 
         public int Check_PhieuDatMon_ChonTai_Ban(int maban)
         {
             name = new string[1];
@@ -44,6 +51,16 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_ChonTai_Ban", name, value, 1);
         }
 
+        public int PhieuDatMon_Xoa(int mapdm)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "@MaPDM";
+            value[0] = mapdm;
+            return thaotac.SQL_Thuchien("PhieuDatMon_Xoa", name, value, 1);
+        }
+
+        //Return table data
         public DataTable PhieuDatMon_ChonTai_Ban(int maban)
         {
             name = new string[1];

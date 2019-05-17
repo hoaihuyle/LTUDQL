@@ -18,8 +18,19 @@ namespace QLBHToto
         public static string SetMaBan = "";
         DataTable dt;
         Ban_BLL ban = new Ban_BLL();
+        
         public TrangChu()
         {
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+            // Set the MaximizeBox to false to remove the maximize box.
+            this.MaximizeBox = false;
+
+            // Set the MinimizeBox to false to remove the minimize box.
+            this.MinimizeBox = false;
+
+            // Set the start position of the form to the center of the screen.
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             InitializeComponent();
             //SplitterPanel leftPanel = splitContainer1.Panel1;
@@ -83,6 +94,8 @@ namespace QLBHToto
                     //MessageBox.Show(string.Format("{0} Clicked", b.Text));
                     SetMaBan = b.Text;
                     //Form1 f2 = new Form1();
+                    //Open form 
+                    this.Hide();
                     QuanLyNghiepVuBan f2 = new QuanLyNghiepVuBan();
                     f2.ShowDialog(); // Shows Form2
 
