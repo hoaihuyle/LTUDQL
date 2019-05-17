@@ -100,14 +100,14 @@ namespace GUI
             //int mapdm =0;
             //MessageBox.Show(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
 
-            int MaPDM = 0;
+            string MaPDM = "";
             if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows.Count == 0)
             {
               
             }
             else
             {
-                MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+                MaPDM = (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
             }
            
             dataGridPDM.DataSource = ctpdm.ChiTietPDM_ChonTai(MaPDM);
@@ -246,9 +246,9 @@ namespace GUI
             //CTPDM- chi tiet phieu dat mon
             //Kiem tra mon da ton tai trong CTPDM chua
 
-            if (ctpdm.ChiTietPDM_ChonTai(MaPDM) != null)
+            if (ctpdm.ChiTietPDM_ChonTai(MaPDM.ToString()) != null)
             {
-                var datatable = ctpdm.ChiTietPDM_ChonTai(MaPDM);
+                var datatable = ctpdm.ChiTietPDM_ChonTai(MaPDM.ToString());
                 var numberofrows = datatable.Rows.Count;
                 for (int i = 0; i < numberofrows; i++)
                 {

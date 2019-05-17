@@ -16,7 +16,7 @@ namespace BLL
             return pdm.PhieuDatMon_Them( manv, maban, thanhtien, giamgia, phuthu);
         }
 
-        public DataTable PhieuDatMon_ChonTai(int mapdm)
+        public DataTable PhieuDatMon_ChonTai(string mapdm)
         {
             return pdm.PhieuDatMon_ChonTai(mapdm);
         }
@@ -26,7 +26,7 @@ namespace BLL
             return pdm.Check_PhieuDatMon_ChonTai_Ban(maban);
         }
 
-        public int PhieuDatMon_Xoa(int mapdm)
+        public int PhieuDatMon_Xoa(string mapdm)
         {
             return pdm.PhieuDatMon_Xoa(mapdm);
         }

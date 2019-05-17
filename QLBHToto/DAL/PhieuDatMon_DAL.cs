@@ -32,7 +32,7 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_Them", name, value, 5);
         }
 
-        public DataTable PhieuDatMon_ChonTai(int mapdm)
+        public DataTable PhieuDatMon_ChonTai(string mapdm)
         {
             name = new string[1];
             value = new object[1];
@@ -51,7 +51,7 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_ChonTai_Ban", name, value, 1);
         }
 
-        public int PhieuDatMon_Xoa(int mapdm)
+        public int PhieuDatMon_Xoa(string mapdm)
         {
             name = new string[1];
             value = new object[1];

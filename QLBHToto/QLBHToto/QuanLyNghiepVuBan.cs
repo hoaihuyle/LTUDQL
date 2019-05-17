@@ -55,21 +55,22 @@ namespace QLBHToto
   
             ///Recieve table-number from Trangchu
             lb_soBan.Text = TrangChu.SetMaBan;
-            int MaPDM=0;
+            string MaPDM="";
             if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows.Count > 0)
             {
-                MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
+                MaPDM = pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString();
+                
             }
             //Check if exist ChiTietPDM show on DataGridView
-            DataTable dt = ctpdm.ThonTinPDM_ChonTai(int.Parse(MaPDM.ToString()));
+            DataTable dt = ctpdm.ThonTinPDM_ChonTai(MaPDM);
             if (dt != null)
             {
-
                 foreach (DataRow dr in dt.Rows)
                 {
+                   
                     object[] field = new object[4];
                     int dem = 0;
-                    //MessageBox.Show("Thành công");
+                   
                     foreach (DataColumn dc in dt.Columns)
                     {
                         field[dem] = dr[dc.ColumnName];
@@ -86,7 +87,7 @@ namespace QLBHToto
 
                     dataGridView2.Rows.Add(field);
 
-                }
+                }   
                 DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
                 dataGridView2.Columns.Add(btn);
                 btn.HeaderText = "Xóa món";
@@ -169,9 +170,8 @@ namespace QLBHToto
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = dataGridView2.CurrentRow.Index;
-            dataGridView2.Rows[i].Cells[2].Value= int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()) - 1;
-            dataGridView2.Rows[i].Cells[3].Value = double.Parse(txtGiaMon.Text) * int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString());
+            //Xóa món trong CTPĐM
+            ctpdm.ChiTietPDM_XoaTai(mapdm, mamon);
         }
 
         private void DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -181,7 +181,10 @@ namespace QLBHToto
             {
                 //MessageBox.Show((e.RowIndex + 1) + "  Row  " + (e.ColumnIndex + 1) + "  Column button clicked ");
                 int i = dataGridView2.CurrentRow.Index;
+
+                //Số lượng
                 dataGridView2.Rows[i].Cells[2].Value = int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString()) - 1;
+                //Thành tiền
                 dataGridView2.Rows[i].Cells[3].Value = double.Parse(txtGiaMon.Text) * int.Parse(dataGridView2.Rows[i].Cells[2].Value.ToString());
             }
            
@@ -207,63 +210,95 @@ namespace QLBHToto
             }
             if (ban.Ban_ChonTai(int.Parse(lb_soBan.Text.ToString())).Rows[0]["TinhTrang"].ToString() == "True")
             {
-               
-
                 //Tạo phiếu đặt món
-                pdm.PhieuDatMon_Them("NV05061901", int.Parse(lb_soBan.Text.ToString()), 0, 0, 0);
-                int MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
-                //Tao chi tiết PDM
+                pdm.PhieuDatMon_Them("NV05171901", int.Parse(lb_soBan.Text.ToString()), 0, 0, 0);
                 //Lấy MaPDM
+                string MaPDM = (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
+                //Tao chi tiết PDM
                 int dem = 0;
                 //Lặp lại việc thêm ChiTietPDM
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
                     if (row.Cells[0].Value != null)
                         //MessageBox.Show(row.Cells[1].Value.ToString());
-                        ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(row.Cells[0].Value.ToString()), soluong);
+                        ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(row.Cells[0].Value.ToString()), int.Parse(row.Cells[2].Value.ToString()));
                     dem++;
                 }
+                //Nếu chi tiết phiếu đặt món rỗng thì không được
                 if (dem > 1)
-                { ban.Ban_CapNhap(int.Parse(lb_soBan.Text.ToString()), false, 0); }
+                {
+                    ban.Ban_CapNhap(int.Parse(lb_soBan.Text.ToString()), false, 0);
+                    MessageBox.Show("Thêm thành công!!!!");
+                }
                 else
                 {
+                    //Xóa phiếu đặt món
+                    pdm.PhieuDatMon_Xoa(MaPDM);
                     ctpdm.ChiTietPDM_Xoa(MaPDM);
+                    MessageBox.Show("Thêm không thành công!!!!");
                 }
-                MessageBox.Show("Thêm thành công!!!!");
-                
-                //Chưa xử lý trường hợp tạo PĐM nhưng chưa không nhập dữ liệu cho ChiTietPDMD
 
             }
             else
             {
 
                 // Bàn đang có khách
-                //Cập nhập-- Trường hợp có thêm món và trường hợp thay đổi số lượng (chưa làm)
                 //Lấy MaPDM
-                int MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
-                //Lặp lại việc cập nhập ChiTietPDM
+                DataTable dt = pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString()));  
+                string MaPDM = (dt.Rows[0]["MaPDM"].ToString());
+                DataTable dt1 = ctpdm.ChiTietPDM_ChonTai(MaPDM);
+                //Chạy vòng lặp kiểm tra datagridview
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
+                    bool kt = true;
                     if (row.Cells[0].Value != null)
                     {
-                        //MessageBox.Show(row.Cells[1].Value.ToString());
-                        ctpdm.ChiTietPDM_Sua(MaPDM, int.Parse(row.Cells[0].Value.ToString()), soluong);
+                        //Chạy vòng lặp để kiểm tra mamon trong datagrid có nằm trong CSDL không
+                        foreach (DataRow row1 in dt1.Rows)
+                        {
+
+                            if (row.Cells[0].Value.ToString() == row1["MaMon"].ToString())
+                            {
+                                //Cập nhập số lượng món
+                                ctpdm.ChiTietPDM_Sua(MaPDM, int.Parse(row.Cells[0].Value.ToString()), int.Parse(row.Cells[2].Value.ToString()));
+                                kt = false;
+                            }
+                           
+                        }
+                        if (kt == true)
+                        {
+                            //Thêm món vào CTPĐM
+                            ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(row.Cells[0].Value.ToString()), soluong);
+                        }
                     }
 
-
                 }
+               
 
-                //Thanh toán
 
                 //Nghiệp vụ chuyển bàn
             }
 
             MovetoHome();
         }
+        //Thanh toán
+        private void HoaDon_Click(object sender, EventArgs e)
+        {
+            
+        }
+        
+        //In PĐM- Chuyển trạng thái PĐM
+        private void PDMIn_Click(object sender, EventArgs e)
+        {
+            //Đổi màu bàn
+
+            //Đổi trạng thái PĐM
+
+        }
 
         private void PDMXoa_Click(object sender, EventArgs e)
         {
-            int mapdm = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
+            string mapdm =(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["MaPDM"].ToString());
             //Xóa chi tiết phiếu đặt món
             ctpdm.ChiTietPDM_Xoa(mapdm);
             //Xóa phiếu đặt món
@@ -271,7 +306,7 @@ namespace QLBHToto
 
             //thay đổi tình trạng bàn
             ban.Ban_CapNhap(int.Parse(lb_soBan.Text.ToString()), true, 0);
-            //Chuyển ra trangchu
+            //Chuyển ra trangchus
             MovetoHome();
         }
 
