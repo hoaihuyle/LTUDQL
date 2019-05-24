@@ -21,32 +21,32 @@ namespace QLBHToto
         public TrangChu()
         {
             //Temp form 1
-            InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //InitializeComponent();
+            //this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
-            // Set the MaximizeBox to false to remove the maximize box.
-            this.MaximizeBox = false;
+            //// Set the MaximizeBox to false to remove the maximize box.
+            //this.MaximizeBox = false;
 
-            // Set the MinimizeBox to false to remove the minimize box.
-            this.MinimizeBox = false;
+            //// Set the MinimizeBox to false to remove the minimize box.
+            //this.MinimizeBox = false;
 
-            // Set the start position of the form to the center of the screen.
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //// Set the start position of the form to the center of the screen.
+            //this.StartPosition = FormStartPosition.CenterScreen;
 
 
 
             ////Teamp form 2
-            //InitializeComponent();
-            //this.TopMost = true;
-            ////this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
-            //this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            //this.WindowState = FormWindowState.Maximized;
+            InitializeComponent();
+            this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.WindowState = FormWindowState.Maximized;
 
-            //Color
+            ////Color
             //SplitterPanel leftPanel = splitContainer1.Panel1;
             //leftPanel.BackColor = Color.Green;
             //leftPanel.ForeColor = Color.Yellow;
-            //
+
             //SplitterPanel rightPanel = splitContainer1.Panel2;
             //rightPanel.BackColor = Color.OrangeRed;
             //rightPanel.ForeColor = Color.White;
@@ -54,8 +54,8 @@ namespace QLBHToto
             this.tableLayoutPanel1.ColumnStyles.Clear();
             this.tableLayoutPanel1.RowStyles.Clear();
 
-            var rowCount = 5;
-            var columnCount = 5;
+            var rowCount = 6;
+            var columnCount = 6;
 
             this.tableLayoutPanel1.ColumnCount = columnCount;
             this.tableLayoutPanel1.RowCount = rowCount;
@@ -128,7 +128,15 @@ namespace QLBHToto
         {
 
         }
-        
+
+        private void Trangchu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình ?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
+        }
+
 
     }
 }

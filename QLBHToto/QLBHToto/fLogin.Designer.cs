@@ -1,6 +1,6 @@
-﻿namespace QLBHToto
+﻿namespace QuanLyQuanCafe
 {
-    partial class DangNhap
+    partial class fLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -20,21 +20,6 @@
             base.Dispose(disposing);
         }
 
-        //#region Windows Form Designer generated code
-
-        ///// <summary>
-        ///// Required method for Designer support - do not modify
-        ///// the contents of this method with the code editor.
-        ///// </summary>
-        //private void InitializeComponent()
-        //{
-        //    this.components = new System.ComponentModel.Container();
-        //    this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        //    this.ClientSize = new System.Drawing.Size(800, 450);
-        //    this.Text = "DangNhap";
-        //}
-
-        //#endregion
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -43,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLogin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -63,9 +49,9 @@
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(114, 65);
+            this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(524, 196);
+            this.panel1.Size = new System.Drawing.Size(497, 196);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -73,7 +59,7 @@
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(413, 163);
+            this.btnExit.Location = new System.Drawing.Point(375, 142);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(108, 33);
             this.btnExit.TabIndex = 4;
@@ -84,7 +70,7 @@
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.139131F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(302, 163);
+            this.btnLogin.Location = new System.Drawing.Point(253, 142);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(105, 33);
             this.btnLogin.TabIndex = 3;
@@ -98,16 +84,16 @@
             this.panel3.Controls.Add(this.lblPassword);
             this.panel3.Location = new System.Drawing.Point(3, 66);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(518, 91);
+            this.panel3.Size = new System.Drawing.Size(480, 61);
             this.panel3.TabIndex = 2;
             // 
             // txbPassWord
             // 
-            this.txbPassWord.Location = new System.Drawing.Point(226, 26);
+            this.txbPassWord.Location = new System.Drawing.Point(187, 25);
             this.txbPassWord.Name = "txbPassWord";
-            this.txbPassWord.Size = new System.Drawing.Size(274, 22);
+            this.txbPassWord.Size = new System.Drawing.Size(290, 22);
             this.txbPassWord.TabIndex = 1;
-            this.txbPassWord.Text = "admin";
+            this.txbPassWord.Text = "1";
             this.txbPassWord.UseSystemPasswordChar = true;
             // 
             // lblPassword
@@ -116,7 +102,7 @@
             this.lblPassword.Font = new System.Drawing.Font("Arial", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPassword.Location = new System.Drawing.Point(3, 20);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(121, 27);
+            this.lblPassword.Size = new System.Drawing.Size(111, 26);
             this.lblPassword.TabIndex = 0;
             this.lblPassword.Text = "Mật khẩu:";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
@@ -127,14 +113,14 @@
             this.panel2.Controls.Add(this.lblUserName);
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(517, 86);
+            this.panel2.Size = new System.Drawing.Size(479, 56);
             this.panel2.TabIndex = 0;
             // 
             // txbUserName
             // 
-            this.txbUserName.Location = new System.Drawing.Point(225, 26);
+            this.txbUserName.Location = new System.Drawing.Point(186, 25);
             this.txbUserName.Name = "txbUserName";
-            this.txbUserName.Size = new System.Drawing.Size(274, 22);
+            this.txbUserName.Size = new System.Drawing.Size(290, 22);
             this.txbUserName.TabIndex = 1;
             this.txbUserName.Text = "admin";
             // 
@@ -144,23 +130,23 @@
             this.lblUserName.Font = new System.Drawing.Font("Arial", 13.77391F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserName.Location = new System.Drawing.Point(3, 20);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(187, 27);
+            this.lblUserName.Size = new System.Drawing.Size(173, 26);
             this.lblUserName.TabIndex = 0;
             this.lblUserName.Text = "Tên đăng nhập:";
             // 
-            // DangNhap
+            // fLogin
             // 
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(776, 373);
+            this.ClientSize = new System.Drawing.Size(555, 219);
             this.Controls.Add(this.panel1);
-            this.Name = "DangNhap";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fLogin_FormClosing);
-            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -183,3 +169,4 @@
         private System.Windows.Forms.Label lblUserName;
     }
 }
+

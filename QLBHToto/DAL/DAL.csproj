@@ -49,6 +49,7 @@
     <Compile Include="Ban_DAL.cs" />
     <Compile Include="Mon_DAL.cs" />
     <Compile Include="PhieuDatMon_DAL.cs" />
+    <Compile Include="TaiKhoan_DAL.cs" />
     <Compile Include="ThaotacCSDL_DAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
