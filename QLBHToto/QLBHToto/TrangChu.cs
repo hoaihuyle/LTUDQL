@@ -18,9 +18,10 @@ namespace QLBHToto
         public static string SetMaBan = "";
         DataTable dt;
         Ban_BLL ban = new Ban_BLL();
-        
         public TrangChu()
         {
+            //Temp form 1
+            InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
             // Set the MaximizeBox to false to remove the maximize box.
@@ -32,11 +33,20 @@ namespace QLBHToto
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            InitializeComponent();
+
+
+            ////Teamp form 2
+            //InitializeComponent();
+            //this.TopMost = true;
+            ////this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
+            //this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            //this.WindowState = FormWindowState.Maximized;
+
+            //Color
             //SplitterPanel leftPanel = splitContainer1.Panel1;
             //leftPanel.BackColor = Color.Green;
             //leftPanel.ForeColor = Color.Yellow;
-
+            //
             //SplitterPanel rightPanel = splitContainer1.Panel2;
             //rightPanel.BackColor = Color.OrangeRed;
             //rightPanel.ForeColor = Color.White;
@@ -75,8 +85,11 @@ namespace QLBHToto
                     b.Name = string.Format("b_{0}", i + 1);
                     //MessageBox.Show(dt.Rows[0]["TinhTrang"].ToString());
                     //Check table exist or not PDM-> change color-- Not finally
-                    if(dt.Rows[0]["TinhTrang"].ToString()=="False")
+                    if(int.Parse(dt.Rows[0]["TinhTrang"].ToString())==1)
                         b.BackColor = Color.Blue;
+                    if (int.Parse(dt.Rows[0]["TinhTrang"].ToString()) == 2)
+                        b.BackColor = Color.DarkOrange;
+
                     b.Click += b_Click;
                     b.Dock = DockStyle.Fill;
                     this.tableLayoutPanel1.Controls.Add(b);
@@ -102,10 +115,10 @@ namespace QLBHToto
                 }
                     
             }          
+            
 
 
-    }
-
+        }
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
            
@@ -115,7 +128,7 @@ namespace QLBHToto
         {
 
         }
-       
+        
 
     }
 }

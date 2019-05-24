@@ -32,6 +32,28 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_Them", name, value, 5);
         }
 
+        public int PhieuDatMon_Sua(string mapdm ,string manv, int maban,bool tinhtrang ,int thanhtien, float giamgia, float phuthu)
+        {
+            name = new string[7];
+            value = new object[7];
+            name[0] = "@MaPDM";
+            name[1] = "@MaNV";
+            name[2] = "@MaBan";
+            name[3] = "@TinhTrang";
+            name[4] = "@ThanhTien";
+            name[5] = "@GiamGia";
+            name[6] = "@PhuThu";
+            //(@MaNV char(10),@MaBan int, @ThanhTien int, @GiamGia float, @PhuThu float)
+            value[0] = mapdm;
+            value[1] = manv;
+            value[2] = maban;
+            value[3] = tinhtrang;
+            value[4] = thanhtien;
+            value[5] = giamgia;
+            value[6] = phuthu;
+            return thaotac.SQL_Thuchien("PhieuDatMon_Sua", name, value, 7);
+        }
+
         public DataTable PhieuDatMon_ChonTai(string mapdm)
         {
             name = new string[1];

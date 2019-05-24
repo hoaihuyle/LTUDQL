@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lb_pdm = new System.Windows.Forms.Label();
             this.btn_HienThi = new System.Windows.Forms.Button();
             this.btn_addMon = new System.Windows.Forms.Button();
             this.labelmamon = new System.Windows.Forms.Label();
@@ -41,23 +42,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenMon = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
             this.btn_LuuPDM = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btnXoaMon = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb_MaNV = new System.Windows.Forms.Label();
+            this.txt_tong = new System.Windows.Forms.TextBox();
+            this.txt_surcharge = new System.Windows.Forms.TextBox();
+            this.txt_reduce = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.HoaDon = new System.Windows.Forms.Button();
             this.PDMIn = new System.Windows.Forms.Button();
             this.PDMXoa = new System.Windows.Forms.Button();
             this.lb_soBan = new System.Windows.Forms.Label();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.lb_pdm = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,7 +73,7 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -91,16 +94,19 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
             this.splitContainer1.Panel2.Controls.Add(this.btn_back);
             this.splitContainer1.Panel2.Controls.Add(this.btn_LuuPDM);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
             this.splitContainer1.Panel2.Controls.Add(this.btnXoaMon);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.lb_MaNV);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_tong);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_surcharge);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_reduce);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Panel2.Controls.Add(this.HoaDon);
             this.splitContainer1.Panel2.Controls.Add(this.PDMIn);
@@ -112,10 +118,21 @@
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
             // 
+            // lb_pdm
+            // 
+            this.lb_pdm.AutoSize = true;
+            this.lb_pdm.Location = new System.Drawing.Point(2, 3);
+            this.lb_pdm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_pdm.Name = "lb_pdm";
+            this.lb_pdm.Size = new System.Drawing.Size(121, 17);
+            this.lb_pdm.TabIndex = 48;
+            this.lb_pdm.Text = "Mã phiếu đặt món";
+            this.lb_pdm.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // btn_HienThi
             // 
             this.btn_HienThi.Location = new System.Drawing.Point(237, 30);
-            this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_HienThi.Name = "btn_HienThi";
             this.btn_HienThi.Size = new System.Drawing.Size(100, 26);
             this.btn_HienThi.TabIndex = 39;
@@ -126,7 +143,7 @@
             // btn_addMon
             // 
             this.btn_addMon.Location = new System.Drawing.Point(241, 438);
-            this.btn_addMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addMon.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addMon.Name = "btn_addMon";
             this.btn_addMon.Size = new System.Drawing.Size(92, 53);
             this.btn_addMon.TabIndex = 38;
@@ -148,7 +165,7 @@
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.treeView1.Location = new System.Drawing.Point(342, 0);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(12, 514);
             this.treeView1.TabIndex = 4;
@@ -167,7 +184,7 @@
             // txtMaMon
             // 
             this.txtMaMon.Location = new System.Drawing.Point(87, 423);
-            this.txtMaMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaMon.Name = "txtMaMon";
             this.txtMaMon.Size = new System.Drawing.Size(132, 22);
             this.txtMaMon.TabIndex = 36;
@@ -186,7 +203,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(77, 29);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 24);
             this.comboBox1.TabIndex = 1;
@@ -194,7 +211,7 @@
             // txtGiaMon
             // 
             this.txtGiaMon.Location = new System.Drawing.Point(87, 482);
-            this.txtGiaMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtGiaMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaMon.Name = "txtGiaMon";
             this.txtGiaMon.Size = new System.Drawing.Size(132, 22);
             this.txtGiaMon.TabIndex = 30;
@@ -222,15 +239,33 @@
             // txtTenMon
             // 
             this.txtTenMon.Location = new System.Drawing.Point(87, 453);
-            this.txtTenMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenMon.Name = "txtTenMon";
             this.txtTenMon.Size = new System.Drawing.Size(132, 22);
             this.txtTenMon.TabIndex = 29;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(185, 457);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 17);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "VNĐ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(186, 418);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 17);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "%";
+            // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(23, 16);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_back.Location = new System.Drawing.Point(25, 4);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(100, 28);
             this.btn_back.TabIndex = 47;
@@ -241,7 +276,7 @@
             // btn_LuuPDM
             // 
             this.btn_LuuPDM.Location = new System.Drawing.Point(280, 412);
-            this.btn_LuuPDM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_LuuPDM.Margin = new System.Windows.Forms.Padding(4);
             this.btn_LuuPDM.Name = "btn_LuuPDM";
             this.btn_LuuPDM.Size = new System.Drawing.Size(204, 62);
             this.btn_LuuPDM.TabIndex = 46;
@@ -262,7 +297,7 @@
             // btnXoaMon
             // 
             this.btnXoaMon.Location = new System.Drawing.Point(280, 479);
-            this.btnXoaMon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaMon.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaMon.Name = "btnXoaMon";
             this.btnXoaMon.Size = new System.Drawing.Size(204, 31);
             this.btnXoaMon.TabIndex = 44;
@@ -290,45 +325,45 @@
             this.label5.TabIndex = 38;
             this.label5.Text = "Giảm giá";
             // 
-            // label4
+            // lb_MaNV
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(653, 11);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 17);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "MaNV";
+            this.lb_MaNV.AutoSize = true;
+            this.lb_MaNV.Location = new System.Drawing.Point(600, 16);
+            this.lb_MaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_MaNV.Name = "lb_MaNV";
+            this.lb_MaNV.Size = new System.Drawing.Size(46, 17);
+            this.lb_MaNV.TabIndex = 42;
+            this.lb_MaNV.Text = "MaNV";
             // 
-            // textBox3
+            // txt_tong
             // 
-            this.textBox3.Location = new System.Drawing.Point(493, 382);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(209, 22);
-            this.textBox3.TabIndex = 40;
+            this.txt_tong.Location = new System.Drawing.Point(493, 382);
+            this.txt_tong.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_tong.Name = "txt_tong";
+            this.txt_tong.Size = new System.Drawing.Size(209, 22);
+            this.txt_tong.TabIndex = 40;
             // 
-            // textBox2
+            // txt_surcharge
             // 
-            this.textBox2.Location = new System.Drawing.Point(117, 455);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(92, 22);
-            this.textBox2.TabIndex = 39;
+            this.txt_surcharge.Location = new System.Drawing.Point(117, 455);
+            this.txt_surcharge.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_surcharge.Name = "txt_surcharge";
+            this.txt_surcharge.Size = new System.Drawing.Size(65, 22);
+            this.txt_surcharge.TabIndex = 39;
             // 
-            // textBox1
+            // txt_reduce
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 415);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 22);
-            this.textBox1.TabIndex = 38;
+            this.txt_reduce.Location = new System.Drawing.Point(117, 415);
+            this.txt_reduce.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_reduce.Name = "txt_reduce";
+            this.txt_reduce.Size = new System.Drawing.Size(65, 22);
+            this.txt_reduce.TabIndex = 38;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(4, 74);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(704, 303);
             this.dataGridView2.TabIndex = 29;
@@ -338,7 +373,7 @@
             // HoaDon
             // 
             this.HoaDon.Location = new System.Drawing.Point(492, 412);
-            this.HoaDon.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.HoaDon.Name = "HoaDon";
             this.HoaDon.Size = new System.Drawing.Size(215, 32);
             this.HoaDon.TabIndex = 28;
@@ -349,7 +384,7 @@
             // PDMIn
             // 
             this.PDMIn.Location = new System.Drawing.Point(492, 447);
-            this.PDMIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PDMIn.Margin = new System.Windows.Forms.Padding(4);
             this.PDMIn.Name = "PDMIn";
             this.PDMIn.Size = new System.Drawing.Size(215, 34);
             this.PDMIn.TabIndex = 27;
@@ -360,7 +395,7 @@
             // PDMXoa
             // 
             this.PDMXoa.Location = new System.Drawing.Point(493, 481);
-            this.PDMXoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PDMXoa.Margin = new System.Windows.Forms.Padding(4);
             this.PDMXoa.Name = "PDMXoa";
             this.PDMXoa.Size = new System.Drawing.Size(215, 32);
             this.PDMXoa.TabIndex = 26;
@@ -371,23 +406,22 @@
             // lb_soBan
             // 
             this.lb_soBan.AutoSize = true;
-            this.lb_soBan.Location = new System.Drawing.Point(651, 39);
+            this.lb_soBan.Location = new System.Drawing.Point(641, 39);
             this.lb_soBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_soBan.Name = "lb_soBan";
             this.lb_soBan.Size = new System.Drawing.Size(54, 17);
             this.lb_soBan.TabIndex = 4;
             this.lb_soBan.Text = "Số Bàn";
             // 
-            // lb_pdm
+            // button1
             // 
-            this.lb_pdm.AutoSize = true;
-            this.lb_pdm.Location = new System.Drawing.Point(2, 3);
-            this.lb_pdm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_pdm.Name = "lb_pdm";
-            this.lb_pdm.Size = new System.Drawing.Size(121, 17);
-            this.lb_pdm.TabIndex = 48;
-            this.lb_pdm.Text = "Mã phiếu đặt món";
-            this.lb_pdm.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.Location = new System.Drawing.Point(25, 39);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Chuyển bàn";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // QuanLyNghiepVuBan
             // 
@@ -395,7 +429,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 514);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyNghiepVuBan";
             this.Text = "QuanLyNghiepVuBan";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -425,10 +459,10 @@
         private System.Windows.Forms.Button HoaDon;
         private System.Windows.Forms.Button PDMIn;
         private System.Windows.Forms.Button PDMXoa;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lb_MaNV;
+        private System.Windows.Forms.TextBox txt_tong;
+        private System.Windows.Forms.TextBox txt_surcharge;
+        private System.Windows.Forms.TextBox txt_reduce;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnXoaMon;
         private System.Windows.Forms.Label label6;
@@ -442,5 +476,8 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label lb_pdm;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }

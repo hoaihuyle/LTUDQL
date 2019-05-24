@@ -16,6 +16,12 @@ namespace BLL
             return pdm.PhieuDatMon_Them( manv, maban, thanhtien, giamgia, phuthu);
         }
 
+        public int PhieuDatMon_Sua(string mapdm, string manv, int maban, bool tinhtrang, int thanhtien, float giamgia, float phuthu)
+        {
+           
+            return  pdm.PhieuDatMon_Sua(mapdm, manv, maban, tinhtrang, thanhtien, giamgia, phuthu);
+        }
+
         public DataTable PhieuDatMon_ChonTai(string mapdm)
         {
             return pdm.PhieuDatMon_ChonTai(mapdm);

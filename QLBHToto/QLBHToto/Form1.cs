@@ -223,7 +223,7 @@ namespace GUI
             {
                 //Bàn trống
                 //Thay đổi tình trạng bàn
-                ban.Ban_CapNhap(int.Parse(cbBan.SelectedValue.ToString()),false,0);
+                ban.Ban_Sua(int.Parse(cbBan.SelectedValue.ToString()),1,0);
                 //Tạo phiếu đặt món
                 pdm.PhieuDatMon_Them("NV05061901",int.Parse(cbBan.SelectedValue.ToString()),0,0,0);
                 //Tao luon ca mon vao PDM

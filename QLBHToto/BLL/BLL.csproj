@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Ban_BLL.cs" />
     <Compile Include="ChiTietPDM_BLL.cs" />
+    <Compile Include="HoaDon_BLL.cs" />
     <Compile Include="LoaiMon_BLL.cs" />
     <Compile Include="Mon_BLL.cs" />
     <Compile Include="PhieuDatMon_BLL.cs" />

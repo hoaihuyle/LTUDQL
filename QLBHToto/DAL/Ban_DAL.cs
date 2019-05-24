@@ -30,7 +30,7 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("Ban_ChonTai", name, value, 1);
         }
 
-        public int Ban_CapNhap(int maban, bool tinhtrang, int bangop)
+        public int Ban_Sua(int maban, int tinhtrang, int bangop)
         {
             name = new string[3];
             value = new object[3];
@@ -42,7 +42,7 @@ namespace DAL
             value[1] = tinhtrang;
             value[2] = bangop;
 
-            return thaotac.SQL_Thuchien("Ban_CapNhap", name, value, 3);
+            return thaotac.SQL_Thuchien("Ban_Sua", name, value, 3);
         }
     }
 }

@@ -59,7 +59,7 @@ namespace DAL
             value[0] = mapdm;
             value[1] = mamon;
 
-            return thaotac.SQL_Thuchien("[ChiTietPDM_Xoa]", name, value, 2);
+            return thaotac.SQL_Thuchien("[ChiTietPDM_XoaTai]", name, value, 2);
         }
         public DataTable ChiTietPDM_ChonTai(string mapdm)
         {
