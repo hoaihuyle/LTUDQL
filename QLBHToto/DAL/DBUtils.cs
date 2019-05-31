@@ -11,9 +11,9 @@ namespace DAL
     {
         public static SqlConnection GetDBConnection()
         {
-            string datasource = @"MY-1MMG59AB2LR7\SQLEXPRESS";
+            string datasource = @"DESKTOP-S70KL4G\HOAIHUYLE";
 
-            string database = "toto_db";
+            string database = "totodb";
             return DBServerUtils.GetDBConnection(datasource, database);
         }
     }

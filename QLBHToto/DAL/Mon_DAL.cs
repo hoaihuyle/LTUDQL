@@ -22,6 +22,29 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("Mon_ChonAll_where_LoaiMon",name, value ,1);
         }
 
+        public DataTable Mon_ChonAll_where_LoaiMon_ADMIN(int maloaimon)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "MaLoaiMon";
+            value[0] = maloaimon;
+            return thaotac.Sql_LayDuLieu_CoDK("Mon_ChonAll_where_LoaiMon_ADMIN", name, value, 1);
+        }
+
+        public DataTable Mon_Search(string Str)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "@Str";
+            value[0] = Str;
+            return thaotac.Sql_LayDuLieu_CoDK("Mon_Search", name, value, 1);
+        }
+
+        public DataTable Mon_ChonAll()
+        {
+            //thaotac.KetnoiCSDL();
+            return thaotac.SQL_Laydulieu("Mon_ChonAll");
+        }
 
         public int Mon_Them(int maloaimon, string ten, float gia, string mota)
         {

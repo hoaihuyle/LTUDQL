@@ -22,9 +22,25 @@ namespace BLL
             return ban.Ban_CoDK(maban);
         }
 
-        public int Ban_CapNhap(int maban, bool tinhtrang, int bangop)
+        public int Ban_Sua(int maban, int tinhtrang, int bangop)
         {
-            return ban.Ban_CapNhap(maban, tinhtrang, bangop);
+            return ban.Ban_Sua(maban, tinhtrang, bangop);
+        }
+
+        public DataTable Ban_Count()
+        {
+            return ban.Ban_Count();
+        }
+
+        public int Ban_Xoa(int maban)
+        {
+            return ban.Ban_Xoa(maban);
+        }
+
+        public int Ban_Them(int tinhtrang, int bangop)
+        {
+
+            return ban.Ban_Them(tinhtrang, bangop);
         }
     }
 }

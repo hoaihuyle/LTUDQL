@@ -43,10 +43,13 @@
   <ItemGroup>
     <Compile Include="Ban_BLL.cs" />
     <Compile Include="ChiTietPDM_BLL.cs" />
+    <Compile Include="HoaDon_BLL.cs" />
     <Compile Include="LoaiMon_BLL.cs" />
     <Compile Include="Mon_BLL.cs" />
+    <Compile Include="NhanVien_BLL.cs" />
     <Compile Include="PhieuDatMon_BLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan_BLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lb_pdm = new System.Windows.Forms.Label();
             this.btn_HienThi = new System.Windows.Forms.Button();
             this.btn_addMon = new System.Windows.Forms.Button();
             this.labelmamon = new System.Windows.Forms.Label();
@@ -41,20 +43,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTenMon = new System.Windows.Forms.TextBox();
+            this.btn_Mvtb = new System.Windows.Forms.Button();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.txt_search = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_LuuPDM = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnXoaMon = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lb_MaNV = new System.Windows.Forms.Label();
+            this.txt_tong = new System.Windows.Forms.TextBox();
+            this.txt_surcharge = new System.Windows.Forms.TextBox();
+            this.txt_reduce = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.HoaDon = new System.Windows.Forms.Button();
             this.PDMIn = new System.Windows.Forms.Button();
             this.PDMXoa = new System.Windows.Forms.Button();
-            this.PDMMonXoa = new System.Windows.Forms.Button();
             this.lb_soBan = new System.Windows.Forms.Label();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -67,10 +77,12 @@
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.lb_pdm);
             this.splitContainer1.Panel1.Controls.Add(this.btn_HienThi);
             this.splitContainer1.Panel1.Controls.Add(this.btn_addMon);
             this.splitContainer1.Panel1.Controls.Add(this.labelmamon);
@@ -86,30 +98,49 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.btn_Mvtb);
+            this.splitContainer1.Panel2.Controls.Add(this.btn_back);
+            this.splitContainer1.Panel2.Controls.Add(this.btn_search);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_search);
+            this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.label8);
+            this.splitContainer1.Panel2.Controls.Add(this.btn_LuuPDM);
             this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnXoaMon);
             this.splitContainer1.Panel2.Controls.Add(this.label6);
             this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.lb_MaNV);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_tong);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_surcharge);
+            this.splitContainer1.Panel2.Controls.Add(this.txt_reduce);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Panel2.Controls.Add(this.HoaDon);
             this.splitContainer1.Panel2.Controls.Add(this.PDMIn);
             this.splitContainer1.Panel2.Controls.Add(this.PDMXoa);
-            this.splitContainer1.Panel2.Controls.Add(this.PDMMonXoa);
             this.splitContainer1.Panel2.Controls.Add(this.lb_soBan);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 266;
+            this.splitContainer1.Size = new System.Drawing.Size(1067, 514);
+            this.splitContainer1.SplitterDistance = 354;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // lb_pdm
+            // 
+            this.lb_pdm.AutoSize = true;
+            this.lb_pdm.Location = new System.Drawing.Point(2, 3);
+            this.lb_pdm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_pdm.Name = "lb_pdm";
+            this.lb_pdm.Size = new System.Drawing.Size(121, 17);
+            this.lb_pdm.TabIndex = 48;
+            this.lb_pdm.Text = "Mã phiếu đặt món";
+            this.lb_pdm.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // btn_HienThi
             // 
-            this.btn_HienThi.Location = new System.Drawing.Point(177, 16);
+            this.btn_HienThi.Location = new System.Drawing.Point(237, 30);
+            this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_HienThi.Name = "btn_HienThi";
-            this.btn_HienThi.Size = new System.Drawing.Size(75, 23);
+            this.btn_HienThi.Size = new System.Drawing.Size(100, 26);
             this.btn_HienThi.TabIndex = 39;
             this.btn_HienThi.Text = "Hiển thị";
             this.btn_HienThi.UseVisualStyleBackColor = true;
@@ -117,9 +148,10 @@
             // 
             // btn_addMon
             // 
-            this.btn_addMon.Location = new System.Drawing.Point(181, 383);
+            this.btn_addMon.Location = new System.Drawing.Point(241, 438);
+            this.btn_addMon.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addMon.Name = "btn_addMon";
-            this.btn_addMon.Size = new System.Drawing.Size(69, 46);
+            this.btn_addMon.Size = new System.Drawing.Size(92, 53);
             this.btn_addMon.TabIndex = 38;
             this.btn_addMon.Text = "Thêm món";
             this.btn_addMon.UseVisualStyleBackColor = true;
@@ -128,215 +160,312 @@
             // labelmamon
             // 
             this.labelmamon.AutoSize = true;
-            this.labelmamon.Location = new System.Drawing.Point(11, 373);
+            this.labelmamon.Location = new System.Drawing.Point(15, 426);
+            this.labelmamon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelmamon.Name = "labelmamon";
-            this.labelmamon.Size = new System.Drawing.Size(44, 14);
+            this.labelmamon.Size = new System.Drawing.Size(58, 17);
             this.labelmamon.TabIndex = 37;
             this.labelmamon.Text = "Mã món";
             // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.treeView1.Location = new System.Drawing.Point(256, 0);
+            this.treeView1.Location = new System.Drawing.Point(342, 0);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(10, 450);
+            this.treeView1.Size = new System.Drawing.Size(12, 514);
             this.treeView1.TabIndex = 4;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 74);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(253, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(337, 335);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // txtMaMon
             // 
-            this.txtMaMon.Location = new System.Drawing.Point(65, 370);
+            this.txtMaMon.Location = new System.Drawing.Point(87, 423);
+            this.txtMaMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaMon.Name = "txtMaMon";
-            this.txtMaMon.Size = new System.Drawing.Size(100, 20);
+            this.txtMaMon.Size = new System.Drawing.Size(132, 22);
             this.txtMaMon.TabIndex = 36;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 20);
+            this.label1.Location = new System.Drawing.Point(2, 35);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 14);
+            this.label1.Size = new System.Drawing.Size(66, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Loại Món";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(57, 15);
+            this.comboBox1.Location = new System.Drawing.Point(77, 29);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(114, 22);
+            this.comboBox1.Size = new System.Drawing.Size(151, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // txtGiaMon
             // 
-            this.txtGiaMon.Location = new System.Drawing.Point(65, 422);
+            this.txtGiaMon.Location = new System.Drawing.Point(87, 482);
+            this.txtGiaMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtGiaMon.Name = "txtGiaMon";
-            this.txtGiaMon.Size = new System.Drawing.Size(100, 20);
+            this.txtGiaMon.Size = new System.Drawing.Size(132, 22);
             this.txtGiaMon.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 396);
+            this.label2.Location = new System.Drawing.Point(15, 453);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 14);
+            this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 34;
             this.label2.Text = "Tên món";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 425);
+            this.label3.Location = new System.Drawing.Point(25, 486);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(23, 14);
+            this.label3.Size = new System.Drawing.Size(30, 17);
             this.label3.TabIndex = 35;
             this.label3.Text = "Gia";
             // 
             // txtTenMon
             // 
-            this.txtTenMon.Location = new System.Drawing.Point(65, 396);
+            this.txtTenMon.Location = new System.Drawing.Point(87, 453);
+            this.txtTenMon.Margin = new System.Windows.Forms.Padding(4);
             this.txtTenMon.Name = "txtTenMon";
-            this.txtTenMon.Size = new System.Drawing.Size(100, 20);
+            this.txtTenMon.Size = new System.Drawing.Size(132, 22);
             this.txtTenMon.TabIndex = 29;
+            // 
+            // btn_Mvtb
+            // 
+            this.btn_Mvtb.Location = new System.Drawing.Point(2, 35);
+            this.btn_Mvtb.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Mvtb.Name = "btn_Mvtb";
+            this.btn_Mvtb.Size = new System.Drawing.Size(100, 35);
+            this.btn_Mvtb.TabIndex = 55;
+            this.btn_Mvtb.Text = "Chuyển bàn";
+            this.btn_Mvtb.UseVisualStyleBackColor = true;
+            this.btn_Mvtb.Click += new System.EventHandler(this.Btn_Mvtb_Click_1);
+            // 
+            // btn_back
+            // 
+            this.btn_back.Location = new System.Drawing.Point(2, 3);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(100, 30);
+            this.btn_back.TabIndex = 54;
+            this.btn_back.Text = "Trở lại";
+            this.btn_back.UseVisualStyleBackColor = true;
+            this.btn_back.Click += new System.EventHandler(this.Btn_back_Click_1);
+            // 
+            // btn_search
+            // 
+            this.btn_search.Location = new System.Drawing.Point(304, 45);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 52;
+            this.btn_search.Text = "Tìm kiếm";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.Btn_search_Click);
+            // 
+            // txt_search
+            // 
+            this.txt_search.Location = new System.Drawing.Point(385, 45);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Size = new System.Drawing.Size(197, 22);
+            this.txt_search.TabIndex = 51;
+            this.txt_search.Text = "Mã món muốn tìm";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(185, 457);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 17);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "VNĐ";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(186, 418);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 17);
+            this.label8.TabIndex = 48;
+            this.label8.Text = "%";
+            // 
+            // btn_LuuPDM
+            // 
+            this.btn_LuuPDM.Location = new System.Drawing.Point(280, 412);
+            this.btn_LuuPDM.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_LuuPDM.Name = "btn_LuuPDM";
+            this.btn_LuuPDM.Size = new System.Drawing.Size(204, 62);
+            this.btn_LuuPDM.TabIndex = 46;
+            this.btn_LuuPDM.Text = "Lưu PĐM";
+            this.btn_LuuPDM.UseVisualStyleBackColor = true;
+            this.btn_LuuPDM.Click += new System.EventHandler(this.Btn_LuuPDM_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(256, 17);
+            this.label7.Location = new System.Drawing.Point(416, 385);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 14);
+            this.label7.Size = new System.Drawing.Size(68, 17);
             this.label7.TabIndex = 45;
             this.label7.Text = "Tổng tiền";
             // 
-            // button1
+            // btnXoaMon
             // 
-            this.button1.Location = new System.Drawing.Point(42, 366);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 27);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Xóa món";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnXoaMon.Location = new System.Drawing.Point(280, 479);
+            this.btnXoaMon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoaMon.Name = "btnXoaMon";
+            this.btnXoaMon.Size = new System.Drawing.Size(204, 31);
+            this.btnXoaMon.TabIndex = 44;
+            this.btnXoaMon.Text = "Xóa món";
+            this.btnXoaMon.UseVisualStyleBackColor = true;
+            this.btnXoaMon.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(36, 47);
+            this.label6.Location = new System.Drawing.Point(45, 459);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 14);
+            this.label6.Size = new System.Drawing.Size(62, 17);
             this.label6.TabIndex = 43;
             this.label6.Text = "Phụ Thu";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 18);
+            this.label5.Location = new System.Drawing.Point(45, 415);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 14);
+            this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 38;
             this.label5.Text = "Giảm giá";
             // 
-            // label4
+            // lb_MaNV
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(482, 5);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 14);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "MaNV";
+            this.lb_MaNV.AutoSize = true;
+            this.lb_MaNV.Location = new System.Drawing.Point(600, 16);
+            this.lb_MaNV.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lb_MaNV.Name = "lb_MaNV";
+            this.lb_MaNV.Size = new System.Drawing.Size(46, 17);
+            this.lb_MaNV.TabIndex = 42;
+            this.lb_MaNV.Text = "MaNV";
             // 
-            // textBox3
+            // txt_tong
             // 
-            this.textBox3.Location = new System.Drawing.Point(313, 14);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 40;
+            this.txt_tong.Location = new System.Drawing.Point(493, 382);
+            this.txt_tong.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_tong.Name = "txt_tong";
+            this.txt_tong.Size = new System.Drawing.Size(209, 22);
+            this.txt_tong.TabIndex = 40;
             // 
-            // textBox2
+            // txt_surcharge
             // 
-            this.textBox2.Location = new System.Drawing.Point(88, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 39;
+            this.txt_surcharge.Location = new System.Drawing.Point(117, 455);
+            this.txt_surcharge.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_surcharge.Name = "txt_surcharge";
+            this.txt_surcharge.Size = new System.Drawing.Size(65, 22);
+            this.txt_surcharge.TabIndex = 39;
             // 
-            // textBox1
+            // txt_reduce
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 38;
+            this.txt_reduce.Location = new System.Drawing.Point(117, 415);
+            this.txt_reduce.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_reduce.Name = "txt_reduce";
+            this.txt_reduce.Size = new System.Drawing.Size(65, 22);
+            this.txt_reduce.TabIndex = 38;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(2, 83);
+            this.dataGridView2.Location = new System.Drawing.Point(4, 74);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(528, 275);
+            this.dataGridView2.Size = new System.Drawing.Size(704, 303);
             this.dataGridView2.TabIndex = 29;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView2_CellContentClick);
+            this.dataGridView2.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView2_RowHeaderMouseClick);
             // 
             // HoaDon
             // 
-            this.HoaDon.Location = new System.Drawing.Point(327, 407);
+            this.HoaDon.Location = new System.Drawing.Point(492, 412);
+            this.HoaDon.Margin = new System.Windows.Forms.Padding(4);
             this.HoaDon.Name = "HoaDon";
-            this.HoaDon.Size = new System.Drawing.Size(161, 28);
+            this.HoaDon.Size = new System.Drawing.Size(215, 32);
             this.HoaDon.TabIndex = 28;
             this.HoaDon.Text = "ThanhToan";
             this.HoaDon.UseVisualStyleBackColor = true;
+            this.HoaDon.Click += new System.EventHandler(this.HoaDon_Click);
             // 
             // PDMIn
             // 
-            this.PDMIn.Location = new System.Drawing.Point(327, 366);
+            this.PDMIn.Location = new System.Drawing.Point(492, 447);
+            this.PDMIn.Margin = new System.Windows.Forms.Padding(4);
             this.PDMIn.Name = "PDMIn";
-            this.PDMIn.Size = new System.Drawing.Size(161, 30);
+            this.PDMIn.Size = new System.Drawing.Size(215, 34);
             this.PDMIn.TabIndex = 27;
             this.PDMIn.Text = "In PĐM";
             this.PDMIn.UseVisualStyleBackColor = true;
+            this.PDMIn.Click += new System.EventHandler(this.PDMIn_Click);
             // 
             // PDMXoa
             // 
-            this.PDMXoa.Location = new System.Drawing.Point(42, 410);
+            this.PDMXoa.Location = new System.Drawing.Point(493, 481);
+            this.PDMXoa.Margin = new System.Windows.Forms.Padding(4);
             this.PDMXoa.Name = "PDMXoa";
-            this.PDMXoa.Size = new System.Drawing.Size(161, 28);
+            this.PDMXoa.Size = new System.Drawing.Size(215, 32);
             this.PDMXoa.TabIndex = 26;
             this.PDMXoa.Text = "Xóa PĐM";
             this.PDMXoa.UseVisualStyleBackColor = true;
-            // 
-            // PDMMonXoa
-            // 
-            this.PDMMonXoa.Location = new System.Drawing.Point(259, 40);
-            this.PDMMonXoa.Name = "PDMMonXoa";
-            this.PDMMonXoa.Size = new System.Drawing.Size(154, 23);
-            this.PDMMonXoa.TabIndex = 25;
-            this.PDMMonXoa.Text = "Lưu PĐM";
-            this.PDMMonXoa.UseVisualStyleBackColor = true;
+            this.PDMXoa.Click += new System.EventHandler(this.PDMXoa_Click);
             // 
             // lb_soBan
             // 
             this.lb_soBan.AutoSize = true;
-            this.lb_soBan.Location = new System.Drawing.Point(484, 25);
+            this.lb_soBan.Location = new System.Drawing.Point(641, 39);
+            this.lb_soBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lb_soBan.Name = "lb_soBan";
-            this.lb_soBan.Size = new System.Drawing.Size(42, 14);
+            this.lb_soBan.Size = new System.Drawing.Size(54, 17);
             this.lb_soBan.TabIndex = 4;
             this.lb_soBan.Text = "Số Bàn";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // QuanLyNghiepVuBan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 514);
             this.Controls.Add(this.splitContainer1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "QuanLyNghiepVuBan";
             this.Text = "QuanLyNghiepVuBan";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QuanLyNghiepVuBan_FormClosing);
+            this.Load += new System.EventHandler(this.QuanLyNghiepVuBan_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -364,13 +493,12 @@
         private System.Windows.Forms.Button HoaDon;
         private System.Windows.Forms.Button PDMIn;
         private System.Windows.Forms.Button PDMXoa;
-        private System.Windows.Forms.Button PDMMonXoa;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lb_MaNV;
+        private System.Windows.Forms.TextBox txt_tong;
+        private System.Windows.Forms.TextBox txt_surcharge;
+        private System.Windows.Forms.TextBox txt_reduce;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnXoaMon;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
@@ -378,5 +506,15 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lb_soBan;
         private System.Windows.Forms.Button btn_HienThi;
+        private System.Windows.Forms.Button btn_LuuPDM;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label lb_pdm;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btn_Mvtb;
+        private System.Windows.Forms.Button btn_back;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.TextBox txt_search;
     }
 }

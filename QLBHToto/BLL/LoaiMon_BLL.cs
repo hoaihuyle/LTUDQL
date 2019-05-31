@@ -12,19 +12,23 @@ namespace BLL
     {
         LoaiMon_DAL loaimon = new LoaiMon_DAL();
 
-        
+
         //phương thức này gọi phương thức sv_select() ở lớp SinhVien_DAL (tầng DAL)
         public DataTable LoaiMon_Select()
         {
             return loaimon.LoaiMon_ChonAll();
-            
+
         }
 
-        //public DataTable LoaiMon_Select_Where(object[] value2)
-        //{
-        //    return loaimon.LoaiMon_CoDK(value2);
-        //}
+        public int LoaiMon_Them(string tenloaimon, string mota)
+        {
 
+            return loaimon.LoaiMon_Them(tenloaimon, mota);
+        }
+        public int LoaiMon_CapNhap(int maloaimon, string tenloaimon, string mota, bool tinhtrang)
+        {
+            return loaimon.LoaiMon_CapNhap(maloaimon, tenloaimon, mota, tinhtrang);
+        }
         public DataTable LoaiMon_Select_Where(int maloaimon)
         {
             return loaimon.LoaiMon_CoDK(maloaimon);
@@ -42,9 +46,10 @@ namespace BLL
         //    return svdal.sv_update(idsv, hoten, gioitinh, idlop);
         //}
 
-        ////phương thức này gọi phương thức sv_delete() ở lớp SinhVien_DAL (tầng DAL)
-        //public int SinhVien_Delete(int idsv)
-        //{
-        //    return svdal.sv_delete(idsv);
+        //phương thức này gọi phương thức sv_delete() ở lớp SinhVien_DAL (tầng DAL)
+        public int LoaiMon_Xoa(int maloaimon)
+        {
+            return loaimon.LoaiMon_Xoa(maloaimon);
+        }
     }
 }

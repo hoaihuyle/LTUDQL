@@ -23,7 +23,7 @@ namespace DAL
             //thaotac.KetnoiCSDL();
             return thaotac.SQL_Laydulieu("LoaiMon_ChonAll");
         }
-
+     
         public DataTable LoaiMon_CoDK(int maloaimon)
         {
             name = new string[1];
@@ -33,16 +33,29 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("LoaiMon_ChonTai",name,value,1);
         }
         ////phương thức này gọi phương thức SQL_Thuchien ở lớp ThaoTac_CoSoDuLieu để thực hiện insert
-        //public int sv_insert(string hoten, string gioitinh, string idlop)
-        //{
-        //    //thaotac.KetnoiCSDL();
-        //    name = new string[3];
-        //    value = new object[3];
-        //    name[0] = "@HoTen"; value[0] = hoten;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
-        //    name[1] = "@GioiTinh"; value[1] = gioitinh;
-        //    name[2] = "@IDLop"; value[2] = idlop;
-        //    return thaotac.SQL_Thuchien("SinhVien_Insert", name, value, 3);
-        //}
+        public int LoaiMon_Them(string tenloaimon, string mota)
+        {
+            //thaotac.KetnoiCSDL();
+            name = new string[2];
+            value = new object[2];
+            name[0] = "@TenLoaiMon"; value[0] = tenloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
+            name[1] = "@Mota"; value[1] = mota;
+            
+            return thaotac.SQL_Thuchien("LoaiMon_Them", name, value, 2);
+        }
+
+        public int LoaiMon_CapNhap(int maloaimon,string tenloaimon, string mota, bool tinhtrang)
+        {
+            //thaotac.KetnoiCSDL();
+            name = new string[4];
+            value = new object[4];
+            name[0] = "@MaLoaiMon"; value[0] = maloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
+            name[1] = "@TenLoaiMon"; value[0] = tenloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
+            name[2] = "@Mota"; value[1] = mota;
+            name[3] = "@TinhTrang"; value[1] = tinhtrang;
+
+            return thaotac.SQL_Thuchien("LoaiMon_CapNhap", name, value, 4);
+        }
         ////phương thức này gọi phương thức SQL_Thuchien ở lớp ThaoTac_CoSoDuLieu để thực hiện update
         //public int sv_update(int idsv, string hoten, string gioitinh, string idlop)
         //{
@@ -54,13 +67,13 @@ namespace DAL
         //    name[3] = "@IDLop"; value[3] = idlop;
         //    return thaotac.SQL_Thuchien("SinhVien_Update", name, value, 4);
         //}
-        ////phương thức này gọi phương thức SQL_Thuchien ở lớp ThaoTac_CoSoDuLieu để thực hiện delete
-        //public int sv_delete(int idsv)
-        //{
-        //    name = new string[1];
-        //    value = new object[1];
-        //    name[0] = "@IDSinhVien"; value[0] = idsv;
-        //    return thaotac.SQL_Thuchien("SinhVien_Delete", name, value, 1);
-        //}
+        //phương thức này gọi phương thức SQL_Thuchien ở lớp ThaoTac_CoSoDuLieu để thực hiện delete
+        public int LoaiMon_Xoa(int maloaimon)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "@MaLoaiMon"; value[0] = maloaimon;
+            return thaotac.SQL_Thuchien("LoaiMon_Xoa", name, value, 1);
+        }
     }
 }

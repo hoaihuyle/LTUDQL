@@ -12,9 +12,23 @@ namespace BLL
     public class Mon_BLL
     {
         Mon_DAL mon = new Mon_DAL();
-        public DataTable Mon_Select_Where_LoaiMon(int maloaimon)
+        public DataTable Mon_ChonAll_where_LoaiMon(int maloaimon)
         {
             return mon.Mon_CoDK_LoaiMon(maloaimon);
+        }
+
+        public DataTable Mon_Search(string Str)
+        { 
+            return mon.Mon_Search(Str);
+        }
+        public DataTable Mon_ChonAll_where_LoaiMon_ADMIN(int maloaimon)
+        {
+           
+            return mon.Mon_ChonAll_where_LoaiMon_ADMIN(maloaimon);
+        }
+        public DataTable Mon_ChonAll()
+        {
+            return mon.Mon_ChonAll();
         }
 
         public int Mon_Them(int maloaimon, string ten, float gia, string mota)

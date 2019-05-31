@@ -86,7 +86,7 @@ namespace GUI
         //}
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = mon.Mon_Select_Where_LoaiMon(int.Parse(comboBox1.SelectedValue.ToString()));
+            dataGridView1.DataSource = mon.Mon_ChonAll_where_LoaiMon(int.Parse(comboBox1.SelectedValue.ToString()));
            
             ////Gán dữ liệu nguồn
             cbMaLoaiMon.DataSource = loaimon.LoaiMon_Select();
@@ -100,14 +100,14 @@ namespace GUI
             //int mapdm =0;
             //MessageBox.Show(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
 
-            int MaPDM = 0;
+            string MaPDM = "";
             if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows.Count == 0)
             {
               
             }
             else
             {
-                MaPDM = int.Parse(pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
+                MaPDM = (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(cbBan.SelectedValue.ToString())).Rows[0]["MaPDM"].ToString());
             }
            
             dataGridPDM.DataSource = ctpdm.ChiTietPDM_ChonTai(MaPDM);
@@ -223,9 +223,9 @@ namespace GUI
             {
                 //Bàn trống
                 //Thay đổi tình trạng bàn
-                ban.Ban_CapNhap(int.Parse(cbBan.SelectedValue.ToString()),false,0);
+                ban.Ban_Sua(int.Parse(cbBan.SelectedValue.ToString()),1,0);
                 //Tạo phiếu đặt món
-                pdm.PhieuDatMon_Them(int.Parse(cbBan.SelectedValue.ToString()), true);
+                pdm.PhieuDatMon_Them("NV05061901",int.Parse(cbBan.SelectedValue.ToString()),0,0,0);
                 //Tao luon ca mon vao PDM
                 if (txtMaMon.Text == "")
                 {
@@ -233,7 +233,7 @@ namespace GUI
                 }
                 else
                 {
-                    ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(txtMaMon.Text));
+                    //ctpdm.ChiTietPDM_Them(MaPDM, int.Parse(txtMaMon.Text),soluong);
                     MessageBox.Show("Record Inserted Successfully");
                 }
             }
@@ -246,9 +246,9 @@ namespace GUI
             //CTPDM- chi tiet phieu dat mon
             //Kiem tra mon da ton tai trong CTPDM chua
 
-            if (ctpdm.ChiTietPDM_ChonTai(MaPDM) != null)
+            if (ctpdm.ChiTietPDM_ChonTai(MaPDM.ToString()) != null)
             {
-                var datatable = ctpdm.ChiTietPDM_ChonTai(MaPDM);
+                var datatable = ctpdm.ChiTietPDM_ChonTai(MaPDM.ToString());
                 var numberofrows = datatable.Rows.Count;
                 for (int i = 0; i < numberofrows; i++)
                 {
@@ -262,7 +262,7 @@ namespace GUI
 
             //Chua ton tai
             //Tao CTPDM
-            ctpdm.ChiTietPDM_Them(MaPDM ,int.Parse(txtMaMon.Text.ToString()));
+            //ctpdm.ChiTietPDM_Them(MaPDM ,int.Parse(txtMaMon.Text.ToString()));
 
 
 
