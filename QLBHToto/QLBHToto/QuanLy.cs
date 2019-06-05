@@ -41,6 +41,9 @@ namespace QLBHToto
 
             // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
+
+            //Set loading report default
+            crystalReportViewer1.Zoom(75);
         }
 
 
@@ -67,6 +70,8 @@ namespace QLBHToto
             dtgvCategory.DataSource = lm.LoaiMon_Select();
             dtgvTable.DataSource = ban.Ban_Select();
             dtgvFD.DataSource = mon.Mon_ChonAll();
+            dtgv_listhoadon.DataSource = hd.HoaDon_ChonAll();
+            this.dtgv_listhoadon.Columns["MaPDM"].Visible = false;
 
             //Mon
             ////Gán dữ liệu nguồn
@@ -517,6 +522,37 @@ namespace QLBHToto
             TaiKhoan formtk = new TaiKhoan();
             //formtk.Show();
             formtk.ShowDialog();
+        }
+
+        private void CrystalReportViewer1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SetHoaDon();
+        }
+
+        private void DataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SetHoaDon();
+        }
+
+        private void SetHoaDon()
+        {
+            int i = dtgv_listhoadon.CurrentRow.Index;
+            //MaHD 
+            //dtgv_listhoadon.Rows[i].Cells[0].Value.ToString();
+            BaoCaoHoaDon b = new BaoCaoHoaDon();
+            b.SetDataSource(hd.InHoaDonTai(dtgv_listhoadon.Rows[i].Cells[0].Value.ToString()));
+            crystalReportViewer1.ReportSource = b;
+            crystalReportViewer1.Zoom(75);
+
+
+
+
+
         }
     }
 }

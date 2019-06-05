@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,20 @@ namespace DAL
             return thaotac.SQL_Thuchien("HoaDon_Them", name, value, 2);
         }
 
-       
+        public DataTable HoaDon_ChonAll()
+        {
+            return thaotac.SQL_Laydulieu("HoaDon_ChonAll");
+        }
+
+        public DataTable InHoaDonTai(string mahd)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "@MaHD"; value[0] = mahd;
+            return thaotac.Sql_LayDuLieu_CoDK("InHoaDonTai", name, value, 1);
+        }
     }
+
+
+    
 }

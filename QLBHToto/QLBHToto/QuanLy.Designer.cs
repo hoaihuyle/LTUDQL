@@ -133,13 +133,16 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtMaMon = new System.Windows.Forms.TextBox();
             this.lblDrinkId = new System.Windows.Forms.Label();
-            this.tab_ThongKe = new System.Windows.Forms.TabPage();
-            this.split_ThongKeRight = new System.Windows.Forms.SplitContainer();
-            this.split_ThongKeLeft = new System.Windows.Forms.SplitContainer();
-            this.split_ThongKe_lhd = new System.Windows.Forms.SplitContainer();
+            this.tb = new System.Windows.Forms.TabControl();
+            this.tab_HoaDon = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dtgv_listhoadon = new System.Windows.Forms.DataGridView();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.btnHoaDon = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.BaoCaoHoaDon = new QLBHToto.BaoCaoHoaDon();
             this.tab_QLNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.split_QLTaiKhoan1)).BeginInit();
             this.split_QLTaiKhoan1.Panel1.SuspendLayout();
@@ -206,19 +209,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.nucGiaMon)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.tab_ThongKe.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKeRight)).BeginInit();
-            this.split_ThongKeRight.Panel1.SuspendLayout();
-            this.split_ThongKeRight.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKeLeft)).BeginInit();
-            this.split_ThongKeLeft.Panel1.SuspendLayout();
-            this.split_ThongKeLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKe_lhd)).BeginInit();
-            this.split_ThongKe_lhd.Panel1.SuspendLayout();
-            this.split_ThongKe_lhd.Panel2.SuspendLayout();
-            this.split_ThongKe_lhd.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.tb.SuspendLayout();
+            this.tab_HoaDon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_listhoadon)).BeginInit();
+            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_QLNhanVien
@@ -227,7 +225,7 @@
             this.tab_QLNhanVien.Location = new System.Drawing.Point(4, 29);
             this.tab_QLNhanVien.Name = "tab_QLNhanVien";
             this.tab_QLNhanVien.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_QLNhanVien.Size = new System.Drawing.Size(1172, 800);
+            this.tab_QLNhanVien.Size = new System.Drawing.Size(1463, 757);
             this.tab_QLNhanVien.TabIndex = 9;
             this.tab_QLNhanVien.Text = "Quản lý nhân viên";
             this.tab_QLNhanVien.UseVisualStyleBackColor = true;
@@ -254,8 +252,8 @@
             this.split_QLTaiKhoan1.Panel2.Controls.Add(this.panel4);
             this.split_QLTaiKhoan1.Panel2.Controls.Add(this.panel19);
             this.split_QLTaiKhoan1.Panel2.Controls.Add(this.panel22);
-            this.split_QLTaiKhoan1.Size = new System.Drawing.Size(1166, 794);
-            this.split_QLTaiKhoan1.SplitterDistance = 500;
+            this.split_QLTaiKhoan1.Size = new System.Drawing.Size(1457, 751);
+            this.split_QLTaiKhoan1.SplitterDistance = 624;
             this.split_QLTaiKhoan1.TabIndex = 0;
             // 
             // split_QLTaiKhoan2
@@ -275,8 +273,8 @@
             // split_QLTaiKhoan2.Panel2
             // 
             this.split_QLTaiKhoan2.Panel2.Controls.Add(this.dtgvAccount);
-            this.split_QLTaiKhoan2.Size = new System.Drawing.Size(500, 794);
-            this.split_QLTaiKhoan2.SplitterDistance = 167;
+            this.split_QLTaiKhoan2.Size = new System.Drawing.Size(624, 751);
+            this.split_QLTaiKhoan2.SplitterDistance = 157;
             this.split_QLTaiKhoan2.TabIndex = 0;
             // 
             // btnAddAcount
@@ -326,7 +324,7 @@
             this.dtgvAccount.Location = new System.Drawing.Point(0, 0);
             this.dtgvAccount.Name = "dtgvAccount";
             this.dtgvAccount.RowTemplate.Height = 24;
-            this.dtgvAccount.Size = new System.Drawing.Size(500, 623);
+            this.dtgvAccount.Size = new System.Drawing.Size(624, 590);
             this.dtgvAccount.TabIndex = 1;
             this.dtgvAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvAccount_CellContentClick_1);
             this.dtgvAccount.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgvAccount_RowHeaderMouseClick_1);
@@ -611,7 +609,7 @@
             this.tab_QLBan.Location = new System.Drawing.Point(4, 29);
             this.tab_QLBan.Name = "tab_QLBan";
             this.tab_QLBan.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_QLBan.Size = new System.Drawing.Size(1172, 800);
+            this.tab_QLBan.Size = new System.Drawing.Size(1463, 757);
             this.tab_QLBan.TabIndex = 8;
             this.tab_QLBan.Text = "Quản lý bàn";
             this.tab_QLBan.UseVisualStyleBackColor = true;
@@ -630,8 +628,8 @@
             // 
             this.split_QLBan1.Panel2.Controls.Add(this.panel11);
             this.split_QLBan1.Panel2.Controls.Add(this.panel16);
-            this.split_QLBan1.Size = new System.Drawing.Size(1166, 794);
-            this.split_QLBan1.SplitterDistance = 384;
+            this.split_QLBan1.Size = new System.Drawing.Size(1457, 751);
+            this.split_QLBan1.SplitterDistance = 478;
             this.split_QLBan1.TabIndex = 0;
             // 
             // split_QLBan2
@@ -650,8 +648,8 @@
             // split_QLBan2.Panel2
             // 
             this.split_QLBan2.Panel2.Controls.Add(this.dtgvTable);
-            this.split_QLBan2.Size = new System.Drawing.Size(384, 794);
-            this.split_QLBan2.SplitterDistance = 125;
+            this.split_QLBan2.Size = new System.Drawing.Size(478, 751);
+            this.split_QLBan2.SplitterDistance = 118;
             this.split_QLBan2.TabIndex = 0;
             // 
             // btnShowTsble
@@ -691,7 +689,7 @@
             this.dtgvTable.Location = new System.Drawing.Point(0, 0);
             this.dtgvTable.Name = "dtgvTable";
             this.dtgvTable.RowTemplate.Height = 24;
-            this.dtgvTable.Size = new System.Drawing.Size(384, 665);
+            this.dtgvTable.Size = new System.Drawing.Size(478, 629);
             this.dtgvTable.TabIndex = 1;
             this.dtgvTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvTable_CellContentClick);
             this.dtgvTable.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgvTable_RowHeaderMouseClick);
@@ -771,7 +769,7 @@
             this.tab_QLLoaiMon.Location = new System.Drawing.Point(4, 29);
             this.tab_QLLoaiMon.Name = "tab_QLLoaiMon";
             this.tab_QLLoaiMon.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_QLLoaiMon.Size = new System.Drawing.Size(1172, 800);
+            this.tab_QLLoaiMon.Size = new System.Drawing.Size(1463, 757);
             this.tab_QLLoaiMon.TabIndex = 7;
             this.tab_QLLoaiMon.Text = "Quản lý loại món";
             this.tab_QLLoaiMon.UseVisualStyleBackColor = true;
@@ -792,8 +790,8 @@
             this.split_QLLoaiMon1.Panel2.Controls.Add(this.panel23);
             this.split_QLLoaiMon1.Panel2.Controls.Add(this.panel24);
             this.split_QLLoaiMon1.Panel2.Controls.Add(this.panel3);
-            this.split_QLLoaiMon1.Size = new System.Drawing.Size(1166, 794);
-            this.split_QLLoaiMon1.SplitterDistance = 474;
+            this.split_QLLoaiMon1.Size = new System.Drawing.Size(1457, 751);
+            this.split_QLLoaiMon1.SplitterDistance = 591;
             this.split_QLLoaiMon1.TabIndex = 0;
             // 
             // split_QLLoaiMon2
@@ -813,8 +811,8 @@
             // split_QLLoaiMon2.Panel2
             // 
             this.split_QLLoaiMon2.Panel2.Controls.Add(this.dtgvCategory);
-            this.split_QLLoaiMon2.Size = new System.Drawing.Size(474, 794);
-            this.split_QLLoaiMon2.SplitterDistance = 143;
+            this.split_QLLoaiMon2.Size = new System.Drawing.Size(591, 751);
+            this.split_QLLoaiMon2.SplitterDistance = 135;
             this.split_QLLoaiMon2.TabIndex = 0;
             // 
             // btnDeleteCategory
@@ -864,7 +862,7 @@
             this.dtgvCategory.Location = new System.Drawing.Point(0, 0);
             this.dtgvCategory.Name = "dtgvCategory";
             this.dtgvCategory.RowTemplate.Height = 24;
-            this.dtgvCategory.Size = new System.Drawing.Size(474, 647);
+            this.dtgvCategory.Size = new System.Drawing.Size(591, 612);
             this.dtgvCategory.TabIndex = 1;
             this.dtgvCategory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvCategory_CellContentClick);
             this.dtgvCategory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgvCategory_RowHeaderMouseClick);
@@ -996,7 +994,7 @@
             this.tab_QLMon.Location = new System.Drawing.Point(4, 29);
             this.tab_QLMon.Name = "tab_QLMon";
             this.tab_QLMon.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_QLMon.Size = new System.Drawing.Size(1172, 800);
+            this.tab_QLMon.Size = new System.Drawing.Size(1463, 757);
             this.tab_QLMon.TabIndex = 6;
             this.tab_QLMon.Text = "Quản lý món";
             this.tab_QLMon.UseVisualStyleBackColor = true;
@@ -1014,8 +1012,8 @@
             // split_QLMon1.Panel2
             // 
             this.split_QLMon1.Panel2.Controls.Add(this.split_QLMon3);
-            this.split_QLMon1.Size = new System.Drawing.Size(1166, 794);
-            this.split_QLMon1.SplitterDistance = 559;
+            this.split_QLMon1.Size = new System.Drawing.Size(1457, 751);
+            this.split_QLMon1.SplitterDistance = 697;
             this.split_QLMon1.TabIndex = 0;
             // 
             // split_QLMon2
@@ -1036,8 +1034,8 @@
             // split_QLMon2.Panel2
             // 
             this.split_QLMon2.Panel2.Controls.Add(this.dtgvFD);
-            this.split_QLMon2.Size = new System.Drawing.Size(559, 794);
-            this.split_QLMon2.SplitterDistance = 130;
+            this.split_QLMon2.Size = new System.Drawing.Size(697, 751);
+            this.split_QLMon2.SplitterDistance = 122;
             this.split_QLMon2.TabIndex = 0;
             // 
             // txbSeachMon
@@ -1096,7 +1094,7 @@
             this.dtgvFD.Location = new System.Drawing.Point(0, 0);
             this.dtgvFD.Name = "dtgvFD";
             this.dtgvFD.RowTemplate.Height = 24;
-            this.dtgvFD.Size = new System.Drawing.Size(559, 660);
+            this.dtgvFD.Size = new System.Drawing.Size(697, 625);
             this.dtgvFD.TabIndex = 0;
             this.dtgvFD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgvFD_CellContentClick);
             this.dtgvFD.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgvFD_RowHeaderMouseClick);
@@ -1125,8 +1123,8 @@
             this.split_QLMon3.Panel2.Controls.Add(this.panel10);
             this.split_QLMon3.Panel2.Controls.Add(this.panel8);
             this.split_QLMon3.Panel2.Controls.Add(this.panel7);
-            this.split_QLMon3.Size = new System.Drawing.Size(603, 794);
-            this.split_QLMon3.SplitterDistance = 130;
+            this.split_QLMon3.Size = new System.Drawing.Size(756, 751);
+            this.split_QLMon3.SplitterDistance = 122;
             this.split_QLMon3.TabIndex = 0;
             // 
             // btnDeleteDrink
@@ -1343,99 +1341,118 @@
             this.lblDrinkId.TabIndex = 0;
             this.lblDrinkId.Text = "Id:";
             // 
-            // tab_ThongKe
+            // tb
             // 
-            this.tab_ThongKe.Controls.Add(this.split_ThongKeRight);
-            this.tab_ThongKe.Location = new System.Drawing.Point(4, 29);
-            this.tab_ThongKe.Name = "tab_ThongKe";
-            this.tab_ThongKe.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ThongKe.Size = new System.Drawing.Size(1172, 800);
-            this.tab_ThongKe.TabIndex = 5;
-            this.tab_ThongKe.Text = "Thống Kê";
-            this.tab_ThongKe.UseVisualStyleBackColor = true;
+            this.tb.Controls.Add(this.tab_QLMon);
+            this.tb.Controls.Add(this.tab_QLLoaiMon);
+            this.tb.Controls.Add(this.tab_QLBan);
+            this.tb.Controls.Add(this.tab_QLNhanVien);
+            this.tb.Controls.Add(this.tab_HoaDon);
+            this.tb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb.Location = new System.Drawing.Point(0, 0);
+            this.tb.Name = "tb";
+            this.tb.SelectedIndex = 0;
+            this.tb.Size = new System.Drawing.Size(1471, 790);
+            this.tb.TabIndex = 0;
             // 
-            // split_ThongKeRight
+            // tab_HoaDon
             // 
-            this.split_ThongKeRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.split_ThongKeRight.Location = new System.Drawing.Point(3, 3);
-            this.split_ThongKeRight.Name = "split_ThongKeRight";
+            this.tab_HoaDon.Controls.Add(this.splitContainer1);
+            this.tab_HoaDon.Location = new System.Drawing.Point(4, 29);
+            this.tab_HoaDon.Name = "tab_HoaDon";
+            this.tab_HoaDon.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_HoaDon.Size = new System.Drawing.Size(1463, 757);
+            this.tab_HoaDon.TabIndex = 10;
+            this.tab_HoaDon.Text = "Quản lý hóa đơn";
+            this.tab_HoaDon.UseVisualStyleBackColor = true;
             // 
-            // split_ThongKeRight.Panel1
+            // splitContainer1
             // 
-            this.split_ThongKeRight.Panel1.Controls.Add(this.split_ThongKeLeft);
-            this.split_ThongKeRight.Size = new System.Drawing.Size(1166, 794);
-            this.split_ThongKeRight.SplitterDistance = 735;
-            this.split_ThongKeRight.TabIndex = 0;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // split_ThongKeLeft
+            // splitContainer1.Panel1
             // 
-            this.split_ThongKeLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.split_ThongKeLeft.Location = new System.Drawing.Point(0, 0);
-            this.split_ThongKeLeft.Name = "split_ThongKeLeft";
+            this.splitContainer1.Panel1.Controls.Add(this.dtgv_listhoadon);
+            this.splitContainer1.Panel1.Controls.Add(this.panel20);
+            this.splitContainer1.Panel1.Controls.Add(this.panel18);
             // 
-            // split_ThongKeLeft.Panel1
+            // splitContainer1.Panel2
             // 
-            this.split_ThongKeLeft.Panel1.Controls.Add(this.split_ThongKe_lhd);
-            this.split_ThongKeLeft.Size = new System.Drawing.Size(735, 794);
-            this.split_ThongKeLeft.SplitterDistance = 407;
-            this.split_ThongKeLeft.TabIndex = 0;
+            this.splitContainer1.Panel2.Controls.Add(this.crystalReportViewer1);
+            this.splitContainer1.Size = new System.Drawing.Size(1457, 751);
+            this.splitContainer1.SplitterDistance = 516;
+            this.splitContainer1.TabIndex = 0;
             // 
-            // split_ThongKe_lhd
+            // dtgv_listhoadon
             // 
-            this.split_ThongKe_lhd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.split_ThongKe_lhd.Location = new System.Drawing.Point(0, 0);
-            this.split_ThongKe_lhd.Name = "split_ThongKe_lhd";
-            this.split_ThongKe_lhd.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.dtgv_listhoadon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dtgv_listhoadon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dtgv_listhoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_listhoadon.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgv_listhoadon.Location = new System.Drawing.Point(0, 78);
+            this.dtgv_listhoadon.Name = "dtgv_listhoadon";
+            this.dtgv_listhoadon.RowTemplate.Height = 24;
+            this.dtgv_listhoadon.Size = new System.Drawing.Size(516, 573);
+            this.dtgv_listhoadon.TabIndex = 3;
+            this.dtgv_listhoadon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
+            this.dtgv_listhoadon.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridView1_RowHeaderMouseClick);
             // 
-            // split_ThongKe_lhd.Panel1
+            // panel20
             // 
-            this.split_ThongKe_lhd.Panel1.Controls.Add(this.dateTimePicker1);
+            this.panel20.Controls.Add(this.btnHoaDon);
+            this.panel20.Controls.Add(this.dateTimePicker1);
+            this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(516, 78);
+            this.panel20.TabIndex = 1;
             // 
-            // split_ThongKe_lhd.Panel2
+            // btnHoaDon
             // 
-            this.split_ThongKe_lhd.Panel2.Controls.Add(this.dataGridView1);
-            this.split_ThongKe_lhd.Size = new System.Drawing.Size(407, 794);
-            this.split_ThongKe_lhd.SplitterDistance = 81;
-            this.split_ThongKe_lhd.TabIndex = 0;
+            this.btnHoaDon.Location = new System.Drawing.Point(390, 39);
+            this.btnHoaDon.Name = "btnHoaDon";
+            this.btnHoaDon.Size = new System.Drawing.Size(96, 39);
+            this.btnHoaDon.TabIndex = 6;
+            this.btnHoaDon.Text = "Hiển thị";
+            this.btnHoaDon.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 52);
+            this.dateTimePicker1.Location = new System.Drawing.Point(0, 46);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(316, 26);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dateTimePicker1.Size = new System.Drawing.Size(357, 26);
+            this.dateTimePicker1.TabIndex = 5;
             // 
-            // dataGridView1
+            // panel18
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(407, 709);
-            this.dataGridView1.TabIndex = 0;
+            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel18.Location = new System.Drawing.Point(0, 651);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(516, 100);
+            this.panel18.TabIndex = 0;
             // 
-            // tabControl1
+            // crystalReportViewer1
             // 
-            this.tabControl1.Controls.Add(this.tab_ThongKe);
-            this.tabControl1.Controls.Add(this.tab_QLMon);
-            this.tabControl1.Controls.Add(this.tab_QLLoaiMon);
-            this.tabControl1.Controls.Add(this.tab_QLBan);
-            this.tabControl1.Controls.Add(this.tab_QLNhanVien);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.01739F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1180, 833);
-            this.tabControl1.TabIndex = 0;
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.BaoCaoHoaDon;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(937, 751);
+            this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.CrystalReportViewer1_Load_1);
             // 
             // QuanLy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 833);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1471, 790);
+            this.Controls.Add(this.tb);
             this.Name = "QuanLy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
@@ -1529,19 +1546,14 @@
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.tab_ThongKe.ResumeLayout(false);
-            this.split_ThongKeRight.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKeRight)).EndInit();
-            this.split_ThongKeRight.ResumeLayout(false);
-            this.split_ThongKeLeft.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKeLeft)).EndInit();
-            this.split_ThongKeLeft.ResumeLayout(false);
-            this.split_ThongKe_lhd.Panel1.ResumeLayout(false);
-            this.split_ThongKe_lhd.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.split_ThongKe_lhd)).EndInit();
-            this.split_ThongKe_lhd.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.tb.ResumeLayout(false);
+            this.tab_HoaDon.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_listhoadon)).EndInit();
+            this.panel20.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1549,6 +1561,43 @@
         #endregion
 
         private System.Windows.Forms.TabPage tab_QLNhanVien;
+        private System.Windows.Forms.SplitContainer split_QLTaiKhoan1;
+        private System.Windows.Forms.SplitContainer split_QLTaiKhoan2;
+        private System.Windows.Forms.Button btnAddAcount;
+        private System.Windows.Forms.Button btnShowAccount;
+        private System.Windows.Forms.Button btnEditAcount;
+        private System.Windows.Forms.Button btnDeleteAccount;
+        private System.Windows.Forms.DataGridView dtgvAccount;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.TextBox txtPassEmp;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button btnResetPassword;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.TextBox txtStartWork;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.TextBox txtPhoneEmp;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.RadioButton rdEmp2;
+        private System.Windows.Forms.RadioButton rdEmp1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtYBDay;
+        private System.Windows.Forms.Label txtNamSinh;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TextBox txtNameEmp;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtIdEmp;
+        private System.Windows.Forms.Label txtMaNV;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.ComboBox cbAccountType;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox txtUName;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tab_QLBan;
         private System.Windows.Forms.SplitContainer split_QLBan1;
         private System.Windows.Forms.SplitContainer split_QLBan2;
@@ -1557,34 +1606,53 @@
         private System.Windows.Forms.Button btnAddTable;
         private System.Windows.Forms.DataGridView dtgvTable;
         private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rdBan2;
+        private System.Windows.Forms.RadioButton rdBan1;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.TextBox txtIdTable;
         private System.Windows.Forms.Label lblTableId;
         private System.Windows.Forms.TabPage tab_QLLoaiMon;
         private System.Windows.Forms.SplitContainer split_QLLoaiMon1;
         private System.Windows.Forms.SplitContainer split_QLLoaiMon2;
+        private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.Button btnShowCategory;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnEditCategory;
-        private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.DataGridView dtgvCategory;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtMotaLoaiMon;
+        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.TextBox txtTenLoaiMon;
         private System.Windows.Forms.Label lblCategoryName;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.TextBox txtMaLoaiMon;
         private System.Windows.Forms.Label lblCategoryId;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton rdLoaiMon2;
+        private System.Windows.Forms.RadioButton rdLoaiMon1;
         private System.Windows.Forms.TabPage tab_QLMon;
         private System.Windows.Forms.SplitContainer split_QLMon1;
         private System.Windows.Forms.SplitContainer split_QLMon2;
-        private System.Windows.Forms.Button btnShowDrink;
-        private System.Windows.Forms.Button btnEditDrink;
-        private System.Windows.Forms.Button btnDeleteDrink;
-        private System.Windows.Forms.Button btnAddDrink;
-        private System.Windows.Forms.DataGridView dtgvFD;
-        private System.Windows.Forms.SplitContainer split_QLMon3;
         private System.Windows.Forms.TextBox txbSeachMon;
         private System.Windows.Forms.Button btnSeachDrink;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dtgvFD;
+        private System.Windows.Forms.SplitContainer split_QLMon3;
+        private System.Windows.Forms.Button btnDeleteDrink;
+        private System.Windows.Forms.Button btnShowDrink;
+        private System.Windows.Forms.Button btnAddDrink;
+        private System.Windows.Forms.Button btnEditDrink;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.RadioButton rdMon0;
+        private System.Windows.Forms.RadioButton rdMon1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtMota;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.ComboBox cbMaLoaiMon;
         private System.Windows.Forms.Label label1;
@@ -1597,68 +1665,15 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtMaMon;
         private System.Windows.Forms.Label lblDrinkId;
-        private System.Windows.Forms.TabPage tab_ThongKe;
-        private System.Windows.Forms.SplitContainer split_ThongKeRight;
-        private System.Windows.Forms.SplitContainer split_ThongKeLeft;
-        private System.Windows.Forms.SplitContainer split_ThongKe_lhd;
+        private System.Windows.Forms.TabControl tb;
+        private System.Windows.Forms.TabPage tab_HoaDon;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dtgv_listhoadon;
+        private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.SplitContainer split_QLTaiKhoan1;
-        private System.Windows.Forms.SplitContainer split_QLTaiKhoan2;
-        private System.Windows.Forms.Button btnShowAccount;
-        private System.Windows.Forms.Button btnEditAcount;
-        private System.Windows.Forms.Button btnDeleteAccount;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.ComboBox cbAccountType;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtMota;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RadioButton rdMon0;
-        private System.Windows.Forms.RadioButton rdMon1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RadioButton rdLoaiMon2;
-        private System.Windows.Forms.RadioButton rdLoaiMon1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox txtMotaLoaiMon;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton rdBan2;
-        private System.Windows.Forms.RadioButton rdBan1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox txtIdEmp;
-        private System.Windows.Forms.Label txtMaNV;
-        private System.Windows.Forms.TextBox txtUName;
-        private System.Windows.Forms.Button btnAddAcount;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.RadioButton rdEmp2;
-        private System.Windows.Forms.RadioButton rdEmp1;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtYBDay;
-        private System.Windows.Forms.Label txtNamSinh;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtNameEmp;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox txtPhoneEmp;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.TextBox txtStartWork;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.TextBox txtPassEmp;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnResetPassword;
-        private System.Windows.Forms.DataGridView dtgvAccount;
+        private System.Windows.Forms.Panel panel18;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private BaoCaoHoaDon BaoCaoHoaDon;
+        private System.Windows.Forms.Button btnHoaDon;
     }
 }

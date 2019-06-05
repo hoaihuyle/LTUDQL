@@ -38,26 +38,26 @@ namespace QLBHToto
         public TrangChu()
         {
 
-            ////Temp form 1
-            //InitializeComponent();
-            //this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
-            //// Set the MaximizeBox to false to remove the maximize box.
-            //this.MaximizeBox = false;
-
-            //// Set the MinimizeBox to false to remove the minimize box.
-            //this.MinimizeBox = false;
-
-            //// Set the start position of the form to the center of the screen.
-            //this.StartPosition = FormStartPosition.CenterScreen;
-
-
-            //Teamp form 2
+            //Temp form 1
             InitializeComponent();
-            this.TopMost = true;
-            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
+            // Set the MaximizeBox to false to remove the maximize box.
+            this.MaximizeBox = false;
+
+            // Set the MinimizeBox to false to remove the minimize box.
+            this.MinimizeBox = false;
+
+            // Set the start position of the form to the center of the screen.
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+
+            ////Teamp form 2
+            //InitializeComponent();
+            //this.TopMost = true;
+            //this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
+            //this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            //this.WindowState = FormWindowState.Maximized;
 
             ////Color
             SplitterPanel leftPanel = splitContainer1.Panel1;
@@ -303,14 +303,10 @@ namespace QLBHToto
             }
         }
 
-        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-          
-        }
 
         private void Btn_home_Click(object sender, EventArgs e)
         {
-            
+        
 
         }
 

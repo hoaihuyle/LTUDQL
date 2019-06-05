@@ -41,3 +41,14 @@ C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.exe
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.pdb
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.QuanLy.resources
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.TaiKhoan.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\FlashControlV71.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.FormLogin.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.FormDashBoard.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.UserControls.UC_Table.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.UserControls.UC_DetailTable.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.FormTable.resources

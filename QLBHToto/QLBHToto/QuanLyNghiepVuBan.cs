@@ -238,8 +238,6 @@ namespace QLBHToto
                 else
                     MessageBox.Show("Xin chọn món cần xóa");
             }
-           
-           
 
         }
 
