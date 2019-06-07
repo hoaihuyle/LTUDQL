@@ -23,20 +23,30 @@ namespace QLBHToto.UserControls
         //Nghiệp vụ chuyển bàn
         string moveban = "";
         string movepdm = "";
+        //--
 
+        //Lưu maban cho nghiệp vụ quản lý bàn
         public static string SetMaBan = "";
+        //--
+
         DataTable dt;
         Ban_BLL ban = new Ban_BLL();
         PhieuDatMon_BLL pdm = new PhieuDatMon_BLL();
+
+        //Số hàng, số côt
         int rowCount = 5;
         int columnCount = 5;
+        //-----
+
         static int pagenum = 1;
         double p = 0;
         bool ktmove = false;
-
         //
+
         public static bool ktmoveSucess = false;
 
+        //Check Create Mangve
+        public static bool CheckMangVe = false;
         public UC_Table()
         {
             InitializeComponent();
@@ -52,14 +62,27 @@ namespace QLBHToto.UserControls
             double tcell = rowCount * columnCount;
 
             //Tính tổng trang
-            if (ban.Ban_Select().Rows.Count % tcell == 0)
+            DataTable dt;
+            if (FormDashBoard.CheckHome)
             {
-                p = ban.Ban_Select().Rows.Count / tcell;//Tổng trang
+                dt = ban.Ban_Select();
             }
             else
             {
-                p = ban.Ban_Select().Rows.Count / tcell + 1;//Tổng trang
+               dt = pdm.PhieuDatMon_MangVe_TonTai();
+              
             }
+
+            if (dt.Rows.Count % tcell == 0)
+            {
+                p = dt.Rows.Count / tcell;//Tổng trang
+            }
+            else
+            {
+                p = dt.Rows.Count / tcell + 1;//Tổng trang
+            }
+
+
             txt_PageNum.Text = "Trang " + pagenum.ToString() + "/" + ((int)p).ToString();
 
             //Tạo bàn
@@ -71,7 +94,9 @@ namespace QLBHToto.UserControls
             {
                 this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100 / rowCount));
             }
-            handle_button();
+            if (FormDashBoard.CheckHome) { handle_button(); }
+            else { handle_button_TakeAway(); }
+
         }
         private void UC_Table_Load(object sender, EventArgs e)
         {
@@ -96,6 +121,102 @@ namespace QLBHToto.UserControls
 
             }
         }
+        private void handle_button_TakeAway()
+        {
+            DataTable dtpdm = pdm.PhieuDatMon_MangVe_TonTai();
+            string text = "";
+            
+            //MessageBox.Show(pdm.PhieuDatMon_MangVe_TonTai().Rows.Count.ToString());
+            for (int i = 0; i < dtpdm.Rows.Count+1; i++)
+            {
+                string pagetk = "Mang Về";
+                var b = new Button();
+                if (i== dtpdm.Rows.Count)
+                {
+                    //---Image//////////////
+                    // Assign an image to the button.
+                    b.Image = Image.FromFile("D:\\documents\\Documents\\LTUDQL\\icon8\\icons8-plus-math-filled-100.png");
+                    // Align the image and text on the button.
+                    b.ImageAlign = ContentAlignment.MiddleCenter;
+                    // Give the button a flat appearance.
+                    b.FlatStyle = FlatStyle.Flat;
+                    b.BackColor = Color.FromArgb(0, 71, 160);
+                    b.FlatAppearance.BorderSize = 0;
+                    b.FlatAppearance.BorderColor = Color.FromArgb(192, 0, 0);
+                    b.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 0, 0);
+                    //b.FlatAppearance.BorderSize = 1;
+                    //---EndImage////
+                }
+                else
+                {
+                    int dem = 0;
+                    foreach (DataRow row in dtpdm.Rows)
+                    {
+                        if (row["NgayLap"] != null)
+                        {
+                            //Tính tổng tiền
+                            double total = double.Parse(row["ThanhTien"].ToString())
+                                - (double.Parse(row["GiamGia"].ToString()) * double.Parse(row["ThanhTien"].ToString()) / 100)
+                                + double.Parse(row["PhuThu"].ToString());
+                            //Ép kiểu 
+                            DateTime tempDate = Convert.ToDateTime(row["NgayLap"].ToString());
+                            //Lưu dữ liệu
+                            text = Environment.NewLine
+                                + "GIỜ GỌI MÓN: " + tempDate.ToString("HH:mm:ss").ToUpper()
+                                + Environment.NewLine + Environment.NewLine
+                                + "TỔNG TIỀN: " + total.ToString() + " VNĐ";
+                        }
+
+                        b.BackColor = Color.Green;
+                        b.Text = "MANG VỀ " + Environment.NewLine + text;
+                        if (dem==i)break;
+                        dem++;
+                    }
+                }
+
+                
+                pagetk = String.Concat(pagetk," ",(i+1).ToString());
+
+                //Định danh button
+                b.Name = string.Format("bTakeAway_{0}", i);
+                //Truyền tham số page=0 =>>>>> Mang về
+                //Cho số bàn mặc định là 1
+                b.Click += delegate (object sender, EventArgs e) { b_Click_TakeAway(sender, e, pagetk); };
+                b.Dock = DockStyle.Fill;
+                this.tableLayoutPanel1.Controls.Add(b);
+                
+            }
+
+            //Tạo nút
+            void b_Click_TakeAway(object sender, EventArgs e, string page)
+            {
+               
+                var b = sender as Button;
+                if (b != null)
+                {
+                   // Nhận biến truyền page
+                    SetMaBan = page;
+
+                    //Set attitude
+                    CheckMangVe = false;
+                    if (SplitString(page)==(dtpdm.Rows.Count + 1).ToString())
+                    CheckMangVe = true;
+
+                    ((Form)this.TopLevelControl).Dispose();
+                    using (FormTable ftb = new FormTable())
+                    {
+                        ftb.ShowDialog();
+                    }
+                }
+
+            }
+        }
+
+        public static string SplitString(string s)
+        {
+            return s.Substring(s.Length - (s.Length - 7), (s.Length - 7));
+            
+        }
         private void handle_button()
         {
             for (int i = 0; i < rowCount * columnCount; i++)
@@ -116,7 +237,6 @@ namespace QLBHToto.UserControls
                     if (int.Parse(dt.Rows[0]["TinhTrang"].ToString()) == 1)
                     {
                         b.BackColor = Color.Green;
-
                         kt = true;
                     }
 
@@ -163,7 +283,7 @@ namespace QLBHToto.UserControls
             //Tạo nút
             void b_Click(object sender, EventArgs e, int page)
             {
-        
+               
                 var b = sender as Button;
                 if (b != null)
                 {
@@ -183,11 +303,14 @@ namespace QLBHToto.UserControls
                     //f2.ShowDialog(); // Shows Form2
                     //UC_DetailTable dtb = new UC_DetailTable();
                     //f2.AddControlsToPanel(dtb);
+
+                    //Shut Down FormDashBoard
+                    //MessageBox.Show("ktmoveSucess"+ktmoveSucess.ToString());
+                    //MessageBox.Show("ktmove" + ktmove.ToString());
+                    ((Form)this.TopLevelControl).Dispose();
                     using (FormTable ftb = new FormTable())
                     {
-                        
                         ftb.ShowDialog();
-
                     }
                 }
 
@@ -241,7 +364,8 @@ namespace QLBHToto.UserControls
                 ctrl.Dispose();
             }
             this.tableLayoutPanel1.Controls.Clear();
-            handle_button();
+            if (FormDashBoard.CheckHome) { handle_button(); }
+            else { handle_button_TakeAway(); }
         }
     }
 }

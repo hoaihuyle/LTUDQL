@@ -15,7 +15,9 @@ namespace QLBHToto
     {
         int pnWidth;
         bool isColappsed;
-        
+
+        public static bool CheckHome = true;
+
         public FormDashBoard()
         {
             InitializeComponent();
@@ -30,7 +32,15 @@ namespace QLBHToto
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            DialogResult dialogResult = MessageBox.Show("Thoát chương trình, đồng nghĩa với việc đăng xuất ?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -80,6 +90,7 @@ namespace QLBHToto
         {
             MoveSidePanel(btnHome);
 
+            CheckHome = true;
             UC_Table utable = new UC_Table();
             AddControlsToPanel(utable);
         }
@@ -87,21 +98,36 @@ namespace QLBHToto
         private void BtnTakeAway_Click(object sender, EventArgs e)
         {
             MoveSidePanel(btnTakeAway);
-        }
 
-        private void BtnAdmin_Click(object sender, EventArgs e)
-        {
-            MoveSidePanel(btnAdmin);
+            CheckHome = false;
+            UC_Table utable = new UC_Table();
+            AddControlsToPanel(utable);
         }
 
         private void BtnAccount_Click(object sender, EventArgs e)
         {
             MoveSidePanel(btnAccount);
+
+            UC_Account uaccount = new UC_Account();
+            AddControlsToPanel(uaccount);
         }
+
+        private void BtnAdmin_Click(object sender, EventArgs e)
+        {
+            MoveSidePanel(btnAdmin);
+
+            using (QuanLy f = new QuanLy())
+            {
+                f.ShowDialog();
+            }
+        }
+
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
             MoveSidePanel(btnLogOut);
+            this.Close();
+
         }
 
         private void TimerTime_Tick(object sender, EventArgs e)
@@ -114,6 +140,11 @@ namespace QLBHToto
         private void PnControls_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void FormDashBoard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

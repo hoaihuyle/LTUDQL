@@ -61,11 +61,11 @@ namespace QLBHToto
                 if (txtRePassWord.Text == txtNewPassWord.Text)
                 {
                     tk.TaiKhoan_Sua(txtUserName.Text, txtNewPassWord.Text, txtMaNV.Text);
-                    MessageBox.Show("Đổi mật khẩu thành công");
+                    MessageBox.Show("Đổi mật khẩu thành công","Thông báo");
                 }
-                else MessageBox.Show("Mật khẩu không trùng khớp");
+                else MessageBox.Show("Mật khẩu không trùng khớp","Thông báo");
             }
-            else MessageBox.Show("Nhập mật khẩu mới !");
+            else MessageBox.Show("Nhập mật khẩu mới !", "Thông báo");
         }
 
         private void TaiKhoan_FormClosing(object sender, FormClosingEventArgs e)

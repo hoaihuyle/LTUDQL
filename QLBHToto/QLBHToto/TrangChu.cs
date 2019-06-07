@@ -219,15 +219,7 @@ namespace QLBHToto
 
                 }
             }
-               
-            //if (DangNhap.SetPassword != "" && DangNhap.SetUsername != "")
-            //{
-            //    MessageBox.Show("Đăng xuất để thoát");
-            //    this.Hide();
-            //    TrangChu home = new TrangChu();
-            //    home.ShowDialog();
-            //    this.Show();
-            //}
+
         }
 
         private void Btn_Right_Click(object sender, EventArgs e)

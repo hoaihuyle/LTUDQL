@@ -16,6 +16,11 @@ namespace BLL
             return pdm.PhieuDatMon_Them( manv, maban, thanhtien, giamgia, phuthu);
         }
 
+        public int PhieuDatMon_Them_THMV(string manv, int maban, int thanhtien, float giamgia, float phuthu)
+        {
+            return pdm.PhieuDatMon_Them_THMV(manv, maban, thanhtien, giamgia, phuthu);
+        }
+
         public int PhieuDatMon_Sua(string mapdm, string manv, int maban, bool tinhtrang, int thanhtien, float giamgia, float phuthu)
         {
            
@@ -38,6 +43,8 @@ namespace BLL
             return pdm.Check_PhieuDatMon_ChonTai_Ban(maban);
         }
 
+
+
         public int PhieuDatMon_Xoa(string mapdm)
         {
             return pdm.PhieuDatMon_Xoa(mapdm);
@@ -46,6 +53,21 @@ namespace BLL
         public DataTable PhieuDatMon_ChonTai_Ban(int maban)
         {
             return pdm.PhieuDatMon_ChonTai_Ban(maban);
+        }
+
+        public DataTable PhieuDatMon_ChonTai_MangVe(int mamv)
+        {
+            return pdm.PhieuDatMon_ChonTai_MangVe(mamv);
+        }
+
+        public DataTable PhieuDatMon_ChonAll()
+        {
+            return pdm.PhieuDatMon_ChonAll();
+        }
+
+        public DataTable PhieuDatMon_MangVe_TonTai()
+        {
+            return pdm.PhieuDatMon_MangVe_TonTai();
         }
     }
 }

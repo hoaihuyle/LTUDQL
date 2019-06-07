@@ -209,6 +209,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(151, 33);
             this.comboBox1.TabIndex = 49;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
             // panel4
             // 
@@ -307,6 +308,7 @@
             this.txt_reduce.Name = "txt_reduce";
             this.txt_reduce.Size = new System.Drawing.Size(117, 29);
             this.txt_reduce.TabIndex = 50;
+            this.txt_reduce.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -328,6 +330,7 @@
             this.txt_surcharge.Name = "txt_surcharge";
             this.txt_surcharge.Size = new System.Drawing.Size(117, 29);
             this.txt_surcharge.TabIndex = 51;
+            this.txt_surcharge.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -343,13 +346,14 @@
             // txt_tong
             // 
             this.txt_tong.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_tong.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_tong.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_tong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.txt_tong.Location = new System.Drawing.Point(153, 142);
             this.txt_tong.Margin = new System.Windows.Forms.Padding(4);
             this.txt_tong.Name = "txt_tong";
             this.txt_tong.Size = new System.Drawing.Size(117, 29);
             this.txt_tong.TabIndex = 52;
+            this.txt_tong.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label5
             // 
@@ -609,6 +613,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormTable";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormTable_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel6.ResumeLayout(false);

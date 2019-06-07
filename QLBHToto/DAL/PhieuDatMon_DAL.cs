@@ -32,6 +32,24 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_Them", name, value, 5);
         }
 
+        public int PhieuDatMon_Them_THMV(string manv, int maban, int thanhtien, float giamgia, float phuthu)
+        {
+            name = new string[5];
+            value = new object[5];
+            name[0] = "@MaNV";
+            name[1] = "@MaBan";
+            name[2] = "@ThanhTien";
+            name[3] = "@GiamGia";
+            name[4] = "@PhuThu";
+            //(@MaNV char(10),@MaBan int, @ThanhTien int, @GiamGia float, @PhuThu float)
+            value[0] = manv;
+            value[1] = maban;
+            value[2] = thanhtien;
+            value[3] = giamgia;
+            value[4] = phuthu;
+            return thaotac.SQL_Thuchien("PhieuDatMon_Them_THMV", name, value, 5);
+        }
+
         public int PhieuDatMon_Sua(string mapdm ,string manv, int maban,bool tinhtrang ,int thanhtien, float giamgia, float phuthu)
         {
             name = new string[7];
@@ -85,6 +103,7 @@ namespace DAL
             return thaotac.SQL_Thuchien("PhieuDatMon_ChonTai_Ban", name, value, 1);
         }
 
+
         public int PhieuDatMon_Xoa(string mapdm)
         {
             name = new string[1];
@@ -104,6 +123,29 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("PhieuDatMon_ChonTai_Ban", name, value, 1);
         }
 
-        
+        public DataTable PhieuDatMon_ChonTai_MangVe(int mamv)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "@MaMV";
+            value[0] = mamv;
+            return thaotac.Sql_LayDuLieu_CoDK("PhieuDatMon_ChonTai_MangVe", name, value, 1);
+        }
+
+        public DataTable PhieuDatMon_ChonAll()
+        {
+            name = new string[0];
+            value = new object[0];
+            return thaotac.SQL_Laydulieu("PhieuDatMon_ChonAll");
+        }
+
+        public DataTable PhieuDatMon_MangVe_TonTai()
+        {
+            name = new string[0];
+            value = new object[0];
+            return thaotac.SQL_Laydulieu("PhieuDatMon_MangVe_TonTai");
+        }
+
+
     }
 }

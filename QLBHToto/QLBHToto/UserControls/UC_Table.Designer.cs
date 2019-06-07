@@ -59,8 +59,9 @@
             // 
             // btn_Right
             // 
-            this.btn_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.btn_Right.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Right.FlatAppearance.BorderSize = 0;
             this.btn_Right.Location = new System.Drawing.Point(108, 0);
             this.btn_Right.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Right.Name = "btn_Right";
@@ -72,8 +73,9 @@
             // 
             // btn_Left
             // 
-            this.btn_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.btn_Left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btn_Left.FlatAppearance.BorderSize = 0;
             this.btn_Left.Location = new System.Drawing.Point(0, 0);
             this.btn_Left.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Left.Name = "btn_Left";
