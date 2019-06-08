@@ -30,17 +30,9 @@ namespace QLBHToto
            //if(UC_Table.ktmoveSucess==false) {this.Dispose();}
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+private void Button2_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Thoát chương trình, đồng nghĩa với việc đăng xuất ?", "Thông báo", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                this.Dispose();
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                //do something else
-            }
+           
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -116,7 +108,7 @@ namespace QLBHToto
         {
             MoveSidePanel(btnAdmin);
 
-            using (QuanLy f = new QuanLy())
+            using (FormAdmin f = new FormAdmin())
             {
                 f.ShowDialog();
             }
@@ -145,6 +137,19 @@ namespace QLBHToto
         private void FormDashBoard_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Dispose();
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Thoát chương trình, đồng nghĩa với việc đăng xuất ?", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Dispose();
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
         }
     }
 }

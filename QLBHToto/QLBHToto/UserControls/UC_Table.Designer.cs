@@ -60,8 +60,12 @@
             // btn_Right
             // 
             this.btn_Right.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.btn_Right.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Right.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_Right.FlatAppearance.BorderSize = 0;
+            this.btn_Right.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.btn_Right.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btn_Right.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Right.Font = new System.Drawing.Font(".VnArabia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Right.Location = new System.Drawing.Point(108, 0);
             this.btn_Right.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Right.Name = "btn_Right";
@@ -74,8 +78,12 @@
             // btn_Left
             // 
             this.btn_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.btn_Left.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Left.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btn_Left.FlatAppearance.BorderSize = 0;
+            this.btn_Left.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Green;
+            this.btn_Left.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.btn_Left.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Left.Font = new System.Drawing.Font(".VnArabia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Left.Location = new System.Drawing.Point(0, 0);
             this.btn_Left.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Left.Name = "btn_Left";
@@ -95,6 +103,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);

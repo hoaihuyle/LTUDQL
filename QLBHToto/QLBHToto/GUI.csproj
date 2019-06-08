@@ -49,6 +49,12 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPages">
+      <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuProgressBar">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuProgressBar.dll</HintPath>
     </Reference>
@@ -94,6 +100,12 @@
       <DependentUpon>BaoCaoHoaDon.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="BaoCaoThongKe.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoThongKe.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Button_WOC.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -109,6 +121,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +138,12 @@
     </Compile>
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStatistical.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStatistical.Designer.cs">
+      <DependentUpon>FormStatistical.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTable.cs">
       <SubType>Form</SubType>
@@ -191,17 +215,27 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoHoaDon.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaoCaoThongKe.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoThongKe.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDashBoard.resx">
       <DependentUpon>FormDashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistical.resx">
+      <DependentUpon>FormStatistical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTable.resx">
       <DependentUpon>FormTable.cs</DependentUpon>

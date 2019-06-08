@@ -11,7 +11,7 @@ using BLL;
 
 namespace QLBHToto.UserControls
 {
-    /*====Note=====
+/*====Note=====
  * Mã bàn có 0: bàn trống; 1: bàn đang có khách; 2: bàn đã được in PĐM; 3: bàn ẩn
  *
  * 
@@ -178,6 +178,7 @@ namespace QLBHToto.UserControls
                 pagetk = String.Concat(pagetk," ",(i+1).ToString());
 
                 //Định danh button
+                b.Cursor = Cursors.Hand;
                 b.Name = string.Format("bTakeAway_{0}", i);
                 //Truyền tham số page=0 =>>>>> Mang về
                 //Cho số bàn mặc định là 1
@@ -231,6 +232,7 @@ namespace QLBHToto.UserControls
                     string text = Environment.NewLine + "BÀN CÒN TRỐNG";
                     b.Name = string.Format("b_{0}", page);
                     b.BackColor = Color.Chocolate;
+                    b.Cursor= Cursors.Hand;
 
                     bool kt = false;
                     //Bàn có người

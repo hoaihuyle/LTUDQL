@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLogin));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -55,7 +53,6 @@
             this.button_WOC2 = new ePOSOne.btnProduct.Button_WOC();
             this.button_WOC1 = new ePOSOne.btnProduct.Button_WOC();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +60,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -71,32 +67,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1579, 95);
             this.panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1535, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(44, 95);
-            this.panel2.TabIndex = 12;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 41);
-            this.button2.TabIndex = 11;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // pictureBox1
             // 
@@ -179,6 +149,7 @@
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -209,9 +180,9 @@
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(696, 166);
+            this.pictureBox2.Location = new System.Drawing.Point(604, 117);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(186, 148);
+            this.pictureBox2.Size = new System.Drawing.Size(280, 211);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -220,7 +191,9 @@
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
-            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
@@ -237,6 +210,7 @@
             this.button_WOC11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC11.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC11.FlatAppearance.BorderSize = 0;
             this.button_WOC11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -249,7 +223,7 @@
             this.button_WOC11.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.button_WOC11.Size = new System.Drawing.Size(196, 43);
             this.button_WOC11.TabIndex = 21;
-            this.button_WOC11.Text = "Clear";
+            this.button_WOC11.Text = "Xóa";
             this.button_WOC11.TextColor = System.Drawing.Color.White;
             this.button_WOC11.UseVisualStyleBackColor = true;
             // 
@@ -258,6 +232,7 @@
             this.button_WOC12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC12.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC12.FlatAppearance.BorderSize = 0;
             this.button_WOC12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -279,6 +254,7 @@
             this.button_WOC7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC7.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC7.FlatAppearance.BorderSize = 0;
             this.button_WOC7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -300,6 +276,7 @@
             this.button_WOC8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC8.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC8.FlatAppearance.BorderSize = 0;
             this.button_WOC8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -321,6 +298,7 @@
             this.button_WOC9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC9.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC9.FlatAppearance.BorderSize = 0;
             this.button_WOC9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -342,6 +320,7 @@
             this.button_WOC4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC4.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC4.FlatAppearance.BorderSize = 0;
             this.button_WOC4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -363,6 +342,7 @@
             this.button_WOC5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC5.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC5.FlatAppearance.BorderSize = 0;
             this.button_WOC5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -384,6 +364,7 @@
             this.button_WOC6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC6.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC6.FlatAppearance.BorderSize = 0;
             this.button_WOC6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -405,6 +386,7 @@
             this.button_WOC3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC3.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC3.FlatAppearance.BorderSize = 0;
             this.button_WOC3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -426,6 +408,7 @@
             this.button_WOC2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC2.FlatAppearance.BorderSize = 0;
             this.button_WOC2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -447,6 +430,7 @@
             this.button_WOC1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button_WOC1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(29)))), ((int)(((byte)(36)))));
             this.button_WOC1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.button_WOC1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_WOC1.FlatAppearance.BorderSize = 0;
             this.button_WOC1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(28)))), ((int)(((byte)(36)))));
             this.button_WOC1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
@@ -499,7 +483,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -520,7 +503,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
         private ePOSOne.btnProduct.Button_WOC button_WOC1;
         private ePOSOne.btnProduct.Button_WOC button_WOC2;
         private ePOSOne.btnProduct.Button_WOC button_WOC3;
@@ -532,7 +514,6 @@
         private ePOSOne.btnProduct.Button_WOC button_WOC9;
         private ePOSOne.btnProduct.Button_WOC button_WOC11;
         private ePOSOne.btnProduct.Button_WOC button_WOC12;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
     }
 }

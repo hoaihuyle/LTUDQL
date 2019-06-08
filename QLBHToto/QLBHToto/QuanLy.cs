@@ -25,22 +25,22 @@ namespace QLBHToto
         public QuanLy()
         {
             InitializeComponent();
-            //this.TopMost = true;
-            //this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
-            //this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            //this.WindowState = FormWindowState.Maximized;
+            ////this.TopMost = true;
+            ////this.FormBorderStyle = FormBorderStyle.SizableToolWindow;//.None; 
+            ////this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            ////this.WindowState = FormWindowState.Maximized;
 
 
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            //this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
-            // Set the MaximizeBox to false to remove the maximize box.
-            this.MaximizeBox = false;
+            //// Set the MaximizeBox to false to remove the maximize box.
+            //this.MaximizeBox = false;
 
-            // Set the MinimizeBox to false to remove the minimize box.
-            this.MinimizeBox = false;
+            //// Set the MinimizeBox to false to remove the minimize box.
+            //this.MinimizeBox = false;
 
-            // Set the start position of the form to the center of the screen.
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //// Set the start position of the form to the center of the screen.
+            //this.StartPosition = FormStartPosition.CenterScreen;
 
             //Set loading report default
             crystalReportViewer1.Zoom(75);
@@ -552,6 +552,16 @@ namespace QLBHToto
 
 
 
+
+        }
+
+        private void BtnAddAcount_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnHoaDon_Click(object sender, EventArgs e)
+        {
 
         }
     }

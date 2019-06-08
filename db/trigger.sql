@@ -1,4 +1,5 @@
---TaiKhoan
+use [totodb];
+Go
 create trigger trg_Insert_TaiKhoan
 on TaiKhoan
 for Insert 

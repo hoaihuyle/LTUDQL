@@ -74,3 +74,8 @@ C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinF
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
 C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.FormAdmin.resources
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.xml
+C:\Users\DELL\Documents\GitHub\LTUDQL\QLBHToto\QLBHToto\obj\Debug\QLBHToto.FormStatistical.resources

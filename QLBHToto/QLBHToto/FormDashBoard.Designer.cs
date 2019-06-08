@@ -43,7 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbDate = new System.Windows.Forms.Label();
@@ -181,14 +181,17 @@
             // btnHideShowBar
             // 
             this.btnHideShowBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHideShowBar.FlatAppearance.BorderSize = 0;
+            this.btnHideShowBar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHideShowBar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
+            this.btnHideShowBar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.btnHideShowBar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnHideShowBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHideShowBar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHideShowBar.ForeColor = System.Drawing.Color.White;
             this.btnHideShowBar.Image = ((System.Drawing.Image)(resources.GetObject("btnHideShowBar.Image")));
-            this.btnHideShowBar.Location = new System.Drawing.Point(173, 0);
+            this.btnHideShowBar.Location = new System.Drawing.Point(160, 0);
             this.btnHideShowBar.Name = "btnHideShowBar";
-            this.btnHideShowBar.Size = new System.Drawing.Size(45, 48);
+            this.btnHideShowBar.Size = new System.Drawing.Size(64, 48);
             this.btnHideShowBar.TabIndex = 9;
             this.btnHideShowBar.UseVisualStyleBackColor = true;
             this.btnHideShowBar.Click += new System.EventHandler(this.BtnHideShowBar_Click);
@@ -232,7 +235,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(221, 0);
@@ -240,22 +243,21 @@
             this.panel3.Size = new System.Drawing.Size(1358, 48);
             this.panel3.TabIndex = 1;
             // 
-            // button2
+            // button1
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(1315, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(43, 48);
-            this.button2.TabIndex = 12;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Gray;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(1301, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 48);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label3
             // 
@@ -424,7 +426,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;
@@ -432,5 +433,6 @@
         private System.Windows.Forms.Timer timerTime;
         private System.Windows.Forms.Label lbDate;
         private System.Windows.Forms.Panel pnControls;
+        private System.Windows.Forms.Button button1;
     }
 }

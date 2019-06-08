@@ -34,7 +34,7 @@ namespace QLBHToto
         HoaDon_BLL hd = new HoaDon_BLL();
 
         private string mamon = "", tenmon = "", giamon = "";
-
+        private string PrintBll = "";
         //Nghiệp vụ chuyển bàn
         public static string Moveban = "";
         public static string Movepdm = "";
@@ -240,11 +240,11 @@ namespace QLBHToto
                             row = new object[] { mamon, tenmon, num.ToString(), double.Parse(giamon) };
                             dataGridView2.Rows.Add(row);
                             tong += int.Parse(giamon);
-                            if(txt_reduce.Text.ToString()!="")
-                            {
-                                double costred = double.Parse(txt_reduce.Text.ToString()) * (double)tong / 100;
-                                tong = tong + int.Parse(txt_surcharge.Text.ToString()) - Convert.ToInt32(costred);
-                            }
+                            //if(txt_reduce.Text.ToString()!="")
+                            //{
+                            //    double costred = double.Parse(txt_reduce.Text.ToString()) * (double)tong / 100;
+                            //    tong = tong + int.Parse(txt_surcharge.Text.ToString()) - Convert.ToInt32(costred);
+                            //}
                             txt_tong.Text = tong.ToString();
                             return;
                         }
@@ -440,16 +440,30 @@ namespace QLBHToto
             {
                 if(UC_Table.CheckMangVe==false)
                 {
-                    //Không có PĐM nào mang về
-                    pdm.PhieuDatMon_Them_THMV(lb_MaNV.Text, 1, tong, red, sur);
-                    //lb_pdm.Text = pdm.PhieuDatMon_MangVe_TonTai().Rows[0]["MaPDM"].ToString();
-                    lb_pdm.Text = dtpdMangVe(mangve).Rows[0]["MaPDM"].ToString();
+                    string s = " ";
+                    bool ktmv = true;
+                    //Check PDM mang về có tồn tại không
+                    if(lb_pdm.Text != "")
+                    {
+                        s = lb_pdm.Text.Substring(3, 9);
+                        if (pdm.PhieuDatMon_ChonTai_MangVe(int.Parse(s)).Rows.Count > 0) ktmv = false;
+                    }
+                     
+
+                    if(ktmv)
+                    {
+                        //Không có PĐM nào mang về
+                        pdm.PhieuDatMon_Them_THMV(lb_MaNV.Text, 1, tong, red, sur);
+                        //lb_pdm.Text = pdm.PhieuDatMon_MangVe_TonTai().Rows[0]["MaPDM"].ToString();
+                        lb_pdm.Text = dtpdMangVe(mangve).Rows[0]["MaPDM"].ToString();
+                    }
+                    else
+                    {
+                        //PDM đã tồn tại-> cập nhập CTPDM bằng cách xóa cái cũ
+                        ctpdm.ChiTietPDM_Xoa(lb_pdm.Text);
+                    }
                 }
-                else
-                {
-                    //PDM đã tồn tại-> cập nhập CTPDM bằng cách xóa cái cũ
-                    ctpdm.ChiTietPDM_Xoa(lb_pdm.Text);
-                }
+              
             }
 
             //Tao chi tiết PDM
@@ -515,6 +529,9 @@ namespace QLBHToto
                 if (tinhtrang == 1) { pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), 1, true, tong, red, sur); }
                 else { pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), 1, false, tong, red, sur); }
             }
+
+            //Trường hợp INPĐM thì mở form mới tượng trưng cho việc Phiếu thanh toán
+
         }
         
 
