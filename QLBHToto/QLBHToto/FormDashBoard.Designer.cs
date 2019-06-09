@@ -48,8 +48,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lbIdEmp = new System.Windows.Forms.Label();
+            this.lbUname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -245,6 +245,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Dock = System.Windows.Forms.DockStyle.Right;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
@@ -276,8 +277,8 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(161)))));
             this.panel4.Controls.Add(this.lbDate);
             this.panel4.Controls.Add(this.lbTime);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.lbIdEmp);
+            this.panel4.Controls.Add(this.lbUname);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -312,29 +313,29 @@
             this.lbTime.TabIndex = 16;
             this.lbTime.Text = "HH:MM:SS";
             // 
-            // label7
+            // lbIdEmp
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Verdana", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(252, 64);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(182, 23);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "NV16K4081028";
+            this.lbIdEmp.AutoSize = true;
+            this.lbIdEmp.Font = new System.Drawing.Font("Verdana", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdEmp.ForeColor = System.Drawing.Color.White;
+            this.lbIdEmp.Location = new System.Drawing.Point(252, 64);
+            this.lbIdEmp.Margin = new System.Windows.Forms.Padding(0);
+            this.lbIdEmp.Name = "lbIdEmp";
+            this.lbIdEmp.Size = new System.Drawing.Size(182, 23);
+            this.lbIdEmp.TabIndex = 15;
+            this.lbIdEmp.Text = "NV16K4081028";
             // 
-            // label6
+            // lbUname
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Verdana", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(250, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 23);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "ADMIN";
+            this.lbUname.AutoSize = true;
+            this.lbUname.Font = new System.Drawing.Font("Verdana", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUname.ForeColor = System.Drawing.Color.White;
+            this.lbUname.Location = new System.Drawing.Point(250, 25);
+            this.lbUname.Margin = new System.Windows.Forms.Padding(0);
+            this.lbUname.Name = "lbUname";
+            this.lbUname.Size = new System.Drawing.Size(85, 23);
+            this.lbUname.TabIndex = 14;
+            this.lbUname.Text = "ADMIN";
             // 
             // label4
             // 
@@ -424,8 +425,8 @@
         private System.Windows.Forms.Button btnHideShowBar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbIdEmp;
+        private System.Windows.Forms.Label lbUname;
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label2;

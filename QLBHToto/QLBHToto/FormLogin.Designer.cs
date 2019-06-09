@@ -131,7 +131,7 @@
             this.txtPWord.Name = "txtPWord";
             this.txtPWord.Size = new System.Drawing.Size(295, 32);
             this.txtPWord.TabIndex = 7;
-            this.txtPWord.Text = "admin";
+            this.txtPWord.Text = "123";
             this.txtPWord.UseSystemPasswordChar = true;
             // 
             // label4

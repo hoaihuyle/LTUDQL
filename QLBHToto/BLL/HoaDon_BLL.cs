@@ -20,6 +20,11 @@ namespace BLL
             return hd.HoaDon_ChonAll();
         }
 
+        public DataTable HoaDon_ChonAll_TaiKTG(DateTime d, DateTime c)
+        {
+            return hd.HoaDon_ChonAll_TaiKTG(d,c);
+        }
+
         public DataTable InHoaDonTai(string mahd)
         {
             

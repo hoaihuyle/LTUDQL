@@ -23,7 +23,13 @@ namespace DAL
             //thaotac.KetnoiCSDL();
             return thaotac.SQL_Laydulieu("LoaiMon_ChonAll");
         }
-     
+
+        public DataTable LoaiMon_ChonAll_ADMIN()
+        {
+            //thaotac.KetnoiCSDL();
+            return thaotac.SQL_Laydulieu("LoaiMon_ChonAll_ADMIN");
+        }
+
         public DataTable LoaiMon_CoDK(int maloaimon)
         {
             name = new string[1];
@@ -50,9 +56,9 @@ namespace DAL
             name = new string[4];
             value = new object[4];
             name[0] = "@MaLoaiMon"; value[0] = maloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
-            name[1] = "@TenLoaiMon"; value[0] = tenloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
-            name[2] = "@Mota"; value[1] = mota;
-            name[3] = "@TinhTrang"; value[1] = tinhtrang;
+            name[1] = "@TenLoaiMon"; value[1] = tenloaimon;//@HoTen,... là các tham số phải giống với tham số khai báo ở Stores Procedures trong CSDL
+            name[2] = "@Mota"; value[2] = mota;
+            name[3] = "@TinhTrang"; value[3] = tinhtrang;
 
             return thaotac.SQL_Thuchien("LoaiMon_CapNhap", name, value, 4);
         }

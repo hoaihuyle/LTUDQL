@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL;
 
 namespace QLBHToto
 {
@@ -15,12 +16,21 @@ namespace QLBHToto
     {
         int pnWidth;
         bool isColappsed;
+        int capdo;
 
         public static bool CheckHome = true;
 
+        TaiKhoan_BLL tk = new TaiKhoan_BLL();
         public FormDashBoard()
         {
             InitializeComponent();
+
+            //Set label
+           
+            lbUname.Text = FormLogin.SetUsername;
+            lbIdEmp.Text = tk.TaiKhoan_ChonTai(lbUname.Text).Rows[0]["MaNV"].ToString();
+            capdo = int.Parse(tk.TaiKhoan_ChonTai(lbUname.Text).Rows[0]["CapDo"].ToString());
+
             pnWidth = pnLeft.Width;
             isColappsed = false;
             timerTime.Start();
@@ -28,11 +38,6 @@ namespace QLBHToto
             UC_Table utable = new UC_Table();
             AddControlsToPanel(utable);
            //if(UC_Table.ktmoveSucess==false) {this.Dispose();}
-        }
-
-private void Button2_Click(object sender, EventArgs e)
-        {
-           
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -106,12 +111,18 @@ private void Button2_Click(object sender, EventArgs e)
 
         private void BtnAdmin_Click(object sender, EventArgs e)
         {
-            MoveSidePanel(btnAdmin);
-
-            using (FormAdmin f = new FormAdmin())
+            
+            if (capdo==0||capdo==1)
             {
-                f.ShowDialog();
+                MoveSidePanel(btnAdmin);
+
+                using (FormAdmin f = new FormAdmin())
+                {
+                    f.ShowDialog();
+                }
             }
+            else { MessageBox.Show("Bạn không có đủ thẩm quyền"); }
+          
         }
 
 

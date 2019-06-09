@@ -14,9 +14,15 @@ namespace BLL
 
 
         //phương thức này gọi phương thức sv_select() ở lớp SinhVien_DAL (tầng DAL)
-        public DataTable LoaiMon_Select()
+        public DataTable LoaiMon_ChonAll()
         {
             return loaimon.LoaiMon_ChonAll();
+
+        }
+
+        public DataTable LoaiMon_ChonAll_ADMIN()
+        {
+            return loaimon.LoaiMon_ChonAll_ADMIN();
 
         }
 

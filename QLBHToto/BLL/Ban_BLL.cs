@@ -17,6 +17,11 @@ namespace BLL
             return ban.Ban_ChonAll();
         }
 
+        public DataTable Ban_ChonAll_ADMIN()
+        {
+            return ban.Ban_ChonAll_ADMIN();
+        }
+
         public DataTable Ban_ChonTai(int maban)
         {
             return ban.Ban_CoDK(maban);

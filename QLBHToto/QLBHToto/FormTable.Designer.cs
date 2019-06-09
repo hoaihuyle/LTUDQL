@@ -168,9 +168,12 @@
             this.txt_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.txt_search.Location = new System.Drawing.Point(12, 80);
             this.txt_search.Name = "txt_search";
-            this.txt_search.Size = new System.Drawing.Size(271, 32);
+            this.txt_search.Size = new System.Drawing.Size(326, 32);
             this.txt_search.TabIndex = 58;
-            this.txt_search.Text = "Mã món muốn tìm";
+            this.txt_search.Text = "Mã món, loại món muốn tìm";
+            this.txt_search.TextChanged += new System.EventHandler(this.Txt_search_TextChanged);
+            this.txt_search.Enter += new System.EventHandler(this.Txt_search_Enter);
+            this.txt_search.Leave += new System.EventHandler(this.Txt_search_Leave);
             // 
             // btn_HienThi
             // 
@@ -179,7 +182,7 @@
             this.btn_HienThi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_HienThi.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_HienThi.ForeColor = System.Drawing.Color.White;
-            this.btn_HienThi.Location = new System.Drawing.Point(306, 80);
+            this.btn_HienThi.Location = new System.Drawing.Point(358, 80);
             this.btn_HienThi.Margin = new System.Windows.Forms.Padding(4);
             this.btn_HienThi.Name = "btn_HienThi";
             this.btn_HienThi.Size = new System.Drawing.Size(116, 91);
@@ -207,7 +210,7 @@
             this.comboBox1.Location = new System.Drawing.Point(132, 133);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 33);
+            this.comboBox1.Size = new System.Drawing.Size(206, 33);
             this.comboBox1.TabIndex = 49;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 

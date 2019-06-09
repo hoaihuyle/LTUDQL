@@ -34,7 +34,7 @@ namespace QLBHToto
         HoaDon_BLL hd = new HoaDon_BLL();
 
         private string mamon = "", tenmon = "", giamon = "";
-        private string PrintBll = "";
+        //private string PrintBll = "";
         //Nghiệp vụ chuyển bàn
         public static string Moveban = "";
         public static string Movepdm = "";
@@ -45,7 +45,7 @@ namespace QLBHToto
             
 
             ////Gán dữ liệu nguồn
-            comboBox1.DataSource = loaimon.LoaiMon_Select();
+            comboBox1.DataSource = loaimon.LoaiMon_ChonAll();
             ////Gán trường sẽ hiển thị trên comboBox
             comboBox1.DisplayMember = "TenLoaiMon";
             ////Gã trường mã ẩn sau mỗi trường trên comboBox
@@ -100,9 +100,12 @@ namespace QLBHToto
                     //{
                     lb_pdm.Text = dt1.Rows[0]["MaPDM"].ToString();
                     //=============Tong tiền TEXTBOX
-                    txt_tong.Text = dt1.Rows[0]["ThanhTien"].ToString();
+                    
                     txt_surcharge.Text = dt1.Rows[0]["PhuThu"].ToString();
                     txt_reduce.Text = dt1.Rows[0]["GiamGia"].ToString();
+                    txt_tong.Text = (double.Parse(dt1.Rows[0]["ThanhTien"].ToString()) 
+                                    - double.Parse(dt1.Rows[0]["ThanhTien"].ToString())* double.Parse(dt1.Rows[0]["GiamGia"].ToString())/100
+                                    + double.Parse(dt1.Rows[0]["PhuThu"].ToString())).ToString();
                     tong = int.Parse(txt_tong.Text);
 
                     //double costred = double.Parse(txt_reduce.Text.ToString()) * (double)tong / 100;
@@ -187,7 +190,15 @@ namespace QLBHToto
             
             if(Moveban!=""){  Moveban = ""; MoveDB(); }
             //MessageBox.Show(UC_Table.ktmoveSucess.ToString());
+
+            //Tạo gái trị ban đầu
+            DataTable dtmon = mon.Mon_ChonAll();
+            ShowDataG_Mon(dtmon);
+
+            //Search Textbox
         }
+
+
 
         private void ClearData()
         {
@@ -202,9 +213,11 @@ namespace QLBHToto
 
         private void Set_ValueD1(int i)
         {
+           
             mamon = dataGridView1.Rows[i].Cells[0].Value.ToString();
             tenmon = dataGridView1.Rows[i].Cells[1].Value.ToString();
             giamon = dataGridView1.Rows[i].Cells[2].Value.ToString();
+            
         }
 
         private void Set_ValueD2(int i)
@@ -326,19 +339,44 @@ namespace QLBHToto
         }
 
         private void Btn_HienThi_Click(object sender, EventArgs e)
-        {
+        { 
             if (dataGridView1.RowCount > 1)
             {
                 dataGridView1.Rows.Clear();
 
             }
-            DataTable dtmon = mon.Mon_ChonAll_where_LoaiMon(int.Parse(comboBox1.SelectedValue.ToString()));
-            foreach (DataRow row1 in dtmon.Rows)
+            DataTable dtmon;
+            if (txt_search.Text != "" && txt_search.Text != "Mã món, loại món muốn tìm")
+                 dtmon = mon.Mon_Search(txt_search.Text.ToString());
+            else
+                dtmon = mon.Mon_ChonAll_where_LoaiMon(int.Parse(comboBox1.SelectedValue.ToString()));
+            ShowDataG_Mon(dtmon);
+        }
+
+
+        private void Txt_search_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+        }
+
+        private void Txt_search_Leave(object sender, EventArgs e)
+        {
+            txt_search.Text = "Mã món, loại món muốn tìm";
+        }
+
+        private void ShowDataG_Mon(DataTable dt)
+        {
+            foreach (DataRow row1 in dt.Rows)
             {
                 int dem = 0;
                 foreach (var item in row1.ItemArray)
                 {
-                    if (dem == 0) { mamon = item.ToString();  }
+                    if (dem == 0) { mamon = item.ToString(); }
                     if (dem == 1) { tenmon = item.ToString(); }
                     if (dem == 2) { giamon = item.ToString(); }
                     dem++;
@@ -346,10 +384,7 @@ namespace QLBHToto
                 row = new object[] { mamon, tenmon, giamon };
                 dataGridView1.Rows.Add(row);
             }
-
-
         }
-
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
           
@@ -391,6 +426,13 @@ namespace QLBHToto
             this.Dispose();
             using (FormDashBoard f = new FormDashBoard()) { f.ShowDialog(); }
         }
+        /// <summary>
+        ///  1--PĐM thao tác lưu PĐM
+        ///  2-- PĐM thao tác xuất PĐM
+        ///  --> Chưa làm phần PĐM đã xuất nhưng vẫn còn có thể thêm được
+        ///  --> PĐM đã được xuất: Nhập mật khẩu để chỉnh sửa
+        ///  Note: Tình trạng PĐM == FALSE ====> PĐM đã được in
+        /// </summary>
 
         private void Btn_LuuPDM_Click(object sender, EventArgs e)
         {
@@ -518,22 +560,76 @@ namespace QLBHToto
                     if (pdm.PhieuDatMon_ChonTai_Ban(int.Parse(lb_soBan.Text.ToString())).Rows[0]["TinhTrang"].ToString() == "True")
                         pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), int.Parse(lb_soBan.Text), true, tong, red, sur);
                     else
-                        MessageBox.Show("Phiếu đã được xuất!! Gặp người quản lý để thay đổi thông tin.", "Thông báo");
+                    {
+                        ChangeBill();
+                    }
+                        
                 }
                 else
                     pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), int.Parse(lb_soBan.Text), false, tong, red, sur);
             }
             else
             {
-                //Cập nhập lại CPDM, khi được chỉnh sửa-- trường hợp InPDM, thanh toán --> thay đổi trạng thái PĐM
+                //Cập nhập lại CTPDM, khi được chỉnh sửa-- trường hợp InPDM, thanh toán --> thay đổi trạng thái PĐM
                 if (tinhtrang == 1) { pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), 1, true, tong, red, sur); }
                 else { pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), 1, false, tong, red, sur); }
             }
-
-            //Trường hợp INPĐM thì mở form mới tượng trưng cho việc Phiếu thanh toán
-
         }
         
+        private void ChangeBill()
+        {
+            DialogResult dialogResult = MessageBox.Show("Phiếu đã được xuất! Nhập mật khẩu quản lý để chỉnh sửa.", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Hiển thị Form nhập mật khẩu
+                using (FormPass f = new FormPass())
+                {
+                    f.ShowDialog();
+                }
+                //Nhập đúng-> cho phép thực thi
+                if (FormPass.CheckPass)
+                {
+                    pdm.PhieuDatMon_Sua(lb_pdm.Text.ToString(), lb_MaNV.Text.ToString(), int.Parse(lb_soBan.Text), false, tong, red, sur);
+                    MessageBox.Show("Sửa thành công", "Thông báo");
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+                this.Dispose();
+            }
+        }
+
+        private void DeleteBill()
+        {
+            DialogResult dialogResult = MessageBox.Show("Phiếu đã được xuất! Nhập mật khẩu quản lý để chỉnh sửa.", "Thông báo", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                //Hiển thị Form nhập mật khẩu
+                using (FormPass f = new FormPass())
+                {
+                    f.ShowDialog();
+                }
+                //Nhập đúng-> cho phép thực thi
+                if (FormPass.CheckPass)
+                {
+                    //Xóa chi tiết phiếu đặt món
+                    ctpdm.ChiTietPDM_Xoa(lb_pdm.Text);
+                    //Xóa phiếu đặt món
+                    pdm.PhieuDatMon_Xoa(lb_pdm.Text);
+
+                    //thay đổi tình trạng bàn
+                    ban.Ban_Sua(int.Parse(lb_soBan.Text.ToString()), 0, 0);
+                    //Chuyển ra trangchus
+                    MessageBox.Show("Xóa thành công", "Thông báo");
+                }
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+                this.Dispose();
+            }
+        }
 
         private void HoaDon_Click(object sender, EventArgs e)
         {
@@ -565,7 +661,8 @@ namespace QLBHToto
             else MessageBox.Show("Chọn món cần xóa", "Thông báo");
         }
 
-       
+
+
 
         //Hàm cho xóa phiếu đặt món
         private void XoaBanPDM()
@@ -585,7 +682,7 @@ namespace QLBHToto
                 }
                 else
                 {
-                    MessageBox.Show("Phiếu đã được xuất!! Gặp người quản lý để thay đổi thông tin.", "Thông báo");
+                    DeleteBill();
                 }
             }
             else

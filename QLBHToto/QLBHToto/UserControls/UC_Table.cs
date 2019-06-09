@@ -230,7 +230,9 @@ namespace QLBHToto.UserControls
                 if (dt.Rows.Count > 0)
                 {
                     string text = Environment.NewLine + "BÀN CÒN TRỐNG";
+                    
                     b.Name = string.Format("b_{0}", page);
+                    //MessageBox.Show(b.Name);
                     b.BackColor = Color.Chocolate;
                     b.Cursor= Cursors.Hand;
 

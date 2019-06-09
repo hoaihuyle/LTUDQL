@@ -14,6 +14,10 @@ namespace QLBHToto
     public partial class FormAdmin : Form
     {
         public static bool CheckQT = true;
+ 
+        public static string UName="";
+        public static string IdEmp = "";
+
         TaiKhoan_BLL tk = new TaiKhoan_BLL();
         LoaiMon_BLL lm = new LoaiMon_BLL();
         Mon_BLL mon = new Mon_BLL();
@@ -24,8 +28,12 @@ namespace QLBHToto
         public FormAdmin()
         {
             InitializeComponent();
+
             //Set loading report default
             //crystalReportViewer1.Zoom(75);
+
+            //Load hóa đơn
+            LoadDateTimePickerBill();
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -49,11 +57,11 @@ namespace QLBHToto
             //End Nhân viên   
 
             //Loại Món
-            dtgvCategory.DataSource = lm.LoaiMon_Select();
+            dtgvCategory.DataSource = lm.LoaiMon_ChonAll_ADMIN();
             //Bàn
-            dtgvTable.DataSource = ban.Ban_Select();
+            dtgvTable.DataSource = ban.Ban_ChonAll_ADMIN();
             //Món
-            dtgvFD.DataSource = mon.Mon_ChonAll();
+            dtgvFD.DataSource = mon.Mon_ChonAll_ADMIN();
 
             //HĐ
             dtgv_listhoadon.DataSource = hd.HoaDon_ChonAll();
@@ -61,7 +69,7 @@ namespace QLBHToto
 
             //Mon
             ////Gán dữ liệu nguồn
-            comboBox1.DataSource = lm.LoaiMon_Select();
+            comboBox1.DataSource = lm.LoaiMon_ChonAll_ADMIN();
             ////Gán trường sẽ hiển thị trên comboBox
             comboBox1.DisplayMember = "TenLoaiMon";
             ////Gã trường mã ẩn sau mỗi trường trên comboBox
@@ -77,22 +85,44 @@ namespace QLBHToto
             cbAccountType.Items.Insert(1, "Quản lý");
             cbAccountType.Items.Insert(2, "Nhân viên");
             //cbAccountType.SelectedText = cbAccountType.Items[2].ToString();
-        }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            dtgvFD.DataSource = mon.Mon_ChonAll_where_LoaiMon_ADMIN(int.Parse(comboBox1.SelectedValue.ToString()));
+            ////Gán dữ liệu nguồn
+            cbMaLoaiMon.DataSource = lm.LoaiMon_ChonAll_ADMIN();
+            ////Gán trường sẽ hiển thị trên comboBox
+            cbMaLoaiMon.DisplayMember = "TenLoaiMon";
+            ////Gã trường mã ẩn sau mỗi trường trên comboBox
+            ////Nhằm mục đích khi chọn 1 item sẽ sử dụng mã ẩn để lọc dữ liệu 
+            cbMaLoaiMon.ValueMember = "MaLoaiMon";
         }
 
         ////
         //Món
         ////
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            if (txt_search.Text != "" && txt_search.Text != "Mã món, loại món muốn tìm")
+                dtgvFD.DataSource = mon.Mon_ChonAll_where_LoaiMon_ADMIN(int.Parse(comboBox1.SelectedValue.ToString()));
+            else 
+                dtgvFD.DataSource = mon.Mon_Search(txt_search.Text.ToString());
+        }
+
+        private void Txt_search_Enter(object sender, EventArgs e)
+        {
+            txt_search.Text = "";
+        }
+
+        private void Txt_search_Leave(object sender, EventArgs e)
+        {
+            txt_search.Text = "Mã món, loại món muốn tìm";
+        }
         private void BtnAddDrink_Click(object sender, EventArgs e)
         {
             if (txtTenMon.Text != "")
             {
-                mon.Mon_Them(int.Parse(cbMaLoaiMon.SelectedValue.ToString()), txtTenMon.Text, float.Parse(nucGiaMon.Value.ToString()), txtMota.Text);
+                mon.Mon_Them(int.Parse(cbMaLoaiMon.SelectedValue.ToString()), txtTenMon.Text.ToString(), float.Parse(nucGiaMon.Value.ToString()), txtMota.Text);
                 MessageBox.Show("Thêm thành công!!");
+                Button1_Click(sender, e);
             }
             else
             {
@@ -126,6 +156,7 @@ namespace QLBHToto
                 {
                     mon.Mon_Xoa(int.Parse(txtMaMon.Text.ToString()));
                     MessageBox.Show("Xóa thành công!!");
+                    Button1_Click(sender, e);
                 }
 
             }
@@ -157,7 +188,7 @@ namespace QLBHToto
             nucGiaMon.Value = int.Parse(dtgvFD.Rows[i].Cells[3].Value.ToString());
             txtMota.Text = dtgvFD.Rows[i].Cells[4].Value.ToString();
 
-            cbMaLoaiMon.DataSource = lm.LoaiMon_Select();
+            cbMaLoaiMon.DataSource = lm.LoaiMon_ChonAll_ADMIN();
             ////Gán trường sẽ hiển thị trên comboBox
             cbMaLoaiMon.DisplayMember = "TenLoaiMon";
             ////Gã trường mã ẩn sau mỗi trường trên comboBox
@@ -182,7 +213,8 @@ namespace QLBHToto
         ////
         private void BtnShowCategory_Click(object sender, EventArgs e)
         {
-            dtgvCategory.DataSource = lm.LoaiMon_Select();
+            dtgvCategory.DataSource = lm.LoaiMon_ChonAll_ADMIN();
+            
         }
 
         private void BtnAddCategory_Click(object sender, EventArgs e)
@@ -191,6 +223,7 @@ namespace QLBHToto
             {
                 lm.LoaiMon_Them(txtTenLoaiMon.Text, txtMotaLoaiMon.Text);
                 MessageBox.Show("Thêm thành công!!");
+                BtnShowCategory_Click(sender, e);
             }
             else
             {
@@ -202,8 +235,9 @@ namespace QLBHToto
         {
             if (txtMaLoaiMon.Text != "" && txtTenLoaiMon.Text != "")
             {
-                lm.LoaiMon_CapNhap(int.Parse(txtMaLoaiMon.Text.ToString()), txtTenLoaiMon.Text, txtMotaLoaiMon.Text, rdLoaiMon1.Checked);
+                lm.LoaiMon_CapNhap(int.Parse(txtMaLoaiMon.Text.ToString()), txtTenLoaiMon.Text.ToString(), txtMotaLoaiMon.Text.ToString(), rdLoaiMon1.Checked);
                 MessageBox.Show("Cập nhập thành công!!");
+                BtnShowCategory_Click(sender, e);
             }
             else
             {
@@ -223,6 +257,7 @@ namespace QLBHToto
                 {
                     lm.LoaiMon_Xoa(int.Parse(txtMaLoaiMon.Text.ToString()));
                     MessageBox.Show("Xóa thành công!!");
+                    BtnShowCategory_Click(sender, e);
                 }
 
             }
@@ -264,7 +299,7 @@ namespace QLBHToto
         ////
         private void BtnShowTsble_Click(object sender, EventArgs e)
         {
-            dtgvTable.DataSource = ban.Ban_Select();
+            dtgvTable.DataSource = ban.Ban_ChonAll_ADMIN();
         }
 
         private void BtnAddTable_Click(object sender, EventArgs e)
@@ -273,6 +308,7 @@ namespace QLBHToto
             {
                 ban.Ban_Them(0, 0);
                 MessageBox.Show("Thêm thành công!!");
+                BtnShowTsble_Click(sender, e);
             }
             else
             {
@@ -286,6 +322,7 @@ namespace QLBHToto
             {
                 ban.Ban_Sua(int.Parse(txtIdTable.Text), rdBan1.Checked ? 0 : 3, 0);
                 MessageBox.Show("Sửa thành công!!");
+                BtnShowTsble_Click(sender, e);
             }
             else
             {
@@ -333,6 +370,7 @@ namespace QLBHToto
                                     txtPhoneEmp.Text, txtUName.Text, txtPassEmp.Text, int.Parse(cbAccountType.SelectedIndex.ToString()));
                 ClearNhanVien();
                 MessageBox.Show("Thêm thành công!!");
+                BtnShowAccount_Click(sender, e);
             }
             else
             {
@@ -347,6 +385,7 @@ namespace QLBHToto
                 nv.NhanVien_Sua_TaiKhoan(txtIdEmp.Text, txtNameEmp.Text, Convert.ToDateTime(txtYBDay.Text), rdEmp1.Checked,
                                     txtPhoneEmp.Text, txtUName.Text, int.Parse(cbAccountType.SelectedIndex.ToString()));
                 MessageBox.Show("Sửa thành công");
+                BtnShowAccount_Click(sender, e);
                 ClearNhanVien();
             }
 
@@ -367,6 +406,7 @@ namespace QLBHToto
                 {
                     nv.NhanVien_Xoa(txtIdEmp.Text);
                     MessageBox.Show("Xóa thành công!!");
+                    BtnShowAccount_Click(sender, e);
                 }
 
             }
@@ -429,14 +469,18 @@ namespace QLBHToto
                 cbAccountType.SelectedIndex = 2;
             }
 
-
+            if (txtUName.Text != "" && txtIdEmp.Text != "")
+            {
+                UName = txtUName.Text;
+                IdEmp = txtIdEmp.Text;
+            }
         }
 
         private void BtnResetPassword_Click(object sender, EventArgs e)
         {
             CheckQT = false;
 
-            using (TaiKhoan formtk = new TaiKhoan())
+            using (FormModPass formtk = new FormModPass())
             {
                 //formtk.Show();
                 formtk.ShowDialog();
@@ -454,8 +498,19 @@ namespace QLBHToto
 
         private void BtnHoaDon_Click(object sender, EventArgs e)
         {
-
+            LoadListBillByDate(dtpkFromDate.Value, dtpkToDate.Value);
         }
+        private void LoadListBillByDate(DateTime checkIn, DateTime checkOut)
+        {
+            dtgv_listhoadon.DataSource = hd.HoaDon_ChonAll_TaiKTG(checkIn, checkOut);
+        }
+        private void LoadDateTimePickerBill()
+        {
+            DateTime today = DateTime.Now;
+            dtpkFromDate.Value = new DateTime(today.Year, today.Month, 1);
+            dtpkToDate.Value = dtpkFromDate.Value.AddMonths(1).AddDays(-1);
+        }
+
         private void Dtgv_listhoadon_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             SetHoaDon();
@@ -492,6 +547,5 @@ namespace QLBHToto
             //cbAccountType.Items.Clear();
         }
 
-      
     }
 }

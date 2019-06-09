@@ -21,6 +21,12 @@ namespace DAL
             return thaotac.SQL_Laydulieu("Ban_ChonAll");
         }
 
+        public DataTable Ban_ChonAll_ADMIN()
+        {
+            //thaotac.KetnoiCSDL();
+            return thaotac.SQL_Laydulieu("Ban_ChonAll_ADMIN");
+        }
+
         public DataTable Ban_CoDK(int maban)
         {
             name = new string[1];

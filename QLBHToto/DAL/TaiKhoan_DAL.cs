@@ -29,6 +29,15 @@ namespace DAL
             return thaotac.Sql_LayDuLieu_CoDK("TaiKhoan_ChonTai", name, value, 1);
         }
 
+        public DataTable TaiKhoan_ChonTai_CapDo(int cd)
+        {
+            name = new string[1];
+            value = new object[1];
+            name[0] = "CapDo";
+            value[0] = cd;
+            return thaotac.Sql_LayDuLieu_CoDK("TaiKhoan_ChonTai_CapDo", name, value, 1);
+        }
+
         public int TaiKhoan_Them(string matk, string mk, int capdo, string manv)
         {
             name = new string[4];

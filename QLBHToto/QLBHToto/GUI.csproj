@@ -43,6 +43,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
     </Reference>
@@ -60,6 +63,9 @@
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
       <HintPath>D:\documents\Documents\LTUDQL\icon8\Bunifu Ui Winform 1.10.0.0\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
@@ -109,18 +115,6 @@
     <Compile Include="Button_WOC.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DangNhap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DangNhap.Designer.cs">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +133,12 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPass.Designer.cs">
+      <DependentUpon>FormPass.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormStatistical.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,37 +156,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="QuanLy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="QuanLy.Designer.cs">
-      <DependentUpon>QuanLy.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TaiKhoan.Designer.cs">
-      <DependentUpon>TaiKhoan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TrangChu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TrangChu.Designer.cs">
-      <DependentUpon>TrangChu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuanLyNghiepVuBan.cs">
+    <Compile Include="FormModPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuanLyNghiepVuBan.Designer.cs">
-      <DependentUpon>QuanLyNghiepVuBan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="testcs.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="testcs.Designer.cs">
-      <DependentUpon>testcs.cs</DependentUpon>
+    <Compile Include="FormModPass.designer.cs">
+      <DependentUpon>FormModPass.cs</DependentUpon>
     </Compile>
     <Compile Include="toto_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -198,12 +174,6 @@
     </Compile>
     <Compile Include="UserControls\UC_Account.Designer.cs">
       <DependentUpon>UC_Account.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\UC_DetailTable.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\UC_DetailTable.Designer.cs">
-      <DependentUpon>UC_DetailTable.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_Table.cs">
       <SubType>UserControl</SubType>
@@ -219,12 +189,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoThongKe.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DangNhap.resx">
-      <DependentUpon>DangNhap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,37 +198,25 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPass.resx">
+      <DependentUpon>FormPass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStatistical.resx">
       <DependentUpon>FormStatistical.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTable.resx">
       <DependentUpon>FormTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QuanLy.resx">
-      <DependentUpon>QuanLy.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="QuanLyNghiepVuBan.resx">
-      <DependentUpon>QuanLyNghiepVuBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TaiKhoan.resx">
-      <DependentUpon>TaiKhoan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TrangChu.resx">
-      <DependentUpon>TrangChu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="testcs.resx">
-      <DependentUpon>testcs.cs</DependentUpon>
+    <EmbeddedResource Include="FormModPass.resx">
+      <DependentUpon>FormModPass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Account.resx">
       <DependentUpon>UC_Account.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UC_DetailTable.resx">
-      <DependentUpon>UC_DetailTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Table.resx">
       <DependentUpon>UC_Table.cs</DependentUpon>

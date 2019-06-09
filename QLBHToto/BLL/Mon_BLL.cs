@@ -31,6 +31,11 @@ namespace BLL
             return mon.Mon_ChonAll();
         }
 
+        public DataTable Mon_ChonAll_ADMIN()
+        {
+            return mon.Mon_ChonAll_ADMIN();
+        }
+
         public int Mon_Them(int maloaimon, string ten, float gia, string mota)
         {
 

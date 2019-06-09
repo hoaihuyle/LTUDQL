@@ -31,6 +31,18 @@ namespace DAL
             return thaotac.SQL_Laydulieu("HoaDon_ChonAll");
         }
 
+        public DataTable HoaDon_ChonAll_TaiKTG(DateTime d, DateTime c)
+        {
+            name = new string[2];
+            value = new object[2];
+            name[0] = "@Ngaydau";
+            name[1] = "@Ngaycuoi";
+            //(@MaNV char(10),@MaBan int, @ThanhTien int, @GiamGia float, @PhuThu float)
+            value[0] = d;
+            value[1] = c;
+            return thaotac.Sql_LayDuLieu_CoDK("HoaDon_ChonAll_TaiKTG", name, value, 2);
+        }
+    
         public DataTable InHoaDonTai(string mahd)
         {
             name = new string[1];

@@ -24,6 +24,12 @@ namespace BLL
             return tk.TaiKhoan_ChonTai(matk);
         }
 
+        public DataTable TaiKhoan_ChonTai_CapDo(int cd)
+        {
+
+            return tk.TaiKhoan_ChonTai_CapDo(cd);
+        }
+
         public int TaiKhoan_Them(string matk, string mk, int capdo, string manv)
         {
 

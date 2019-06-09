@@ -150,15 +150,21 @@
             this.btnDeleteAccount = new System.Windows.Forms.Button();
             this.tbBill = new System.Windows.Forms.TabPage();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.BaoCaoHoaDon1 = new QLBHToto.BaoCaoHoaDon();
             this.pnHDL = new System.Windows.Forms.Panel();
             this.dtgv_listhoadon = new System.Windows.Forms.DataGridView();
             this.panel20 = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dtpkToDate = new System.Windows.Forms.DateTimePicker();
             this.btnHoaDon = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpkFromDate = new System.Windows.Forms.DateTimePicker();
+            this.tbStatistical = new System.Windows.Forms.TabPage();
+            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.BaoCaoThongKe1 = new QLBHToto.BaoCaoThongKe();
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.BaoCaoHoaDon1 = new QLBHToto.BaoCaoHoaDon();
             this.pnTop.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tbFood.SuspendLayout();
@@ -211,6 +217,7 @@
             this.pnHDL.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_listhoadon)).BeginInit();
             this.panel20.SuspendLayout();
+            this.tbStatistical.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -220,6 +227,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 715);
             this.panel2.TabIndex = 1;
+            this.panel2.UseWaitCursor = true;
             // 
             // panel4
             // 
@@ -228,6 +236,7 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(10, 715);
             this.panel4.TabIndex = 1;
+            this.panel4.UseWaitCursor = true;
             // 
             // panel1
             // 
@@ -236,6 +245,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1338, 10);
             this.panel1.TabIndex = 2;
+            this.panel1.UseWaitCursor = true;
             // 
             // pnTop
             // 
@@ -249,6 +259,7 @@
             // 
             // button2
             // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -269,6 +280,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1338, 10);
             this.panel5.TabIndex = 4;
+            this.panel5.UseWaitCursor = true;
             // 
             // tabControl1
             // 
@@ -277,7 +289,8 @@
             this.tabControl1.Controls.Add(this.tbTable);
             this.tabControl1.Controls.Add(this.tbEmploy);
             this.tabControl1.Controls.Add(this.tbBill);
-            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControl1.Controls.Add(this.tbStatistical);
+            this.tabControl1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(10, 59);
@@ -307,7 +320,7 @@
             this.panel7.Controls.Add(this.panel12);
             this.panel7.Controls.Add(this.panel14);
             this.panel7.Controls.Add(this.pnMRT);
-            this.panel7.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel7.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(679, 3);
             this.panel7.Name = "panel7";
@@ -327,6 +340,7 @@
             // rdMon0
             // 
             this.rdMon0.AutoSize = true;
+            this.rdMon0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdMon0.Location = new System.Drawing.Point(407, 9);
             this.rdMon0.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.rdMon0.Name = "rdMon0";
@@ -338,6 +352,7 @@
             // rdMon1
             // 
             this.rdMon1.AutoSize = true;
+            this.rdMon1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdMon1.Location = new System.Drawing.Point(270, 9);
             this.rdMon1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.rdMon1.Name = "rdMon1";
@@ -369,6 +384,7 @@
             // 
             // txtTenMon
             // 
+            this.txtTenMon.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenMon.Location = new System.Drawing.Point(274, 5);
             this.txtTenMon.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenMon.Name = "txtTenMon";
@@ -398,6 +414,7 @@
             // 
             // txtMota
             // 
+            this.txtMota.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMota.Location = new System.Drawing.Point(269, 5);
             this.txtMota.Margin = new System.Windows.Forms.Padding(5);
             this.txtMota.Name = "txtMota";
@@ -427,6 +444,7 @@
             // 
             // cbMaLoaiMon
             // 
+            this.cbMaLoaiMon.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.cbMaLoaiMon.FormattingEnabled = true;
             this.cbMaLoaiMon.Location = new System.Drawing.Point(274, 6);
             this.cbMaLoaiMon.Margin = new System.Windows.Forms.Padding(5);
@@ -457,6 +475,7 @@
             // 
             // nucGiaMon
             // 
+            this.nucGiaMon.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.nucGiaMon.Increment = new decimal(new int[] {
             1000,
             0,
@@ -520,7 +539,7 @@
             this.pnMRT.Controls.Add(this.btnDeleteDrink);
             this.pnMRT.Controls.Add(this.btnAddDrink);
             this.pnMRT.Controls.Add(this.btnEditDrink);
-            this.pnMRT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnMRT.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnMRT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMRT.Location = new System.Drawing.Point(0, 0);
             this.pnMRT.Name = "pnMRT";
@@ -579,11 +598,12 @@
             // dtgvFD
             // 
             this.dtgvFD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvFD.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtgvFD.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dtgvFD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvFD.Location = new System.Drawing.Point(0, 178);
             this.dtgvFD.Margin = new System.Windows.Forms.Padding(5);
             this.dtgvFD.Name = "dtgvFD";
+            this.dtgvFD.ReadOnly = true;
             this.dtgvFD.RowTemplate.Height = 24;
             this.dtgvFD.Size = new System.Drawing.Size(676, 424);
             this.dtgvFD.TabIndex = 1;
@@ -596,7 +616,7 @@
             this.pnMLT.Controls.Add(this.label10);
             this.pnMLT.Controls.Add(this.comboBox1);
             this.pnMLT.Controls.Add(this.button1);
-            this.pnMLT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnMLT.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnMLT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMLT.Location = new System.Drawing.Point(0, 0);
             this.pnMLT.Name = "pnMLT";
@@ -605,6 +625,7 @@
             // 
             // txt_search
             // 
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_search.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(71)))), ((int)(((byte)(160)))));
             this.txt_search.Location = new System.Drawing.Point(47, 48);
@@ -612,6 +633,8 @@
             this.txt_search.Size = new System.Drawing.Size(414, 32);
             this.txt_search.TabIndex = 52;
             this.txt_search.Text = "Mã món, tên món muốn tìm";
+            this.txt_search.Enter += new System.EventHandler(this.Txt_search_Enter);
+            this.txt_search.Leave += new System.EventHandler(this.Txt_search_Leave);
             // 
             // label10
             // 
@@ -626,6 +649,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(156, 98);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -656,7 +680,7 @@
             // 
             this.tbFoodKind.Controls.Add(this.pnLMR);
             this.tbFoodKind.Controls.Add(this.pnLML);
-            this.tbFoodKind.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tbFoodKind.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.tbFoodKind.Location = new System.Drawing.Point(4, 34);
             this.tbFoodKind.Name = "tbFoodKind";
             this.tbFoodKind.Padding = new System.Windows.Forms.Padding(3);
@@ -671,7 +695,7 @@
             this.pnLMR.Controls.Add(this.panel23);
             this.pnLMR.Controls.Add(this.panel24);
             this.pnLMR.Controls.Add(this.panel19);
-            this.pnLMR.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnLMR.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnLMR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLMR.Location = new System.Drawing.Point(628, 3);
             this.pnLMR.Name = "pnLMR";
@@ -781,6 +805,7 @@
             // rdLoaiMon2
             // 
             this.rdLoaiMon2.AutoSize = true;
+            this.rdLoaiMon2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdLoaiMon2.Location = new System.Drawing.Point(303, 17);
             this.rdLoaiMon2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdLoaiMon2.Name = "rdLoaiMon2";
@@ -792,6 +817,7 @@
             // rdLoaiMon1
             // 
             this.rdLoaiMon1.AutoSize = true;
+            this.rdLoaiMon1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdLoaiMon1.Location = new System.Drawing.Point(182, 17);
             this.rdLoaiMon1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.rdLoaiMon1.Name = "rdLoaiMon1";
@@ -813,10 +839,11 @@
             // dtgvCategory
             // 
             this.dtgvCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvCategory.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtgvCategory.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dtgvCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvCategory.Location = new System.Drawing.Point(0, 137);
             this.dtgvCategory.Name = "dtgvCategory";
+            this.dtgvCategory.ReadOnly = true;
             this.dtgvCategory.RowTemplate.Height = 24;
             this.dtgvCategory.Size = new System.Drawing.Size(625, 465);
             this.dtgvCategory.TabIndex = 2;
@@ -829,7 +856,7 @@
             this.pnLMLT.Controls.Add(this.btnShowCategory);
             this.pnLMLT.Controls.Add(this.btnAddCategory);
             this.pnLMLT.Controls.Add(this.btnEditCategory);
-            this.pnLMLT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnLMLT.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnLMLT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnLMLT.Location = new System.Drawing.Point(0, 0);
             this.pnLMLT.Name = "pnLMLT";
@@ -900,7 +927,7 @@
             // 
             this.panel9.Controls.Add(this.panel15);
             this.panel9.Controls.Add(this.panel16);
-            this.panel9.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel9.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(608, 3);
             this.panel9.Name = "panel9";
@@ -990,10 +1017,11 @@
             // dtgvTable
             // 
             this.dtgvTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTable.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtgvTable.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dtgvTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvTable.Location = new System.Drawing.Point(0, 137);
             this.dtgvTable.Name = "dtgvTable";
+            this.dtgvTable.ReadOnly = true;
             this.dtgvTable.RowTemplate.Height = 24;
             this.dtgvTable.Size = new System.Drawing.Size(605, 465);
             this.dtgvTable.TabIndex = 2;
@@ -1005,7 +1033,7 @@
             this.panel8.Controls.Add(this.btnShowTsble);
             this.panel8.Controls.Add(this.btnEditTable);
             this.panel8.Controls.Add(this.btnAddTable);
-            this.panel8.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel8.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
@@ -1079,7 +1107,7 @@
             this.pnNVMiddle.Controls.Add(this.panel29);
             this.pnNVMiddle.Controls.Add(this.panel30);
             this.pnNVMiddle.Controls.Add(this.panel34);
-            this.pnNVMiddle.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnNVMiddle.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnNVMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnNVMiddle.Location = new System.Drawing.Point(0, 0);
             this.pnNVMiddle.Name = "pnNVMiddle";
@@ -1100,6 +1128,7 @@
             // 
             this.panel26.Controls.Add(this.txtStartWork);
             this.panel26.Controls.Add(this.label14);
+            this.panel26.Cursor = System.Windows.Forms.Cursors.No;
             this.panel26.Location = new System.Drawing.Point(6, 457);
             this.panel26.Name = "panel26";
             this.panel26.Size = new System.Drawing.Size(428, 56);
@@ -1107,7 +1136,7 @@
             // 
             // txtStartWork
             // 
-            this.txtStartWork.Cursor = System.Windows.Forms.Cursors.No;
+            this.txtStartWork.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.txtStartWork.Location = new System.Drawing.Point(221, 16);
             this.txtStartWork.Name = "txtStartWork";
             this.txtStartWork.ReadOnly = true;
@@ -1281,7 +1310,7 @@
             this.pnNVR.Controls.Add(this.panel31);
             this.pnNVR.Controls.Add(this.btnResetPassword);
             this.pnNVR.Controls.Add(this.panel32);
-            this.pnNVR.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnNVR.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnNVR.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnNVR.GradientBottomLeft = System.Drawing.Color.Black;
             this.pnNVR.GradientBottomRight = System.Drawing.Color.White;
@@ -1345,9 +1374,11 @@
             // 
             // txtPassEmp
             // 
+            this.txtPassEmp.Cursor = System.Windows.Forms.Cursors.No;
             this.txtPassEmp.ForeColor = System.Drawing.Color.Black;
             this.txtPassEmp.Location = new System.Drawing.Point(221, 16);
             this.txtPassEmp.Name = "txtPassEmp";
+            this.txtPassEmp.ReadOnly = true;
             this.txtPassEmp.Size = new System.Drawing.Size(136, 32);
             this.txtPassEmp.TabIndex = 2;
             this.txtPassEmp.Text = "123456";
@@ -1426,10 +1457,11 @@
             this.dtgvAccount.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgvAccount.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvAccount.Cursor = System.Windows.Forms.Cursors.Default;
+            this.dtgvAccount.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.dtgvAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvAccount.Location = new System.Drawing.Point(0, 167);
             this.dtgvAccount.Name = "dtgvAccount";
+            this.dtgvAccount.ReadOnly = true;
             this.dtgvAccount.RowTemplate.Height = 24;
             this.dtgvAccount.Size = new System.Drawing.Size(491, 435);
             this.dtgvAccount.TabIndex = 2;
@@ -1442,7 +1474,7 @@
             this.pnNVLT.Controls.Add(this.btnShowAccount);
             this.pnNVLT.Controls.Add(this.btnEditAcount);
             this.pnNVLT.Controls.Add(this.btnDeleteAccount);
-            this.pnNVLT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnNVLT.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.pnNVLT.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnNVLT.Location = new System.Drawing.Point(0, 0);
             this.pnNVLT.Name = "pnNVLT";
@@ -1518,6 +1550,19 @@
             this.panel22.Size = new System.Drawing.Size(756, 602);
             this.panel22.TabIndex = 1;
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = 0;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.BaoCaoHoaDon1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(756, 602);
+            this.crystalReportViewer1.TabIndex = 1;
+            this.crystalReportViewer1.ToolPanelWidth = 123;
+            // 
             // pnHDL
             // 
             this.pnHDL.Controls.Add(this.dtgv_listhoadon);
@@ -1534,23 +1579,52 @@
             this.dtgv_listhoadon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtgv_listhoadon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgv_listhoadon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgv_listhoadon.Location = new System.Drawing.Point(0, 118);
+            this.dtgv_listhoadon.Location = new System.Drawing.Point(0, 135);
             this.dtgv_listhoadon.Name = "dtgv_listhoadon";
+            this.dtgv_listhoadon.ReadOnly = true;
             this.dtgv_listhoadon.RowTemplate.Height = 24;
-            this.dtgv_listhoadon.Size = new System.Drawing.Size(568, 484);
+            this.dtgv_listhoadon.Size = new System.Drawing.Size(568, 467);
             this.dtgv_listhoadon.TabIndex = 5;
             this.dtgv_listhoadon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dtgv_listhoadon_CellContentClick);
             this.dtgv_listhoadon.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dtgv_listhoadon_RowHeaderMouseClick);
             // 
             // panel20
             // 
+            this.panel20.Controls.Add(this.label19);
+            this.panel20.Controls.Add(this.label18);
+            this.panel20.Controls.Add(this.dtpkToDate);
             this.panel20.Controls.Add(this.btnHoaDon);
-            this.panel20.Controls.Add(this.dateTimePicker1);
+            this.panel20.Controls.Add(this.dtpkFromDate);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel20.Location = new System.Drawing.Point(0, 0);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(568, 118);
+            this.panel20.Size = new System.Drawing.Size(568, 135);
             this.panel20.TabIndex = 0;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(3, 72);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(153, 25);
+            this.label19.TabIndex = 11;
+            this.label19.Text = "Ngày kết thúc";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(3, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(146, 25);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Ngày bắt đầu";
+            // 
+            // dtpkToDate
+            // 
+            this.dtpkToDate.Location = new System.Drawing.Point(3, 103);
+            this.dtpkToDate.Name = "dtpkToDate";
+            this.dtpkToDate.Size = new System.Drawing.Size(422, 32);
+            this.dtpkToDate.TabIndex = 9;
             // 
             // btnHoaDon
             // 
@@ -1561,25 +1635,48 @@
             this.btnHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHoaDon.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btnHoaDon.Location = new System.Drawing.Point(414, 35);
+            this.btnHoaDon.Location = new System.Drawing.Point(431, 28);
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(144, 56);
+            this.btnHoaDon.Size = new System.Drawing.Size(131, 104);
             this.btnHoaDon.TabIndex = 8;
             this.btnHoaDon.Text = "Hiển thị";
             this.btnHoaDon.UseVisualStyleBackColor = false;
             this.btnHoaDon.Click += new System.EventHandler(this.BtnHoaDon_Click);
             // 
-            // dateTimePicker1
+            // dtpkFromDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(9, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(388, 32);
-            this.dateTimePicker1.TabIndex = 7;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
+            this.dtpkFromDate.Location = new System.Drawing.Point(3, 28);
+            this.dtpkFromDate.Name = "dtpkFromDate";
+            this.dtpkFromDate.Size = new System.Drawing.Size(422, 32);
+            this.dtpkFromDate.TabIndex = 7;
+            this.dtpkFromDate.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
+            // 
+            // tbStatistical
+            // 
+            this.tbStatistical.Controls.Add(this.crystalReportViewer2);
+            this.tbStatistical.Location = new System.Drawing.Point(4, 34);
+            this.tbStatistical.Name = "tbStatistical";
+            this.tbStatistical.Padding = new System.Windows.Forms.Padding(3);
+            this.tbStatistical.Size = new System.Drawing.Size(1330, 608);
+            this.tbStatistical.TabIndex = 5;
+            this.tbStatistical.Text = "Thống Kê";
+            this.tbStatistical.UseVisualStyleBackColor = true;
+            // 
+            // crystalReportViewer2
+            // 
+            this.crystalReportViewer2.ActiveViewIndex = 0;
+            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer2.Location = new System.Drawing.Point(3, 3);
+            this.crystalReportViewer2.Name = "crystalReportViewer2";
+            this.crystalReportViewer2.ReportSource = this.BaoCaoThongKe1;
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1324, 602);
+            this.crystalReportViewer2.TabIndex = 0;
             // 
             // bunifuElipse1
             // 
-            this.bunifuElipse1.ElipseRadius = 15;
+            this.bunifuElipse1.ElipseRadius = 20;
             this.bunifuElipse1.TargetControl = this;
             // 
             // bunifuDragControl1
@@ -1588,19 +1685,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this.pnTop;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = 0;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.BaoCaoHoaDon1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(756, 602);
-            this.crystalReportViewer1.TabIndex = 1;
-            this.crystalReportViewer1.ToolPanelWidth = 123;
             // 
             // FormAdmin
             // 
@@ -1697,6 +1781,8 @@
             this.pnHDL.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_listhoadon)).EndInit();
             this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            this.tbStatistical.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1825,11 +1911,17 @@
         private System.Windows.Forms.Panel pnHDL;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button btnHoaDon;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpkFromDate;
         private System.Windows.Forms.Panel panel22;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
         private System.Windows.Forms.DataGridView dtgv_listhoadon;
         private System.Windows.Forms.Button button2;
         private BaoCaoHoaDon BaoCaoHoaDon1;
+        private System.Windows.Forms.TabPage tbStatistical;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
+        private BaoCaoThongKe BaoCaoThongKe1;
+        private System.Windows.Forms.DateTimePicker dtpkToDate;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
     }
 }

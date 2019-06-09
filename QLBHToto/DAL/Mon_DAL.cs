@@ -46,6 +46,12 @@ namespace DAL
             return thaotac.SQL_Laydulieu("Mon_ChonAll");
         }
 
+        public DataTable Mon_ChonAll_ADMIN()
+        {
+            //thaotac.KetnoiCSDL();
+            return thaotac.SQL_Laydulieu("Mon_ChonAll_ADMIN");
+        }
+
         public int Mon_Them(int maloaimon, string ten, float gia, string mota)
         {
             name = new string[4];
